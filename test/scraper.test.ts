@@ -220,7 +220,7 @@ describe('Scraper', () => {
 
   describe('import from attributes', () => {
     test('should import from attributes', () => {
-      const scraper = Scraper.frommScraperAttributes(stack, 'myScraper', {
+      const scraper = Scraper.fromScraperAttributes(stack, 'myScraper', {
         ...getMinimalValidProps(stack),
         scraperArn: 'scraperArn',
       });

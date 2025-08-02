@@ -615,7 +615,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.frommScraperAttributes">frommScraperAttributes</a></code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.fromScraperAttributes">fromScraperAttributes</a></code> | *No description.* |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isScraper">isScraper</a></code> | *No description.* |
 
 ---
@@ -670,27 +670,27 @@ Check whether the given construct is a Resource.
 
 ---
 
-##### `frommScraperAttributes` <a name="frommScraperAttributes" id="@robhan-cdk-lib/aws_aps.Scraper.frommScraperAttributes"></a>
+##### `fromScraperAttributes` <a name="fromScraperAttributes" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperAttributes"></a>
 
 ```typescript
 import { Scraper } from '@robhan-cdk-lib/aws_aps'
 
-Scraper.frommScraperAttributes(scope: Construct, id: string, attrs: ScraperAttributes)
+Scraper.fromScraperAttributes(scope: Construct, id: string, attrs: ScraperAttributes)
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.Scraper.frommScraperAttributes.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperAttributes.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.Scraper.frommScraperAttributes.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperAttributes.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-###### `attrs`<sup>Required</sup> <a name="attrs" id="@robhan-cdk-lib/aws_aps.Scraper.frommScraperAttributes.parameter.attrs"></a>
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperAttributes.parameter.attrs"></a>
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes">ScraperAttributes</a>
 
@@ -1223,7 +1223,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.frommWorkspaceAttributes">frommWorkspaceAttributes</a></code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceAttributes">fromWorkspaceAttributes</a></code> | *No description.* |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isWorkspace">isWorkspace</a></code> | *No description.* |
 
 ---
@@ -1278,27 +1278,27 @@ Check whether the given construct is a Resource.
 
 ---
 
-##### `frommWorkspaceAttributes` <a name="frommWorkspaceAttributes" id="@robhan-cdk-lib/aws_aps.Workspace.frommWorkspaceAttributes"></a>
+##### `fromWorkspaceAttributes` <a name="fromWorkspaceAttributes" id="@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceAttributes"></a>
 
 ```typescript
 import { Workspace } from '@robhan-cdk-lib/aws_aps'
 
-Workspace.frommWorkspaceAttributes(scope: Construct, id: string, attrs: WorkspaceAttributes)
+Workspace.fromWorkspaceAttributes(scope: Construct, id: string, attrs: WorkspaceAttributes)
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.Workspace.frommWorkspaceAttributes.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceAttributes.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.Workspace.frommWorkspaceAttributes.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceAttributes.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-###### `attrs`<sup>Required</sup> <a name="attrs" id="@robhan-cdk-lib/aws_aps.Workspace.frommWorkspaceAttributes.parameter.attrs"></a>
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceAttributes.parameter.attrs"></a>
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes">WorkspaceAttributes</a>
 

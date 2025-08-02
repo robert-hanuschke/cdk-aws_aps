@@ -268,7 +268,7 @@ describe('Workspace', () => {
   });
   describe('import from attributes', () => {
     test('should import from attributes', () => {
-      const workspace = Workspace.frommWorkspaceAttributes(stack, 'myWorkspace', {
+      const workspace = Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
         workspaceArn: 'workspaceArn',
       });
       expect(workspace).toBeDefined;

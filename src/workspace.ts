@@ -100,7 +100,7 @@ export class Workspace extends WorkspaceBase {
     return IS_WORKSPACE in x;
   }
 
-  public static frommWorkspaceAttributes(scope: Construct, id: string, attrs: WorkspaceAttributes): IWorkspace {
+  public static fromWorkspaceAttributes(scope: Construct, id: string, attrs: WorkspaceAttributes): IWorkspace {
     class Import extends WorkspaceBase {
       public readonly alertManagerDefinition?: string;
       public readonly alias?: string;

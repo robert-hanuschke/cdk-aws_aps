@@ -84,7 +84,7 @@ export class Scraper extends ScraperBase {
     return IS_SCRAPER in x;
   }
 
-  public static frommScraperAttributes(scope: Construct, id: string, attrs: ScraperAttributes): IScraper {
+  public static fromScraperAttributes(scope: Construct, id: string, attrs: ScraperAttributes): IScraper {
     class Import extends ScraperBase {
       public readonly alias?: string;
       public readonly destination: Destination;
