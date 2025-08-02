@@ -90,6 +90,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceAttributes">fromRuleGroupsNamespaceAttributes</a></code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isRuleGroupsNamespace">isRuleGroupsNamespace</a></code> | *No description.* |
 
 ---
 
@@ -166,6 +167,20 @@ RuleGroupsNamespace.fromRuleGroupsNamespaceAttributes(scope: Construct, id: stri
 ###### `attrs`<sup>Required</sup> <a name="attrs" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceAttributes.parameter.attrs"></a>
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes">RuleGroupsNamespaceAttributes</a>
+
+---
+
+##### `isRuleGroupsNamespace` <a name="isRuleGroupsNamespace" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isRuleGroupsNamespace"></a>
+
+```typescript
+import { RuleGroupsNamespace } from '@robhan-cdk-lib/aws_aps'
+
+RuleGroupsNamespace.isRuleGroupsNamespace(x: any)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isRuleGroupsNamespace.parameter.x"></a>
+
+- *Type:* any
 
 ---
 
@@ -518,6 +533,614 @@ The workspace to add the rule groups namespace.
 ---
 
 
+### Scraper <a name="Scraper" id="@robhan-cdk-lib/aws_aps.Scraper"></a>
+
+#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.Scraper.Initializer"></a>
+
+```typescript
+import { Scraper } from '@robhan-cdk-lib/aws_aps'
+
+new Scraper(scope: Construct, id: string, props: ScraperProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.Initializer.parameter.props">props</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps">ScraperProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.Scraper.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.Scraper.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.Scraper.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScraperProps">ScraperProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.Scraper.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.Scraper.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.Scraper.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.frommScraperAttributes">frommScraperAttributes</a></code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isScraper">isScraper</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.Scraper.isConstruct"></a>
+
+```typescript
+import { Scraper } from '@robhan-cdk-lib/aws_aps'
+
+Scraper.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.Scraper.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.Scraper.isOwnedResource"></a>
+
+```typescript
+import { Scraper } from '@robhan-cdk-lib/aws_aps'
+
+Scraper.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.Scraper.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.Scraper.isResource"></a>
+
+```typescript
+import { Scraper } from '@robhan-cdk-lib/aws_aps'
+
+Scraper.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.Scraper.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `frommScraperAttributes` <a name="frommScraperAttributes" id="@robhan-cdk-lib/aws_aps.Scraper.frommScraperAttributes"></a>
+
+```typescript
+import { Scraper } from '@robhan-cdk-lib/aws_aps'
+
+Scraper.frommScraperAttributes(scope: Construct, id: string, attrs: ScraperAttributes)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.Scraper.frommScraperAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.Scraper.frommScraperAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@robhan-cdk-lib/aws_aps.Scraper.frommScraperAttributes.parameter.attrs"></a>
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes">ScraperAttributes</a>
+
+---
+
+##### `isScraper` <a name="isScraper" id="@robhan-cdk-lib/aws_aps.Scraper.isScraper"></a>
+
+```typescript
+import { Scraper } from '@robhan-cdk-lib/aws_aps'
+
+Scraper.isScraper(x: any)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.Scraper.isScraper.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.scraperArn">scraperArn</a></code> | <code>string</code> | The ARN of the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.scraperId">scraperId</a></code> | <code>string</code> | The ID of the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Source">Source</a></code> | The Amazon EKS cluster from which the scraper collects metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.alias">alias</a></code> | <code>string</code> | An optional user-assigned scraper alias. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a></code> | The role configuration in an Amazon Managed Service for Prometheus scraper. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.Scraper.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.Scraper.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.Scraper.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `destination`<sup>Required</sup> <a name="destination" id="@robhan-cdk-lib/aws_aps.Scraper.property.destination"></a>
+
+```typescript
+public readonly destination: Destination;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a>
+
+The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+
+---
+
+##### `scrapeConfiguration`<sup>Required</sup> <a name="scrapeConfiguration" id="@robhan-cdk-lib/aws_aps.Scraper.property.scrapeConfiguration"></a>
+
+```typescript
+public readonly scrapeConfiguration: ScrapeConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a>
+
+The configuration in use by the scraper.
+
+---
+
+##### `scraperArn`<sup>Required</sup> <a name="scraperArn" id="@robhan-cdk-lib/aws_aps.Scraper.property.scraperArn"></a>
+
+```typescript
+public readonly scraperArn: string;
+```
+
+- *Type:* string
+
+The ARN of the scraper.
+
+---
+
+##### `scraperId`<sup>Required</sup> <a name="scraperId" id="@robhan-cdk-lib/aws_aps.Scraper.property.scraperId"></a>
+
+```typescript
+public readonly scraperId: string;
+```
+
+- *Type:* string
+
+The ID of the scraper.
+
+---
+
+##### `source`<sup>Required</sup> <a name="source" id="@robhan-cdk-lib/aws_aps.Scraper.property.source"></a>
+
+```typescript
+public readonly source: Source;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Source">Source</a>
+
+The Amazon EKS cluster from which the scraper collects metrics.
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.Scraper.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+An optional user-assigned scraper alias.
+
+---
+
+##### `roleConfiguration`<sup>Optional</sup> <a name="roleConfiguration" id="@robhan-cdk-lib/aws_aps.Scraper.property.roleConfiguration"></a>
+
+```typescript
+public readonly roleConfiguration: RoleConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a>
+
+The role configuration in an Amazon Managed Service for Prometheus scraper.
+
+---
+
+
+### ScraperBase <a name="ScraperBase" id="@robhan-cdk-lib/aws_aps.ScraperBase"></a>
+
+- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IScraper">IScraper</a>
+
+#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.ScraperBase.Initializer"></a>
+
+```typescript
+import { ScraperBase } from '@robhan-cdk-lib/aws_aps'
+
+new ScraperBase(scope: Construct, id: string, props?: ResourceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.ResourceProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.ResourceProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.ScraperBase.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ScraperBase.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.ScraperBase.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.ScraperBase.isConstruct"></a>
+
+```typescript
+import { ScraperBase } from '@robhan-cdk-lib/aws_aps'
+
+ScraperBase.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.ScraperBase.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.ScraperBase.isOwnedResource"></a>
+
+```typescript
+import { ScraperBase } from '@robhan-cdk-lib/aws_aps'
+
+ScraperBase.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.ScraperBase.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.ScraperBase.isResource"></a>
+
+```typescript
+import { ScraperBase } from '@robhan-cdk-lib/aws_aps'
+
+ScraperBase.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.ScraperBase.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.scraperArn">scraperArn</a></code> | <code>string</code> | The ARN of the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.scraperId">scraperId</a></code> | <code>string</code> | The ID of the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Source">Source</a></code> | The Amazon EKS cluster from which the scraper collects metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.alias">alias</a></code> | <code>string</code> | An optional user-assigned scraper alias. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a></code> | The role configuration in an Amazon Managed Service for Prometheus scraper. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `destination`<sup>Required</sup> <a name="destination" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.destination"></a>
+
+```typescript
+public readonly destination: Destination;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a>
+
+The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+
+---
+
+##### `scrapeConfiguration`<sup>Required</sup> <a name="scrapeConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.scrapeConfiguration"></a>
+
+```typescript
+public readonly scrapeConfiguration: ScrapeConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a>
+
+The configuration in use by the scraper.
+
+---
+
+##### `scraperArn`<sup>Required</sup> <a name="scraperArn" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.scraperArn"></a>
+
+```typescript
+public readonly scraperArn: string;
+```
+
+- *Type:* string
+
+The ARN of the scraper.
+
+---
+
+##### `scraperId`<sup>Required</sup> <a name="scraperId" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.scraperId"></a>
+
+```typescript
+public readonly scraperId: string;
+```
+
+- *Type:* string
+
+The ID of the scraper.
+
+---
+
+##### `source`<sup>Required</sup> <a name="source" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.source"></a>
+
+```typescript
+public readonly source: Source;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Source">Source</a>
+
+The Amazon EKS cluster from which the scraper collects metrics.
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+An optional user-assigned scraper alias.
+
+1-100 characters.
+
+Pattern: ^[0-9A-Za-z][-.0-9A-Z_a-z]*$
+
+---
+
+##### `roleConfiguration`<sup>Optional</sup> <a name="roleConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.roleConfiguration"></a>
+
+```typescript
+public readonly roleConfiguration: RoleConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a>
+
+The role configuration in an Amazon Managed Service for Prometheus scraper.
+
+---
+
+
 ### Workspace <a name="Workspace" id="@robhan-cdk-lib/aws_aps.Workspace"></a>
 
 #### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.Workspace.Initializer"></a>
@@ -601,6 +1224,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.frommWorkspaceAttributes">frommWorkspaceAttributes</a></code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isWorkspace">isWorkspace</a></code> | *No description.* |
 
 ---
 
@@ -677,6 +1301,20 @@ Workspace.frommWorkspaceAttributes(scope: Construct, id: string, attrs: Workspac
 ###### `attrs`<sup>Required</sup> <a name="attrs" id="@robhan-cdk-lib/aws_aps.Workspace.frommWorkspaceAttributes.parameter.attrs"></a>
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes">WorkspaceAttributes</a>
+
+---
+
+##### `isWorkspace` <a name="isWorkspace" id="@robhan-cdk-lib/aws_aps.Workspace.isWorkspace"></a>
+
+```typescript
+import { Workspace } from '@robhan-cdk-lib/aws_aps'
+
+Workspace.isWorkspace(x: any)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.Workspace.isWorkspace.parameter.x"></a>
+
+- *Type:* any
 
 ---
 
@@ -1158,6 +1796,38 @@ Use this structure to define label sets and the ingestion limits for time series
 
 ## Structs <a name="Structs" id="Structs"></a>
 
+### AmpConfiguration <a name="AmpConfiguration" id="@robhan-cdk-lib/aws_aps.AmpConfiguration"></a>
+
+The AmpConfiguration structure defines the Amazon Managed Service for Prometheus instance a scraper should send metrics to.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.AmpConfiguration.Initializer"></a>
+
+```typescript
+import { AmpConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+const ampConfiguration: AmpConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AmpConfiguration.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The Amazon Managed Service for Prometheus workspace. |
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.AmpConfiguration.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+The Amazon Managed Service for Prometheus workspace.
+
+---
+
 ### CloudWatchLogDestination <a name="CloudWatchLogDestination" id="@robhan-cdk-lib/aws_aps.CloudWatchLogDestination"></a>
 
 Configuration details for logging to CloudWatch Logs.
@@ -1174,7 +1844,7 @@ const cloudWatchLogDestination: CloudWatchLogDestination = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.CloudWatchLogDestination.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The ARN of the CloudWatch log group. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.CloudWatchLogDestination.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch log group. |
 
 ---
 
@@ -1186,7 +1856,101 @@ public readonly logGroup: ILogGroup;
 
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
 
-The ARN of the CloudWatch log group.
+The CloudWatch log group.
+
+---
+
+### Destination <a name="Destination" id="@robhan-cdk-lib/aws_aps.Destination"></a>
+
+Where to send the metrics from a scraper.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.Destination.Initializer"></a>
+
+```typescript
+import { Destination } from '@robhan-cdk-lib/aws_aps'
+
+const destination: Destination = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Destination.property.ampConfiguration">ampConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AmpConfiguration">AmpConfiguration</a></code> | The Amazon Managed Service for Prometheus workspace to send metrics to. |
+
+---
+
+##### `ampConfiguration`<sup>Required</sup> <a name="ampConfiguration" id="@robhan-cdk-lib/aws_aps.Destination.property.ampConfiguration"></a>
+
+```typescript
+public readonly ampConfiguration: AmpConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AmpConfiguration">AmpConfiguration</a>
+
+The Amazon Managed Service for Prometheus workspace to send metrics to.
+
+---
+
+### EksConfiguration <a name="EksConfiguration" id="@robhan-cdk-lib/aws_aps.EksConfiguration"></a>
+
+The EksConfiguration structure describes the connection to the Amazon EKS cluster from which a scraper collects metrics.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.EksConfiguration.Initializer"></a>
+
+```typescript
+import { EksConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+const eksConfiguration: EksConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.EksConfiguration.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The Amazon EKS cluster. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.EksConfiguration.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | A list of subnets for the Amazon EKS cluster VPC configuration. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.EksConfiguration.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | A list of the security group IDs for the Amazon EKS cluster VPC configuration. |
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="@robhan-cdk-lib/aws_aps.EksConfiguration.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The Amazon EKS cluster.
+
+---
+
+##### `subnets`<sup>Required</sup> <a name="subnets" id="@robhan-cdk-lib/aws_aps.EksConfiguration.property.subnets"></a>
+
+```typescript
+public readonly subnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+A list of subnets for the Amazon EKS cluster VPC configuration.
+
+Min 1, max 5.
+
+---
+
+##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="@robhan-cdk-lib/aws_aps.EksConfiguration.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: ISecurityGroup[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
+
+A list of the security group IDs for the Amazon EKS cluster VPC configuration.
+
+Min 1, max 5.
 
 ---
 
@@ -1485,6 +2249,51 @@ Minimum 1 and maximum 1 item in array.
 
 ---
 
+### RoleConfiguration <a name="RoleConfiguration" id="@robhan-cdk-lib/aws_aps.RoleConfiguration"></a>
+
+The role configuration in an Amazon Managed Service for Prometheus scraper.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.RoleConfiguration.Initializer"></a>
+
+```typescript
+import { RoleConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+const roleConfiguration: RoleConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration.property.sourceRole">sourceRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The source role. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration.property.targetRole">targetRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The target role. |
+
+---
+
+##### `sourceRole`<sup>Optional</sup> <a name="sourceRole" id="@robhan-cdk-lib/aws_aps.RoleConfiguration.property.sourceRole"></a>
+
+```typescript
+public readonly sourceRole: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+The source role.
+
+---
+
+##### `targetRole`<sup>Optional</sup> <a name="targetRole" id="@robhan-cdk-lib/aws_aps.RoleConfiguration.property.targetRole"></a>
+
+```typescript
+public readonly targetRole: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+The target role.
+
+---
+
 ### RuleGroupsNamespaceAttributes <a name="RuleGroupsNamespaceAttributes" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes"></a>
 
 Properties for importing a rule groups namespace in an Amazon Managed Service for Prometheus workspace from attributes.
@@ -1618,9 +2427,262 @@ The workspace to add the rule groups namespace.
 
 ---
 
+### ScrapeConfiguration <a name="ScrapeConfiguration" id="@robhan-cdk-lib/aws_aps.ScrapeConfiguration"></a>
+
+A scrape configuration for a scraper, base 64 encoded.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ScrapeConfiguration.Initializer"></a>
+
+```typescript
+import { ScrapeConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+const scrapeConfiguration: ScrapeConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration.property.configurationBlob">configurationBlob</a></code> | <code>string</code> | The base 64 encoded scrape configuration file. |
+
+---
+
+##### `configurationBlob`<sup>Required</sup> <a name="configurationBlob" id="@robhan-cdk-lib/aws_aps.ScrapeConfiguration.property.configurationBlob"></a>
+
+```typescript
+public readonly configurationBlob: string;
+```
+
+- *Type:* string
+
+The base 64 encoded scrape configuration file.
+
+---
+
+### ScraperAttributes <a name="ScraperAttributes" id="@robhan-cdk-lib/aws_aps.ScraperAttributes"></a>
+
+Properties for importing an Amazon Managed Service for Prometheus Scraper from attributes.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.Initializer"></a>
+
+```typescript
+import { ScraperAttributes } from '@robhan-cdk-lib/aws_aps'
+
+const scraperAttributes: ScraperAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.scraperArn">scraperArn</a></code> | <code>string</code> | The ARN of the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Source">Source</a></code> | The Amazon EKS cluster from which the scraper collects metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.alias">alias</a></code> | <code>string</code> | An optional user-assigned scraper alias. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a></code> | The role configuration in an Amazon Managed Service for Prometheus scraper. |
+
+---
+
+##### `destination`<sup>Required</sup> <a name="destination" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.destination"></a>
+
+```typescript
+public readonly destination: Destination;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a>
+
+The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+
+---
+
+##### `scrapeConfiguration`<sup>Required</sup> <a name="scrapeConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.scrapeConfiguration"></a>
+
+```typescript
+public readonly scrapeConfiguration: ScrapeConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a>
+
+The configuration in use by the scraper.
+
+---
+
+##### `scraperArn`<sup>Required</sup> <a name="scraperArn" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.scraperArn"></a>
+
+```typescript
+public readonly scraperArn: string;
+```
+
+- *Type:* string
+
+The ARN of the scraper.
+
+---
+
+##### `source`<sup>Required</sup> <a name="source" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.source"></a>
+
+```typescript
+public readonly source: Source;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Source">Source</a>
+
+The Amazon EKS cluster from which the scraper collects metrics.
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+An optional user-assigned scraper alias.
+
+1-100 characters.
+
+Pattern: ^[0-9A-Za-z][-.0-9A-Z_a-z]*$
+
+---
+
+##### `roleConfiguration`<sup>Optional</sup> <a name="roleConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.roleConfiguration"></a>
+
+```typescript
+public readonly roleConfiguration: RoleConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a>
+
+The role configuration in an Amazon Managed Service for Prometheus scraper.
+
+---
+
+### ScraperProps <a name="ScraperProps" id="@robhan-cdk-lib/aws_aps.ScraperProps"></a>
+
+Properties for creating an Amazon Managed Service for Prometheus Scraper.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ScraperProps.Initializer"></a>
+
+```typescript
+import { ScraperProps } from '@robhan-cdk-lib/aws_aps'
+
+const scraperProps: ScraperProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Source">Source</a></code> | The Amazon EKS cluster from which the scraper collects metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.alias">alias</a></code> | <code>string</code> | An optional user-assigned scraper alias. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a></code> | The role configuration in an Amazon Managed Service for Prometheus scraper. |
+
+---
+
+##### `destination`<sup>Required</sup> <a name="destination" id="@robhan-cdk-lib/aws_aps.ScraperProps.property.destination"></a>
+
+```typescript
+public readonly destination: Destination;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a>
+
+The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+
+---
+
+##### `scrapeConfiguration`<sup>Required</sup> <a name="scrapeConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperProps.property.scrapeConfiguration"></a>
+
+```typescript
+public readonly scrapeConfiguration: ScrapeConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a>
+
+The configuration in use by the scraper.
+
+---
+
+##### `source`<sup>Required</sup> <a name="source" id="@robhan-cdk-lib/aws_aps.ScraperProps.property.source"></a>
+
+```typescript
+public readonly source: Source;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Source">Source</a>
+
+The Amazon EKS cluster from which the scraper collects metrics.
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.ScraperProps.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+An optional user-assigned scraper alias.
+
+1-100 characters.
+
+Pattern: ^[0-9A-Za-z][-.0-9A-Z_a-z]*$
+
+---
+
+##### `roleConfiguration`<sup>Optional</sup> <a name="roleConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperProps.property.roleConfiguration"></a>
+
+```typescript
+public readonly roleConfiguration: RoleConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a>
+
+The role configuration in an Amazon Managed Service for Prometheus scraper.
+
+---
+
+### Source <a name="Source" id="@robhan-cdk-lib/aws_aps.Source"></a>
+
+The source of collected metrics for a scraper.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.Source.Initializer"></a>
+
+```typescript
+import { Source } from '@robhan-cdk-lib/aws_aps'
+
+const source: Source = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Source.property.eksConfiguration">eksConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.EksConfiguration">EksConfiguration</a></code> | The Amazon EKS cluster from which a scraper collects metrics. |
+
+---
+
+##### `eksConfiguration`<sup>Required</sup> <a name="eksConfiguration" id="@robhan-cdk-lib/aws_aps.Source.property.eksConfiguration"></a>
+
+```typescript
+public readonly eksConfiguration: EksConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.EksConfiguration">EksConfiguration</a>
+
+The Amazon EKS cluster from which a scraper collects metrics.
+
+---
+
 ### WorkspaceAttributes <a name="WorkspaceAttributes" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes"></a>
 
-Properties for importing an Amazon Managed Service for Prometheus workspace from attributes.
+Properties for importing an Amazon Managed Service for Prometheus Workspace from attributes.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes.Initializer"></a>
 
@@ -1787,7 +2849,7 @@ Minimum 1
 
 ### WorkspaceProps <a name="WorkspaceProps" id="@robhan-cdk-lib/aws_aps.WorkspaceProps"></a>
 
-Properties for creating an Amazon Managed Service for Prometheus workspace.
+Properties for creating an Amazon Managed Service for Prometheus Workspace.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.WorkspaceProps.Initializer"></a>
 
@@ -1998,6 +3060,161 @@ public readonly workspace: IWorkspace;
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
 
 The workspace to add the rule groups namespace.
+
+---
+
+### IScraper <a name="IScraper" id="@robhan-cdk-lib/aws_aps.IScraper"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.Scraper">Scraper</a>, <a href="#@robhan-cdk-lib/aws_aps.ScraperBase">ScraperBase</a>, <a href="#@robhan-cdk-lib/aws_aps.IScraper">IScraper</a>
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.scraperArn">scraperArn</a></code> | <code>string</code> | The ARN of the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.scraperId">scraperId</a></code> | <code>string</code> | The ID of the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Source">Source</a></code> | The Amazon EKS cluster from which the scraper collects metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.alias">alias</a></code> | <code>string</code> | An optional user-assigned scraper alias. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a></code> | The role configuration in an Amazon Managed Service for Prometheus scraper. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.IScraper.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.IScraper.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.IScraper.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `destination`<sup>Required</sup> <a name="destination" id="@robhan-cdk-lib/aws_aps.IScraper.property.destination"></a>
+
+```typescript
+public readonly destination: Destination;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a>
+
+The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+
+---
+
+##### `scrapeConfiguration`<sup>Required</sup> <a name="scrapeConfiguration" id="@robhan-cdk-lib/aws_aps.IScraper.property.scrapeConfiguration"></a>
+
+```typescript
+public readonly scrapeConfiguration: ScrapeConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a>
+
+The configuration in use by the scraper.
+
+---
+
+##### `scraperArn`<sup>Required</sup> <a name="scraperArn" id="@robhan-cdk-lib/aws_aps.IScraper.property.scraperArn"></a>
+
+```typescript
+public readonly scraperArn: string;
+```
+
+- *Type:* string
+
+The ARN of the scraper.
+
+---
+
+##### `scraperId`<sup>Required</sup> <a name="scraperId" id="@robhan-cdk-lib/aws_aps.IScraper.property.scraperId"></a>
+
+```typescript
+public readonly scraperId: string;
+```
+
+- *Type:* string
+
+The ID of the scraper.
+
+---
+
+##### `source`<sup>Required</sup> <a name="source" id="@robhan-cdk-lib/aws_aps.IScraper.property.source"></a>
+
+```typescript
+public readonly source: Source;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Source">Source</a>
+
+The Amazon EKS cluster from which the scraper collects metrics.
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.IScraper.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+An optional user-assigned scraper alias.
+
+1-100 characters.
+
+Pattern: ^[0-9A-Za-z][-.0-9A-Z_a-z]*$
+
+---
+
+##### `roleConfiguration`<sup>Optional</sup> <a name="roleConfiguration" id="@robhan-cdk-lib/aws_aps.IScraper.property.roleConfiguration"></a>
+
+```typescript
+public readonly roleConfiguration: RoleConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a>
+
+The role configuration in an Amazon Managed Service for Prometheus scraper.
 
 ---
 

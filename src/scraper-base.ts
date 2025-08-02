@@ -11,7 +11,7 @@ export interface AmpConfiguration {
   /**
    * The Amazon Managed Service for Prometheus workspace
    */
-  workspace: IWorkspace;
+  readonly workspace: IWorkspace;
 }
 
 /**
@@ -21,7 +21,7 @@ export interface Destination {
   /**
    * The Amazon Managed Service for Prometheus workspace to send metrics to.
    */
-  ampConfiguration: AmpConfiguration;
+  readonly ampConfiguration: AmpConfiguration;
 }
 
 /**
@@ -31,12 +31,12 @@ export interface RoleConfiguration {
   /**
    * The source role
    */
-  sourceRole?: IRole;
+  readonly sourceRole?: IRole;
 
   /**
    * The target role
    */
-  targetRole?: IRole;
+  readonly targetRole?: IRole;
 }
 
 /**
@@ -46,7 +46,7 @@ export interface ScrapeConfiguration {
   /**
    * The base 64 encoded scrape configuration file.
    */
-  configurationBlob: string;
+  readonly configurationBlob: string;
 }
 
 /**
@@ -56,21 +56,21 @@ export interface EksConfiguration {
   /**
    * The Amazon EKS cluster
    */
-  cluster: ICluster;
+  readonly cluster: ICluster;
 
   /**
    * A list of the security group IDs for the Amazon EKS cluster VPC configuration.
    *
    * Min 1, max 5.
    */
-  securityGroups?: ISecurityGroup[];
+  readonly securityGroups?: ISecurityGroup[];
 
   /**
    * A list of subnets for the Amazon EKS cluster VPC configuration.
    *
    * Min 1, max 5.
    */
-  subnets: ISubnet[];
+  readonly subnets: ISubnet[];
 }
 
 /**
@@ -80,7 +80,7 @@ export interface Source {
   /**
    * The Amazon EKS cluster from which a scraper collects metrics.
    */
-  eksConfiguration: EksConfiguration;
+  readonly eksConfiguration: EksConfiguration;
 }
 
 export interface IScraper extends IResource {
