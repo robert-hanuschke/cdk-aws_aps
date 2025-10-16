@@ -802,10 +802,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-8.3.8.tgz#10f65fe1891fd8cde4957360835e78fd1936bfdd"
   integrity sha512-T8TbSnGsxo6TDBJx/Sgv/BlVJL3tshxZP7Aq5R1mSnM5OcHY2dQaxLMu2+E8u3gN0MLOzdjurqN4ZRVuzQycOQ==
 
-"@robhan-cdk-lib/utils@^0.0.69":
-  version "0.0.69"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.69.tgz#4b90a5f99ac4599dd78a83120d14ba36ad6dd994"
-  integrity sha512-zYVplkeWZBXVYWl0w0j/cGbg7FJ/A0EyLkhvD9PULZTEyv8DIUGxz3+MoS449s/sMUWOecVpLNzom/CpYhE2Hg==
+"@robhan-cdk-lib/utils@^0.0.70":
+  version "0.0.70"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.70.tgz#71efcba76dd97030df0c5f1ef0cf65f5ccd72dcd"
+  integrity sha512-qbrretK7jNeK4fMNFU5Gx77UX1Xp//pYLT4ipAAZYVob++SN8VPkznAdT1snenaSgoB7XHZ/XJIrObAvGp7XpQ==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -1683,9 +1683,9 @@ codemaker@^1.116.0:
     fs-extra "^10.1.0"
 
 collect-v8-coverage@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/collect-v8-coverage/-/collect-v8-coverage-1.0.2.tgz#c0b29bcd33bcd0779a1344c2136051e6afd3d9e9"
-  integrity sha512-lHl4d5/ONEbLlJvaJNtsF/Lz+WvB07u2ycqTYbdrq7UypDXailES4valYb2eWiJFxZlVmpGekfqoxQhzyFdT4Q==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/collect-v8-coverage/-/collect-v8-coverage-1.0.3.tgz#cc1f01eb8d02298cbc9a437c74c70ab4e5210b80"
+  integrity sha512-1L5aqIkwPfiodaMgQunkF1zRhNqifHBmtbbbxcr6yVxxBnliw4TDOW6NxpO8DJLgJ16OT+Y4ztZqP6p/FtXnAw==
 
 color-convert@^1.9.0:
   version "1.9.3"
@@ -2175,9 +2175,9 @@ dunder-proto@^1.0.0, dunder-proto@^1.0.1:
     gopd "^1.2.0"
 
 electron-to-chromium@^1.5.227:
-  version "1.5.235"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.235.tgz#778dac70537ed9e9e0abf25a49cc94b5a23aaa0e"
-  integrity sha512-i/7ntLFwOdoHY7sgjlTIDo4Sl8EdoTjWIaKinYOVfC6bOp71bmwenyZthWHcasxgHDNWbWxvG9M3Ia116zIaYQ==
+  version "1.5.237"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.237.tgz#eacf61cef3f6345d0069ab427585c5a04d7084f0"
+  integrity sha512-icUt1NvfhGLar5lSWH3tHNzablaA5js3HVHacQimfP8ViEBOQv+L7DKEuHdbTZ0SKCO1ogTJTIL1Gwk9S6Qvcg==
 
 emittery@^0.13.1:
   version "0.13.1"
