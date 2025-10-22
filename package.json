@@ -57,7 +57,7 @@
     "jsii-docgen": "^10.5.0",
     "jsii-pacmak": "^1.116.0",
     "jsii-rosetta": "~5.8.0",
-    "projen": "^0.98.2",
+    "projen": "^0.98.3",
     "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
@@ -67,7 +67,7 @@
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "@robhan-cdk-lib/utils": "^0.0.73"
+    "@robhan-cdk-lib/utils": "^0.0.74"
   },
   "keywords": [
     "Amazon Managed Service for Prometheus",
