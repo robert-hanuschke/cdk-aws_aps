@@ -802,10 +802,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-8.3.8.tgz#10f65fe1891fd8cde4957360835e78fd1936bfdd"
   integrity sha512-T8TbSnGsxo6TDBJx/Sgv/BlVJL3tshxZP7Aq5R1mSnM5OcHY2dQaxLMu2+E8u3gN0MLOzdjurqN4ZRVuzQycOQ==
 
-"@robhan-cdk-lib/utils@^0.0.76":
-  version "0.0.76"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.76.tgz#723e3e88125772c1083247c069b85557acffae54"
-  integrity sha512-eeC34GEidM4y3b02ocytJqvGRLYZtPHdCqzdA0np8DnVdbzhH7zhXuK7m6Z4vKrXXlabynsXX4vtNaDVNEcV+w==
+"@robhan-cdk-lib/utils@^0.0.77":
+  version "0.0.77"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.77.tgz#d5187e0912d8d145aa839e7ad40359f3f13595a4"
+  integrity sha512-ZAtRbySJ1ma6/p6LkA0HdfVF+xZFdOlDqR2O4jOAnxriTYza3LsC+nwDrhenPrsnFQjrmKziVuRyNF9ZHij33w==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -986,9 +986,9 @@
   integrity sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==
 
 "@types/yargs@^17.0.8":
-  version "17.0.33"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-17.0.33.tgz#8c32303da83eec050a84b3c7ae7b9f922d13e32d"
-  integrity sha512-WpxBCKWPLr4xSsHgz511rFJAM+wS28w2zEO1QDNY5zM/S8ok70NNfztH0xwhqKyaK0OHCbN98LDAZuy1ctxDkA==
+  version "17.0.34"
+  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-17.0.34.tgz#1c2f9635b71d5401827373a01ce2e8a7670ea839"
+  integrity sha512-KExbHVa92aJpw9WDQvzBaGVE2/Pz+pLZQloT2hjL8IqsZnV62rlPOYvNnLmf/L2dyllfVUOVBj64M0z/46eR2A==
   dependencies:
     "@types/yargs-parser" "*"
 
