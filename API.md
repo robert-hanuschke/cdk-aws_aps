@@ -94,7 +94,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isConstruct"></a>
 
 ```typescript
 import { RuleGroupsNamespace } from '@robhan-cdk-lib/aws_aps'
@@ -103,6 +103,20 @@ RuleGroupsNamespace.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isConstruct.parameter.x"></a>
 
@@ -377,7 +391,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isConstruct"></a>
 
 ```typescript
 import { RuleGroupsNamespaceBase } from '@robhan-cdk-lib/aws_aps'
@@ -386,6 +400,20 @@ RuleGroupsNamespaceBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isConstruct.parameter.x"></a>
 
@@ -620,7 +648,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.Scraper.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.Scraper.isConstruct"></a>
 
 ```typescript
 import { Scraper } from '@robhan-cdk-lib/aws_aps'
@@ -629,6 +657,20 @@ Scraper.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.Scraper.isConstruct.parameter.x"></a>
 
@@ -942,7 +984,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.ScraperBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.ScraperBase.isConstruct"></a>
 
 ```typescript
 import { ScraperBase } from '@robhan-cdk-lib/aws_aps'
@@ -951,6 +993,20 @@ ScraperBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.ScraperBase.isConstruct.parameter.x"></a>
 
@@ -1228,7 +1284,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.Workspace.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.Workspace.isConstruct"></a>
 
 ```typescript
 import { Workspace } from '@robhan-cdk-lib/aws_aps'
@@ -1237,6 +1293,20 @@ Workspace.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.Workspace.isConstruct.parameter.x"></a>
 
@@ -1581,7 +1651,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.isConstruct"></a>
 
 ```typescript
 import { WorkspaceBase } from '@robhan-cdk-lib/aws_aps'
@@ -1590,6 +1660,20 @@ WorkspaceBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.isConstruct.parameter.x"></a>
 
