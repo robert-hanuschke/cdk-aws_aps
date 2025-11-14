@@ -28,12 +28,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
   publishToGo: {
     moduleName: 'github.com/robert-hanuschke/robhan-cdk-lib-aws-aps',
   },
-  publishToMaven: {
+  /* publishToMaven: {
     javaPackage: 'io.github.roberthanuschke.cdk.aws.aps',
     mavenGroupId: 'io.github.robert-hanuschke',
     mavenArtifactId: 'cdk-aws-aps',
     mavenServerId: 'central-ossrh',
-  },
+  }, */
   publishToNuget: {
     dotNetNamespace: 'Robhan.CdkLib',
     packageId: 'Robhan.CdkLib.AwsAps',
