@@ -7,7 +7,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     secret: 'GITHUB_TOKEN',
   },
   autoApproveUpgrades: true,
-  cdkVersion: '2.201.0',
+  cdkVersion: '2.224.0',
   defaultReleaseBranch: 'main',
   deps: [
     '@robhan-cdk-lib/utils',
@@ -18,7 +18,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     },
   },
   description: 'AWS CDK Construct Library for Amazon Managed Service for Prometheus',
-  jsiiVersion: '~5.8.0',
+  jsiiVersion: '~5.9.0',
   keywords: ['Prometheus', 'Amazon Managed Service for Prometheus', 'aps'],
   license: 'MIT',
   name: 'aws_aps',
@@ -28,12 +28,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
   publishToGo: {
     moduleName: 'github.com/robert-hanuschke/robhan-cdk-lib-aws-aps',
   },
-  /* publishToMaven: {
+  publishToMaven: {
     javaPackage: 'io.github.roberthanuschke.cdk.aws.aps',
     mavenGroupId: 'io.github.robert-hanuschke',
     mavenArtifactId: 'cdk-aws-aps',
     mavenServerId: 'central-ossrh',
-  }, */
+  },
   publishToNuget: {
     dotNetNamespace: 'Robhan.CdkLib',
     packageId: 'Robhan.CdkLib.AwsAps',

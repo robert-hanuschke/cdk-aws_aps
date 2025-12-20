@@ -203,7 +203,7 @@ RuleGroupsNamespace.isRuleGroupsNamespace(x: any)
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.data">data</a></code> | <code>string</code> | The rules file used in the namespace. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.name">name</a></code> | <code>string</code> | The name of the rule groups namespace. |
@@ -230,16 +230,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -460,7 +461,7 @@ Check whether the given construct is a Resource.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.data">data</a></code> | <code>string</code> | The rules file used in the namespace. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.name">name</a></code> | <code>string</code> | The name of the rule groups namespace. |
@@ -487,16 +488,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -757,7 +759,7 @@ Scraper.isScraper(x: any)
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
@@ -787,16 +789,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -1053,7 +1056,7 @@ Check whether the given construct is a Resource.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
@@ -1083,16 +1086,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -1393,7 +1397,7 @@ Workspace.isWorkspace(x: any)
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The ARN of the workspace. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.workspaceId">workspaceId</a></code> | <code>string</code> | The unique ID for the workspace. |
@@ -1425,16 +1429,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -1720,7 +1725,7 @@ Check whether the given construct is a Resource.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The ARN of the workspace. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.workspaceId">workspaceId</a></code> | <code>string</code> | The unique ID for the workspace. |
@@ -1751,16 +1756,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -3047,7 +3053,7 @@ Use this structure to define label sets and the ingestion limits for time series
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.data">data</a></code> | <code>string</code> | The rules file used in the namespace. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.name">name</a></code> | <code>string</code> | The name of the rule groups namespace. |
@@ -3074,16 +3080,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -3159,7 +3166,7 @@ The workspace to add the rule groups namespace.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
@@ -3189,16 +3196,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -3314,7 +3322,7 @@ The role configuration in an Amazon Managed Service for Prometheus scraper.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The ARN of the workspace. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.workspaceId">workspaceId</a></code> | <code>string</code> | The unique ID for the workspace. |
@@ -3345,16 +3353,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
