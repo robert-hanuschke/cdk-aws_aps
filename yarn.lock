@@ -747,10 +747,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-8.3.8.tgz#10f65fe1891fd8cde4957360835e78fd1936bfdd"
   integrity sha512-T8TbSnGsxo6TDBJx/Sgv/BlVJL3tshxZP7Aq5R1mSnM5OcHY2dQaxLMu2+E8u3gN0MLOzdjurqN4ZRVuzQycOQ==
 
-"@robhan-cdk-lib/utils@^0.0.125":
-  version "0.0.125"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.125.tgz#b974988d4078fa18a59cf0eaef18df1c1a677f13"
-  integrity sha512-xUrsH3wvtOyyz4cHtQSgFUpIgLIrzHBHypG8K2uWAKupbp5TJgeb5cgOnTxv8u337BQnoYqDlb2yQQTqtoYPdA==
+"@robhan-cdk-lib/utils@^0.0.126":
+  version "0.0.126"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.126.tgz#553cbdebb5ee5d70d6d918817ed6bfe179363cee"
+  integrity sha512-+oQzyoFKIOfInY6mDJZQeA5N/vR709RmHKGMFNML1VnQlaqK3T2CfvLnJF1Pt/9+8zzlUzzNL4v97qKq0gdczA==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -3666,9 +3666,9 @@ jsii-diff@^1.121.0:
     yargs "^17.7.2"
 
 jsii-docgen@^10.5.0:
-  version "10.11.6"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.11.6.tgz#4591265e044a61837056d587cbb16e4a549e991e"
-  integrity sha512-4Pw0filQPifYJpESGGFGfSxV/G/ljtSNiHzlN7y2Ht4dV1wp4Ae/J9KYNQeXKwE1xBXVY2R4CEQXIP1lhnYh1g==
+  version "10.11.7"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.11.7.tgz#be3c083628de60b3a9d2bc4fb6619c1e6813f337"
+  integrity sha512-B92spJU5Pv4AAcAeIJPa0D5JtQLcJan/O7IlbsWGcfSRe9I4HlyzjAkFVjN37dbO7eYCfSBPxwfZdgGZLNzdRQ==
   dependencies:
     "@jsii/spec" "^1.121.0"
     case "^1.6.3"
