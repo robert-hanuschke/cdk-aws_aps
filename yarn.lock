@@ -762,10 +762,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-8.3.8.tgz#10f65fe1891fd8cde4957360835e78fd1936bfdd"
   integrity sha512-T8TbSnGsxo6TDBJx/Sgv/BlVJL3tshxZP7Aq5R1mSnM5OcHY2dQaxLMu2+E8u3gN0MLOzdjurqN4ZRVuzQycOQ==
 
-"@robhan-cdk-lib/utils@^0.0.127":
-  version "0.0.127"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.127.tgz#55b85b436ae45486a40b93d8de86b22ed93bf921"
-  integrity sha512-YRWxe1rBDWeUn+7mNjymAlU3spjZkJwE/qOFV8j4Ig19pAZTVeTWsPrHg3rHn3XxZld9W7H6DdP9XHE0toOVHw==
+"@robhan-cdk-lib/utils@^0.0.128":
+  version "0.0.128"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.128.tgz#3f768085da1fcb159f2fda6d827ed141e1b6d6e5"
+  integrity sha512-baqBwzSJz7lG2wk0l57u46fwlVYz2mjxovzNDqTr84renhrmd7qtN1NTQBZMj5Ns4ftM7MqioIjBAgDgEfBtFw==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -2491,9 +2491,9 @@ fast-xml-parser@^5.2.5:
     strnum "^2.1.0"
 
 fastq@^1.6.0:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.19.1.tgz#d50eaba803c8846a883c16492821ebcd2cda55f5"
-  integrity sha512-GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==
+  version "1.20.1"
+  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.20.1.tgz#ca750a10dc925bc8b18839fd203e3ef4b3ced675"
+  integrity sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw==
   dependencies:
     reusify "^1.0.4"
 
@@ -3681,9 +3681,9 @@ jsii-diff@^1.122.0:
     yargs "^17.7.2"
 
 jsii-docgen@^10.5.0:
-  version "10.11.8"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.11.8.tgz#9f204d7d6e9f1850ace0f9905d6a545be0e2b2cc"
-  integrity sha512-/9uYvrggMOBb+B5pbuj41ittUmtVp9n42/7NoJuEOhQuS9gnFWFuV6nGsB0zgDSivb4Nm4YmkhqfIKtk+KMQsQ==
+  version "10.11.9"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.11.9.tgz#67e8fe73cdbed37947111d3931a487b375865096"
+  integrity sha512-x+oneYOQVV04E1F6vBGxgZmhiyXQ3WkYsX9XHQy1GvJaA3vfOhfVjM7uVzwpoBvrv6Dhv+hNHrzwxMlfie981w==
   dependencies:
     "@jsii/spec" "^1.122.0"
     case "^1.6.3"
