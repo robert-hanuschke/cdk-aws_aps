@@ -1,5 +1,5 @@
 import { validateObjectAttributes } from '@robhan-cdk-lib/utils';
-import { CfnAnomalyDetector } from 'aws-cdk-lib/aws-aps';
+import { CfnAnomalyDetector, CfnAnomalyDetectorProps } from 'aws-cdk-lib/aws-aps';
 import { Construct } from 'constructs';
 import { AnomalyDetectorBase, AnomalyDetectorConfiguration, Label, MissingDataAction } from './anomaly-detector-base';
 import { validateAlias, validateAnomalyDetectorConfiguration, validateEvaluationIntervalInSeconds, validateLabel, validateMissingDataAction } from './validation/anomaly-detector-base';
@@ -145,6 +145,11 @@ export class AnomalyDetector extends AnomalyDetectorBase {
   public readonly workspace: IWorkspace;
 
   /**
+   * The underlying CloudFormation resource.
+   */
+  private readonly anomalyDetector: CfnAnomalyDetector;
+
+  /**
    * The Amazon Resource Name (ARN) of the anomaly detector.
    */
   public readonly anomalyDetectorArn: string;
@@ -167,14 +172,17 @@ export class AnomalyDetector extends AnomalyDetectorBase {
     this.missingDataAction = props.missingDataAction;
     this.workspace = props.workspace;
 
-    const resource = new CfnAnomalyDetector(this, 'Resource', {
+    let cfnAnomalyDetectorProps: CfnAnomalyDetectorProps = {
       alias: props.alias,
       configuration: props.configuration,
       evaluationIntervalInSeconds: props.evaluationIntervalInSeconds,
       labels: props.labels,
       missingDataAction: props.missingDataAction,
       workspace: props.workspace.workspaceArn,
-    });
-    this.anomalyDetectorArn = resource.attrArn;
+    };
+
+    this.anomalyDetector = new CfnAnomalyDetector(this, 'Resource', cfnAnomalyDetectorProps);
+    this.node.defaultChild = this.anomalyDetector;
+    this.anomalyDetectorArn = this.anomalyDetector.attrArn;
   }
 }
