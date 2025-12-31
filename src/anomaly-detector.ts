@@ -55,14 +55,14 @@ export class AnomalyDetector extends AnomalyDetectorBase {
   }
 
   /**
- * Validates all anomaly detector properties.
- *
- * @param props - The anomaly detector properties to validate
- * @returns An array of error messages if validation fails, or an empty array if valid
- *
- * This method aggregates validation results from all individual property validators.
- * It throws an error if props is not an object.
- */
+   * Validates all anomaly detector properties.
+   *
+   * @param props - The anomaly detector properties to validate
+   * @returns An array of error messages if validation fails, or an empty array if valid
+   *
+   * This method aggregates validation results from all individual property validators.
+   * It throws an error if props is not an object.
+   */
   private static validateProps(props: unknown): string[] {
     const errors: string[] = [];
 

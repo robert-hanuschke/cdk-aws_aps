@@ -1,5 +1,7 @@
 export * from './anomaly-detector';
 export { AnomalyDetectorBase, AnomalyDetectorConfiguration, IgnoreNearExpected, Label as AnomalyDetectorLabel, MissingDataAction, RandomCutForestConfiguration } from './anomaly-detector-base';
+export * from './resource-policy';
+export * from './resource-policy-base';
 export * from './rule-groups-namespace';
 export * from './rule-groups-namespace-base';
 export * from './scraper';
