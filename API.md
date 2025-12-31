@@ -2,6 +2,1110 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### AnomalyDetector <a name="AnomalyDetector" id="@robhan-cdk-lib/aws_aps.AnomalyDetector"></a>
+
+#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.Initializer"></a>
+
+```typescript
+import { AnomalyDetector } from '@robhan-cdk-lib/aws_aps'
+
+new AnomalyDetector(scope: Construct, id: string, props: AnomalyDetectorProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.Initializer.parameter.props">props</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps">AnomalyDetectorProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps">AnomalyDetectorProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.isAnomalyDetector">isAnomalyDetector</a></code> | *No description.* |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.isConstruct"></a>
+
+```typescript
+import { AnomalyDetector } from '@robhan-cdk-lib/aws_aps'
+
+AnomalyDetector.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.isOwnedResource"></a>
+
+```typescript
+import { AnomalyDetector } from '@robhan-cdk-lib/aws_aps'
+
+AnomalyDetector.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.isResource"></a>
+
+```typescript
+import { AnomalyDetector } from '@robhan-cdk-lib/aws_aps'
+
+AnomalyDetector.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isAnomalyDetector` <a name="isAnomalyDetector" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.isAnomalyDetector"></a>
+
+```typescript
+import { AnomalyDetector } from '@robhan-cdk-lib/aws_aps'
+
+AnomalyDetector.isAnomalyDetector(x: any)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.isAnomalyDetector.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.alias">alias</a></code> | <code>string</code> | The user-friendly name of the anomaly detector. 1 to 64 characters length. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.anomalyDetectorArn">anomalyDetectorArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.configuration">configuration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a></code> | The algorithm configuration of the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.evaluationIntervalInSeconds">evaluationIntervalInSeconds</a></code> | <code>number</code> | The frequency, in seconds, at which the anomaly detector evaluates metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.labels">labels</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]</code> | The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.missingDataAction">missingDataAction</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a></code> | The action taken when data is missing during evaluation. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alias`<sup>Required</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+The user-friendly name of the anomaly detector. 1 to 64 characters length.
+
+Minimum length of 1. Maximum length of 64.
+Pattern: [0-9A-Za-z][-.0-9A-Z_a-z]*
+
+---
+
+##### `anomalyDetectorArn`<sup>Required</sup> <a name="anomalyDetectorArn" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.anomalyDetectorArn"></a>
+
+```typescript
+public readonly anomalyDetectorArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the anomaly detector.
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.configuration"></a>
+
+```typescript
+public readonly configuration: AnomalyDetectorConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a>
+
+The algorithm configuration of the anomaly detector.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
+
+---
+
+##### `evaluationIntervalInSeconds`<sup>Optional</sup> <a name="evaluationIntervalInSeconds" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.evaluationIntervalInSeconds"></a>
+
+```typescript
+public readonly evaluationIntervalInSeconds: number;
+```
+
+- *Type:* number
+
+The frequency, in seconds, at which the anomaly detector evaluates metrics.
+
+Minimum value of 30. Maximum value of 86400.
+
+---
+
+##### `labels`<sup>Optional</sup> <a name="labels" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.labels"></a>
+
+```typescript
+public readonly labels: Label[];
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]
+
+The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
+
+Map Entries: Minimum number of 0 items. Maximum number of 140 items.
+Key Length Constraints: Minimum length of 1. Maximum length of 7168.
+Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
+Value Length Constraints: Minimum length of 1. Maximum length of 7168.
+
+---
+
+##### `missingDataAction`<sup>Optional</sup> <a name="missingDataAction" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.missingDataAction"></a>
+
+```typescript
+public readonly missingDataAction: MissingDataAction;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a>
+
+The action taken when data is missing during evaluation.
+
+---
+
+
+### AnomalyDetectorBase <a name="AnomalyDetectorBase" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase"></a>
+
+- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector">IAnomalyDetector</a>
+
+#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer"></a>
+
+```typescript
+import { AnomalyDetectorBase } from '@robhan-cdk-lib/aws_aps'
+
+new AnomalyDetectorBase(scope: Construct, id: string, props?: ResourceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.ResourceProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.ResourceProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isConstruct"></a>
+
+```typescript
+import { AnomalyDetectorBase } from '@robhan-cdk-lib/aws_aps'
+
+AnomalyDetectorBase.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isOwnedResource"></a>
+
+```typescript
+import { AnomalyDetectorBase } from '@robhan-cdk-lib/aws_aps'
+
+AnomalyDetectorBase.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isResource"></a>
+
+```typescript
+import { AnomalyDetectorBase } from '@robhan-cdk-lib/aws_aps'
+
+AnomalyDetectorBase.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.alias">alias</a></code> | <code>string</code> | The user-friendly name of the anomaly detector. 1 to 64 characters length. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.anomalyDetectorArn">anomalyDetectorArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.configuration">configuration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a></code> | The algorithm configuration of the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.evaluationIntervalInSeconds">evaluationIntervalInSeconds</a></code> | <code>number</code> | The frequency, in seconds, at which the anomaly detector evaluates metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.labels">labels</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]</code> | The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.missingDataAction">missingDataAction</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a></code> | The action taken when data is missing during evaluation. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alias`<sup>Required</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+The user-friendly name of the anomaly detector. 1 to 64 characters length.
+
+Minimum length of 1. Maximum length of 64.
+Pattern: [0-9A-Za-z][-.0-9A-Z_a-z]*
+
+---
+
+##### `anomalyDetectorArn`<sup>Required</sup> <a name="anomalyDetectorArn" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.anomalyDetectorArn"></a>
+
+```typescript
+public readonly anomalyDetectorArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the anomaly detector.
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.configuration"></a>
+
+```typescript
+public readonly configuration: AnomalyDetectorConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a>
+
+The algorithm configuration of the anomaly detector.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
+
+---
+
+##### `evaluationIntervalInSeconds`<sup>Optional</sup> <a name="evaluationIntervalInSeconds" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.evaluationIntervalInSeconds"></a>
+
+```typescript
+public readonly evaluationIntervalInSeconds: number;
+```
+
+- *Type:* number
+
+The frequency, in seconds, at which the anomaly detector evaluates metrics.
+
+Minimum value of 30. Maximum value of 86400.
+
+---
+
+##### `labels`<sup>Optional</sup> <a name="labels" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.labels"></a>
+
+```typescript
+public readonly labels: Label[];
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]
+
+The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
+
+Map Entries: Minimum number of 0 items. Maximum number of 140 items.
+Key Length Constraints: Minimum length of 1. Maximum length of 7168.
+Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
+Value Length Constraints: Minimum length of 1. Maximum length of 7168.
+
+---
+
+##### `missingDataAction`<sup>Optional</sup> <a name="missingDataAction" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.missingDataAction"></a>
+
+```typescript
+public readonly missingDataAction: MissingDataAction;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a>
+
+The action taken when data is missing during evaluation.
+
+---
+
+
+### ResourcePolicy <a name="ResourcePolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicy"></a>
+
+#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.Initializer"></a>
+
+```typescript
+import { ResourcePolicy } from '@robhan-cdk-lib/aws_aps'
+
+new ResourcePolicy(scope: Construct, id: string, props: ResourcePolicyProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.Initializer.parameter.props">props</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyProps">ResourcePolicyProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyProps">ResourcePolicyProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.isResourcePolicy">isResourcePolicy</a></code> | *No description.* |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.isConstruct"></a>
+
+```typescript
+import { ResourcePolicy } from '@robhan-cdk-lib/aws_aps'
+
+ResourcePolicy.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.isOwnedResource"></a>
+
+```typescript
+import { ResourcePolicy } from '@robhan-cdk-lib/aws_aps'
+
+ResourcePolicy.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.isResource"></a>
+
+```typescript
+import { ResourcePolicy } from '@robhan-cdk-lib/aws_aps'
+
+ResourcePolicy.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResourcePolicy` <a name="isResourcePolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.isResourcePolicy"></a>
+
+```typescript
+import { ResourcePolicy } from '@robhan-cdk-lib/aws_aps'
+
+ResourcePolicy.isResourcePolicy(x: any)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.isResourcePolicy.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.policyDocument">policyDocument</a></code> | <code>string</code> | The JSON to use as the Resource-based Policy. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to attach the policy to. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `policyDocument`<sup>Required</sup> <a name="policyDocument" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.property.policyDocument"></a>
+
+```typescript
+public readonly policyDocument: string;
+```
+
+- *Type:* string
+
+The JSON to use as the Resource-based Policy.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+The workspace to attach the policy to.
+
+---
+
+
+### ResourcePolicyBase <a name="ResourcePolicyBase" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase"></a>
+
+- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy">IResourcePolicy</a>
+
+#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer"></a>
+
+```typescript
+import { ResourcePolicyBase } from '@robhan-cdk-lib/aws_aps'
+
+new ResourcePolicyBase(scope: Construct, id: string, props?: ResourceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.ResourceProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.ResourceProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isConstruct"></a>
+
+```typescript
+import { ResourcePolicyBase } from '@robhan-cdk-lib/aws_aps'
+
+ResourcePolicyBase.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isOwnedResource"></a>
+
+```typescript
+import { ResourcePolicyBase } from '@robhan-cdk-lib/aws_aps'
+
+ResourcePolicyBase.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isResource"></a>
+
+```typescript
+import { ResourcePolicyBase } from '@robhan-cdk-lib/aws_aps'
+
+ResourcePolicyBase.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.policyDocument">policyDocument</a></code> | <code>string</code> | The JSON to use as the Resource-based Policy. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to attach the policy to. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `policyDocument`<sup>Required</sup> <a name="policyDocument" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.policyDocument"></a>
+
+```typescript
+public readonly policyDocument: string;
+```
+
+- *Type:* string
+
+The JSON to use as the Resource-based Policy.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+The workspace to attach the policy to.
+
+---
+
+
 ### RuleGroupsNamespace <a name="RuleGroupsNamespace" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace"></a>
 
 The definition of a rule groups namespace in an Amazon Managed Service for Prometheus workspace.
@@ -1918,6 +3022,144 @@ The Amazon Managed Service for Prometheus workspace.
 
 ---
 
+### AnomalyDetectorConfiguration <a name="AnomalyDetectorConfiguration" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration"></a>
+
+The configuration for the anomaly detection algorithm.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration.Initializer"></a>
+
+```typescript
+import { AnomalyDetectorConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+const anomalyDetectorConfiguration: AnomalyDetectorConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration.property.randomCutForest">randomCutForest</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration">RandomCutForestConfiguration</a></code> | The Random Cut Forest algorithm configuration for anomaly detection. |
+
+---
+
+##### `randomCutForest`<sup>Required</sup> <a name="randomCutForest" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration.property.randomCutForest"></a>
+
+```typescript
+public readonly randomCutForest: RandomCutForestConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration">RandomCutForestConfiguration</a>
+
+The Random Cut Forest algorithm configuration for anomaly detection.
+
+---
+
+### AnomalyDetectorProps <a name="AnomalyDetectorProps" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps"></a>
+
+Properties for creating an Amazon Managed Service for Prometheus Anomaly Detector.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.Initializer"></a>
+
+```typescript
+import { AnomalyDetectorProps } from '@robhan-cdk-lib/aws_aps'
+
+const anomalyDetectorProps: AnomalyDetectorProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.alias">alias</a></code> | <code>string</code> | The user-friendly name of the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.configuration">configuration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a></code> | The algorithm configuration of the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.evaluationIntervalInSeconds">evaluationIntervalInSeconds</a></code> | <code>number</code> | The frequency, in seconds, at which the anomaly detector evaluates metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.labels">labels</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]</code> | The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.missingDataAction">missingDataAction</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a></code> | The action taken when data is missing during evaluation. |
+
+---
+
+##### `alias`<sup>Required</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+The user-friendly name of the anomaly detector.
+
+1 to 128 characters length.
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.configuration"></a>
+
+```typescript
+public readonly configuration: AnomalyDetectorConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a>
+
+The algorithm configuration of the anomaly detector.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
+
+---
+
+##### `evaluationIntervalInSeconds`<sup>Optional</sup> <a name="evaluationIntervalInSeconds" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.evaluationIntervalInSeconds"></a>
+
+```typescript
+public readonly evaluationIntervalInSeconds: number;
+```
+
+- *Type:* number
+
+The frequency, in seconds, at which the anomaly detector evaluates metrics.
+
+Minimum value of 30. Maximum value of 86400.
+
+---
+
+##### `labels`<sup>Optional</sup> <a name="labels" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.labels"></a>
+
+```typescript
+public readonly labels: Label[];
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]
+
+The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
+
+Map Entries: Minimum number of 0 items. Maximum number of 140 items.
+Key Length Constraints: Minimum length of 1. Maximum length of 7168.
+Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
+Value Length Constraints: Minimum length of 1. Maximum length of 7168.
+
+---
+
+##### `missingDataAction`<sup>Optional</sup> <a name="missingDataAction" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.missingDataAction"></a>
+
+```typescript
+public readonly missingDataAction: MissingDataAction;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a>
+
+The action taken when data is missing during evaluation.
+
+---
+
 ### CloudWatchLogDestination <a name="CloudWatchLogDestination" id="@robhan-cdk-lib/aws_aps.CloudWatchLogDestination"></a>
 
 Configuration details for logging to CloudWatch Logs.
@@ -2041,6 +3283,51 @@ public readonly securityGroups: ISecurityGroup[];
 A list of the security group IDs for the Amazon EKS cluster VPC configuration.
 
 Min 1, max 5.
+
+---
+
+### IgnoreNearExpected <a name="IgnoreNearExpected" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected"></a>
+
+Configuration for threshold settings that determine when values near expected values should be ignored during anomaly detection.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.Initializer"></a>
+
+```typescript
+import { IgnoreNearExpected } from '@robhan-cdk-lib/aws_aps'
+
+const ignoreNearExpected: IgnoreNearExpected = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected.property.amount">amount</a></code> | <code>number</code> | The absolute amount by which values can differ from expected values before being considered anomalous. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected.property.ratio">ratio</a></code> | <code>number</code> | The ratio by which values can differ from expected values before being considered anomalous. |
+
+---
+
+##### `amount`<sup>Optional</sup> <a name="amount" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.property.amount"></a>
+
+```typescript
+public readonly amount: number;
+```
+
+- *Type:* number
+
+The absolute amount by which values can differ from expected values before being considered anomalous.
+
+---
+
+##### `ratio`<sup>Optional</sup> <a name="ratio" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.property.ratio"></a>
+
+```typescript
+public readonly ratio: number;
+```
+
+- *Type:* number
+
+The ratio by which values can differ from expected values before being considered anomalous.
 
 ---
 
@@ -2305,6 +3592,51 @@ Minimum 0
 
 ---
 
+### MissingDataAction <a name="MissingDataAction" id="@robhan-cdk-lib/aws_aps.MissingDataAction"></a>
+
+Specifies the action to take when data is missing during anomaly detection evaluation.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.MissingDataAction.Initializer"></a>
+
+```typescript
+import { MissingDataAction } from '@robhan-cdk-lib/aws_aps'
+
+const missingDataAction: MissingDataAction = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction.property.markAsAnomaly">markAsAnomaly</a></code> | <code>boolean</code> | Marks missing data points as anomalies. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction.property.skip">skip</a></code> | <code>boolean</code> | Skips evaluation when data is missing. |
+
+---
+
+##### `markAsAnomaly`<sup>Optional</sup> <a name="markAsAnomaly" id="@robhan-cdk-lib/aws_aps.MissingDataAction.property.markAsAnomaly"></a>
+
+```typescript
+public readonly markAsAnomaly: boolean;
+```
+
+- *Type:* boolean
+
+Marks missing data points as anomalies.
+
+---
+
+##### `skip`<sup>Optional</sup> <a name="skip" id="@robhan-cdk-lib/aws_aps.MissingDataAction.property.skip"></a>
+
+```typescript
+public readonly skip: boolean;
+```
+
+- *Type:* boolean
+
+Skips evaluation when data is missing.
+
+---
+
 ### QueryLoggingConfiguration <a name="QueryLoggingConfiguration" id="@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration"></a>
 
 The query logging configuration in an Amazon Managed Service for Prometheus workspace.
@@ -2336,6 +3668,147 @@ public readonly destinations: LoggingDestination[];
 Defines a destination and its associated filtering criteria for query logging.
 
 Minimum 1 and maximum 1 item in array.
+
+---
+
+### RandomCutForestConfiguration <a name="RandomCutForestConfiguration" id="@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration"></a>
+
+Configuration for the Random Cut Forest algorithm used for anomaly detection in time-series data.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.Initializer"></a>
+
+```typescript
+import { RandomCutForestConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+const randomCutForestConfiguration: RandomCutForestConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.query">query</a></code> | <code>string</code> | The Prometheus query used to retrieve the time-series data for anomaly detection. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.ignoreNearExpectedFromAbove">ignoreNearExpectedFromAbove</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected">IgnoreNearExpected</a></code> | Configuration for ignoring values that are near expected values from above during anomaly detection. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.ignoreNearExpectedFromBelow">ignoreNearExpectedFromBelow</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected">IgnoreNearExpected</a></code> | Configuration for ignoring values that are near expected values from below during anomaly detection. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.sampleSize">sampleSize</a></code> | <code>number</code> | The number of data points sampled from the input stream for the Random Cut Forest algorithm. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.shingleSize">shingleSize</a></code> | <code>number</code> | The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. |
+
+---
+
+##### `query`<sup>Required</sup> <a name="query" id="@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.query"></a>
+
+```typescript
+public readonly query: string;
+```
+
+- *Type:* string
+
+The Prometheus query used to retrieve the time-series data for anomaly detection.
+
+1 to 8192 characters length.
+
+---
+
+##### `ignoreNearExpectedFromAbove`<sup>Optional</sup> <a name="ignoreNearExpectedFromAbove" id="@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.ignoreNearExpectedFromAbove"></a>
+
+```typescript
+public readonly ignoreNearExpectedFromAbove: IgnoreNearExpected;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected">IgnoreNearExpected</a>
+
+Configuration for ignoring values that are near expected values from above during anomaly detection.
+
+---
+
+##### `ignoreNearExpectedFromBelow`<sup>Optional</sup> <a name="ignoreNearExpectedFromBelow" id="@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.ignoreNearExpectedFromBelow"></a>
+
+```typescript
+public readonly ignoreNearExpectedFromBelow: IgnoreNearExpected;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected">IgnoreNearExpected</a>
+
+Configuration for ignoring values that are near expected values from below during anomaly detection.
+
+---
+
+##### `sampleSize`<sup>Optional</sup> <a name="sampleSize" id="@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.sampleSize"></a>
+
+```typescript
+public readonly sampleSize: number;
+```
+
+- *Type:* number
+
+The number of data points sampled from the input stream for the Random Cut Forest algorithm.
+
+The default number is 256 consecutive data points.
+
+Minimum: 256
+Maximum: 1024
+
+---
+
+##### `shingleSize`<sup>Optional</sup> <a name="shingleSize" id="@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.shingleSize"></a>
+
+```typescript
+public readonly shingleSize: number;
+```
+
+- *Type:* number
+
+The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm.
+
+The default number is 8 consecutive data points.
+
+Minimum: 2
+Maximum: 1024
+
+---
+
+### ResourcePolicyProps <a name="ResourcePolicyProps" id="@robhan-cdk-lib/aws_aps.ResourcePolicyProps"></a>
+
+Properties for creating an Amazon Managed Service for Prometheus Resource Policy.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ResourcePolicyProps.Initializer"></a>
+
+```typescript
+import { ResourcePolicyProps } from '@robhan-cdk-lib/aws_aps'
+
+const resourcePolicyProps: ResourcePolicyProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyProps.property.policyDocument">policyDocument</a></code> | <code>string</code> | The JSON to use as the Resource-based Policy. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyProps.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to attach the policy to. |
+
+---
+
+##### `policyDocument`<sup>Required</sup> <a name="policyDocument" id="@robhan-cdk-lib/aws_aps.ResourcePolicyProps.property.policyDocument"></a>
+
+```typescript
+public readonly policyDocument: string;
+```
+
+- *Type:* string
+
+The JSON to use as the Resource-based Policy.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.ResourcePolicyProps.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+The workspace to attach the policy to.
 
 ---
 
@@ -3040,6 +4513,255 @@ Use this structure to define label sets and the ingestion limits for time series
 
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
+
+### IAnomalyDetector <a name="IAnomalyDetector" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector">AnomalyDetector</a>, <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase">AnomalyDetectorBase</a>, <a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector">IAnomalyDetector</a>
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.alias">alias</a></code> | <code>string</code> | The user-friendly name of the anomaly detector. 1 to 128 characters length. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.anomalyDetectorArn">anomalyDetectorArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.configuration">configuration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a></code> | The algorithm configuration of the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.evaluationIntervalInSeconds">evaluationIntervalInSeconds</a></code> | <code>number</code> | The frequency, in seconds, at which the anomaly detector evaluates metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.labels">labels</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]</code> | The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.missingDataAction">missingDataAction</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a></code> | The action taken when data is missing during evaluation. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alias`<sup>Required</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+The user-friendly name of the anomaly detector. 1 to 128 characters length.
+
+Minimum length of 1. Maximum length of 64.
+Pattern: [0-9A-Za-z][-.0-9A-Z_a-z]*
+
+---
+
+##### `anomalyDetectorArn`<sup>Required</sup> <a name="anomalyDetectorArn" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.anomalyDetectorArn"></a>
+
+```typescript
+public readonly anomalyDetectorArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the anomaly detector.
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.configuration"></a>
+
+```typescript
+public readonly configuration: AnomalyDetectorConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a>
+
+The algorithm configuration of the anomaly detector.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
+
+---
+
+##### `evaluationIntervalInSeconds`<sup>Optional</sup> <a name="evaluationIntervalInSeconds" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.evaluationIntervalInSeconds"></a>
+
+```typescript
+public readonly evaluationIntervalInSeconds: number;
+```
+
+- *Type:* number
+
+The frequency, in seconds, at which the anomaly detector evaluates metrics.
+
+Minimum value of 30. Maximum value of 86400.
+
+---
+
+##### `labels`<sup>Optional</sup> <a name="labels" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.labels"></a>
+
+```typescript
+public readonly labels: Label[];
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]
+
+The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
+
+Map Entries: Minimum number of 0 items. Maximum number of 140 items.
+Key Length Constraints: Minimum length of 1. Maximum length of 7168.
+Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
+Value Length Constraints: Minimum length of 1. Maximum length of 7168.
+
+---
+
+##### `missingDataAction`<sup>Optional</sup> <a name="missingDataAction" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.missingDataAction"></a>
+
+```typescript
+public readonly missingDataAction: MissingDataAction;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a>
+
+The action taken when data is missing during evaluation.
+
+---
+
+### IResourcePolicy <a name="IResourcePolicy" id="@robhan-cdk-lib/aws_aps.IResourcePolicy"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy">ResourcePolicy</a>, <a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase">ResourcePolicyBase</a>, <a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy">IResourcePolicy</a>
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.policyDocument">policyDocument</a></code> | <code>string</code> | The JSON to use as the Resource-based Policy. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to attach the policy to. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.IResourcePolicy.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.IResourcePolicy.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.IResourcePolicy.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `policyDocument`<sup>Required</sup> <a name="policyDocument" id="@robhan-cdk-lib/aws_aps.IResourcePolicy.property.policyDocument"></a>
+
+```typescript
+public readonly policyDocument: string;
+```
+
+- *Type:* string
+
+The JSON to use as the Resource-based Policy.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.IResourcePolicy.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+The workspace to attach the policy to.
+
+---
 
 ### IRuleGroupsNamespace <a name="IRuleGroupsNamespace" id="@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace"></a>
 
