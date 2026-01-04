@@ -301,17 +301,17 @@
     "@jridgewell/trace-mapping" "0.3.9"
 
 "@emnapi/core@^1.4.3":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.7.1.tgz#3a79a02dbc84f45884a1806ebb98e5746bdfaac4"
-  integrity sha512-o1uhUASyo921r2XtHYOHy7gdkGLge8ghBEQHMWmyJFoXlpU58kIrhhN3w26lpQb6dspetweapMn2CSNwQ8I4wg==
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.8.0.tgz#2a7c25c1c762c8fbf3441eda572c4b9d87edb4e3"
+  integrity sha512-ryJnSmj4UhrGLZZPJ6PKVb4wNPAIkW6iyLy+0TRwazd3L1u0wzMe8RfqevAh2HbcSkoeLiSYnOVDOys4JSGYyg==
   dependencies:
     "@emnapi/wasi-threads" "1.1.0"
     tslib "^2.4.0"
 
 "@emnapi/runtime@^1.4.3":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.7.1.tgz#a73784e23f5d57287369c808197288b52276b791"
-  integrity sha512-PVtJr5CmLwYAU9PZDMITZoR5iAOShYREoR45EyyLrbntV50mdePTgUn4AmOw90Ifcj+x2kRjdzr1HP3RrNiHGA==
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.8.0.tgz#85d78a090880b3524f88d9916124f1acd6b6c6de"
+  integrity sha512-Z82FDl1ByxqPEPrAYYeTQVlx2FSHPe1qwX465c+96IRS3fTdSYRoJcRxg3g2fEG5I69z1dSEWQlNRRr0/677mg==
   dependencies:
     tslib "^2.4.0"
 
@@ -762,10 +762,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-8.3.8.tgz#10f65fe1891fd8cde4957360835e78fd1936bfdd"
   integrity sha512-T8TbSnGsxo6TDBJx/Sgv/BlVJL3tshxZP7Aq5R1mSnM5OcHY2dQaxLMu2+E8u3gN0MLOzdjurqN4ZRVuzQycOQ==
 
-"@robhan-cdk-lib/utils@^0.0.134":
-  version "0.0.134"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.134.tgz#200a0c932ef107d0b2aeb2ec195ad1c36a97b00a"
-  integrity sha512-cGCPs/J6sFIynSDEQxWqiYCN3nmulWUfAT9C0w1LIHEfFAzEADfJ0s5L08EskvNWIg6RFx5Awjgut5+v8uQSag==
+"@robhan-cdk-lib/utils@^0.0.135":
+  version "0.0.135"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.135.tgz#9f0181fca43ae03203211f8ad8b6414acec52bed"
+  integrity sha512-MK69SCXrMaLsfNJeNTATv0GeBmOjZ/6kl0w0Rw058t0V+2/Tx6GiSvZXNXElFTJeRsvuKZ9cJcoOi2r8siwO/g==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
