@@ -67,7 +67,7 @@
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "@robhan-cdk-lib/utils": "^0.0.153"
+    "@robhan-cdk-lib/utils": "^0.0.154"
   },
   "keywords": [
     "Amazon Managed Service for Prometheus",
