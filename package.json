@@ -41,7 +41,7 @@
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.19.7",
+    "@types/node": "^22.19.8",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "aws-cdk-lib": "2.224.0",
@@ -67,7 +67,7 @@
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "@robhan-cdk-lib/utils": "^0.0.161"
+    "@robhan-cdk-lib/utils": "^0.0.162"
   },
   "keywords": [
     "Amazon Managed Service for Prometheus",
