@@ -43,6 +43,7 @@ new AnomalyDetector(scope: Construct, id: string, props: AnomalyDetectorProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -54,6 +55,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.applyRemovalPolicy"></a>
 
@@ -365,6 +387,7 @@ new AnomalyDetectorBase(scope: Construct, id: string, props?: ResourceProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -376,6 +399,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.applyRemovalPolicy"></a>
 
@@ -670,6 +714,7 @@ new ResourcePolicy(scope: Construct, id: string, props: ResourcePolicyProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -681,6 +726,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.applyRemovalPolicy"></a>
 
@@ -917,6 +983,7 @@ new ResourcePolicyBase(scope: Construct, id: string, props?: ResourceProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -928,6 +995,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.applyRemovalPolicy"></a>
 
@@ -1152,6 +1240,7 @@ new RuleGroupsNamespace(scope: Construct, id: string, props: RuleGroupsNamespace
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -1163,6 +1252,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.applyRemovalPolicy"></a>
 
@@ -1452,6 +1562,7 @@ new RuleGroupsNamespaceBase(scope: Construct, id: string, props?: ResourceProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -1463,6 +1574,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.applyRemovalPolicy"></a>
 
@@ -1708,6 +1840,7 @@ new Scraper(scope: Construct, id: string, props: ScraperProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -1719,6 +1852,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.Scraper.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.Scraper.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.Scraper.applyRemovalPolicy"></a>
 
@@ -2047,6 +2201,7 @@ new ScraperBase(scope: Construct, id: string, props?: ResourceProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -2058,6 +2213,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.ScraperBase.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.ScraperBase.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ScraperBase.applyRemovalPolicy"></a>
 
@@ -2346,6 +2522,7 @@ new Workspace(scope: Construct, id: string, props: WorkspaceProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -2357,6 +2534,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.Workspace.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.Workspace.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.Workspace.applyRemovalPolicy"></a>
 
@@ -2716,6 +2914,7 @@ new WorkspaceBase(scope: Construct, id: string, props?: ResourceProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -2727,6 +2926,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.applyRemovalPolicy"></a>
 
