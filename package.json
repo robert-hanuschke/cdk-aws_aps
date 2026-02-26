@@ -41,7 +41,7 @@
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.19.11",
+    "@types/node": "^22.19.12",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "aws-cdk-lib": "2.224.0",
@@ -53,11 +53,11 @@
     "jest": "^29.7.0",
     "jest-junit": "^16",
     "jsii": "~5.9.0",
-    "jsii-diff": "^1.126.0",
+    "jsii-diff": "^1.127.0",
     "jsii-docgen": "^10.5.0",
-    "jsii-pacmak": "^1.126.0",
+    "jsii-pacmak": "^1.127.0",
     "jsii-rosetta": "~5.9.0",
-    "projen": "^0.99.16",
+    "projen": "^0.99.17",
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
@@ -67,7 +67,7 @@
     "constructs": "^10.5.1"
   },
   "dependencies": {
-    "@robhan-cdk-lib/utils": "^0.0.181"
+    "@robhan-cdk-lib/utils": "^0.0.182"
   },
   "keywords": [
     "Amazon Managed Service for Prometheus",
