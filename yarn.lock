@@ -745,10 +745,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-10.0.0.tgz#f6b40472d96c210094a556ee5ccb8e77f1bd30af"
   integrity sha512-hAX0pT/73190NLqBPPWSdBVGtbY6VOhWYK3qqHqtXQ1gK7kS2yz4+ivsN07hpJ6I3aeMtKP6J6npsEKOAzuTLA==
 
-"@robhan-cdk-lib/utils@^0.0.187":
-  version "0.0.187"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.187.tgz#2f7b47b2d961ac01a4849533aa51b5f9ac5f3b37"
-  integrity sha512-T/pQb0FZcQ2ebiueZ5IXuQzfpoYq3Lhn3Cx56Utjf/Ef6i9sHEsarXUmFkL33EIpa91Ba1Rc72AqW/tstAxT0w==
+"@robhan-cdk-lib/utils@^0.0.188":
+  version "0.0.188"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.188.tgz#a0402ba25c12428d271ebb7a42ba22daa666fc9e"
+  integrity sha512-Gp4hB7m0G8/0Qy0SeL9Iba44c8ULjyXUCRpzDT7Wl17TrpPUF3OrzGwDp38m8dlZqL1VbApvUIsJpCfzaKD0Dw==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -4130,9 +4130,9 @@ node-int64@^0.4.0:
   integrity sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==
 
 node-releases@^2.0.27:
-  version "2.0.27"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.27.tgz#eedca519205cf20f650f61d56b070db111231e4e"
-  integrity sha512-nmh3lCkYZ3grZvqcCH+fjmQ7X+H0OeZgP40OierEaAptX4XofMh5kwNbWh7lBduUzCcV/8kZ+NDLCwm2iorIlA==
+  version "2.0.36"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.36.tgz#99fd6552aaeda9e17c4713b57a63964a2e325e9d"
+  integrity sha512-TdC8FSgHz8Mwtw9g5L4gR/Sh9XhSP/0DEkQxfEFXOpiul5IiHgHan2VhYYb6agDSfp4KuvltmGApc8HMgUrIkA==
 
 normalize-package-data@^2.3.2, normalize-package-data@^2.5.0:
   version "2.5.0"
