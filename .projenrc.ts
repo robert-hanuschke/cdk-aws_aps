@@ -7,7 +7,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     secret: 'GITHUB_TOKEN',
   },
   autoApproveUpgrades: true,
-  cdkVersion: '2.224.0',
+  cdkVersion: '2.243.0',
   defaultReleaseBranch: 'main',
   deps: [
     '@robhan-cdk-lib/utils',

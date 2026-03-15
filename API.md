@@ -73,8 +73,6 @@ constructs.
 
 - *Type:* ...constructs.IMixin[]
 
-The mixins to apply.
-
 ---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.applyRemovalPolicy"></a>
@@ -417,8 +415,6 @@ constructs.
 
 - *Type:* ...constructs.IMixin[]
 
-The mixins to apply.
-
 ---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.applyRemovalPolicy"></a>
@@ -744,8 +740,6 @@ constructs.
 
 - *Type:* ...constructs.IMixin[]
 
-The mixins to apply.
-
 ---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.applyRemovalPolicy"></a>
@@ -1013,8 +1007,6 @@ constructs.
 
 - *Type:* ...constructs.IMixin[]
 
-The mixins to apply.
-
 ---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.applyRemovalPolicy"></a>
@@ -1269,8 +1261,6 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
-
-The mixins to apply.
 
 ---
 
@@ -1592,8 +1582,6 @@ constructs.
 
 - *Type:* ...constructs.IMixin[]
 
-The mixins to apply.
-
 ---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.applyRemovalPolicy"></a>
@@ -1869,8 +1857,6 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.Scraper.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
-
-The mixins to apply.
 
 ---
 
@@ -2231,8 +2217,6 @@ constructs.
 
 - *Type:* ...constructs.IMixin[]
 
-The mixins to apply.
-
 ---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ScraperBase.applyRemovalPolicy"></a>
@@ -2551,8 +2535,6 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.Workspace.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
-
-The mixins to apply.
 
 ---
 
@@ -2943,8 +2925,6 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
-
-The mixins to apply.
 
 ---
 
