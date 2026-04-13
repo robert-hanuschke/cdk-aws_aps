@@ -766,10 +766,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-10.0.0.tgz#f6b40472d96c210094a556ee5ccb8e77f1bd30af"
   integrity sha512-hAX0pT/73190NLqBPPWSdBVGtbY6VOhWYK3qqHqtXQ1gK7kS2yz4+ivsN07hpJ6I3aeMtKP6J6npsEKOAzuTLA==
 
-"@robhan-cdk-lib/utils@^0.0.223":
-  version "0.0.223"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.223.tgz#d08cc4c3d9fa6fd0b05bd727c5c0af3426e4df27"
-  integrity sha512-l6bPAWuk7tuB7iQmpPKwsoj2aI1ZxtPLARlih0FW5x58TykBN3ySEJyEll0yDbHFjKIF/we3RYzXxIdJYFGq+w==
+"@robhan-cdk-lib/utils@^0.0.224":
+  version "0.0.224"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.224.tgz#4d9dfb7b47965f1983aaae89d6cd53d0aebc13f7"
+  integrity sha512-9ta+HCHszHQclvnaimvkMz9FJmqBLQczJntdAr5QgofYnhpLZ7lkqwxFRTX03M0COWIiZ8z1j153oc/2XUaDYQ==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
