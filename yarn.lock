@@ -13,9 +13,9 @@
   integrity sha512-We4bmHaowOPHr+IQR4/FyTGjRfjgBj4ICMjtqmJeBDWad3Q/6St12NT07leNtyuukv2qMhtSZJQorD8KpKTwRA==
 
 "@aws-cdk/cloud-assembly-api@^2.1.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-api/-/cloud-assembly-api-2.2.1.tgz#43884b6637c002731115ff922bd256dd8b231ef5"
-  integrity sha512-24ARpDQzF39UTickUgDH6RIs5otPG4aaKJZ93XUSNwiPSR9T+h7gXSF982+NZVYK+7SetQaqrVbm4lcF6dmXWw==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-api/-/cloud-assembly-api-2.2.2.tgz#79001c2af7a21fba3ced65042fdffb4fff7a1978"
+  integrity sha512-iiypKqfpHMqQ9z6Nwxx42Ha4NCevLVDQ8sphIbqHxSJE5kDe/DCzvh8b2HtlAshWjo44HMhYdfKNLR96S3T4sA==
   dependencies:
     jsonschema "~1.4.1"
     semver "^7.7.4"
@@ -309,17 +309,17 @@
     "@jridgewell/trace-mapping" "0.3.9"
 
 "@emnapi/core@^1.4.3":
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.9.2.tgz#3870265ecffc7352d01ead62d8d83d8358a2d034"
-  integrity sha512-UC+ZhH3XtczQYfOlu3lNEkdW/p4dsJ1r/bP7H8+rhao3TTTMO1ATq/4DdIi23XuGoFY+Cz0JmCbdVl0hz9jZcA==
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.10.0.tgz#380ccc8f2412ea22d1d972df7f8ee23a3b9c7467"
+  integrity sha512-yq6OkJ4p82CAfPl0u9mQebQHKPJkY7WrIuk205cTYnYe+k2Z8YBh11FrbRG/H6ihirqcacOgl2BIO8oyMQLeXw==
   dependencies:
     "@emnapi/wasi-threads" "1.2.1"
     tslib "^2.4.0"
 
 "@emnapi/runtime@^1.4.3":
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.9.2.tgz#8b469a3db160817cadb1de9050211a9d1ea84fa2"
-  integrity sha512-3U4+MIWHImeyu1wnmVygh5WlgfYDtyf0k8AbLhMFxOipihf6nrWC4syIm/SwEeec0mNSafiiNnMJwbza/Is6Lw==
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.10.0.tgz#4b260c0d3534204e98c6110b8db1a987d26ec87c"
+  integrity sha512-ewvYlk86xUoGI0zQRNq/mC+16R1QeDlKQy21Ki3oSYXNgLb45GV1P6A0M+/s6nyCuNDqe5VpaY84BzXGwVbwFA==
   dependencies:
     tslib "^2.4.0"
 
@@ -771,10 +771,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-10.0.0.tgz#f6b40472d96c210094a556ee5ccb8e77f1bd30af"
   integrity sha512-hAX0pT/73190NLqBPPWSdBVGtbY6VOhWYK3qqHqtXQ1gK7kS2yz4+ivsN07hpJ6I3aeMtKP6J6npsEKOAzuTLA==
 
-"@robhan-cdk-lib/utils@^0.0.226":
-  version "0.0.226"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.226.tgz#8da4365a284e0ae6cabee5480511855480f339d8"
-  integrity sha512-93shTNmrg2xYND4a/iXucobcNjQmbthKaag3ub0zgKuLSktHpK3iHt1F9OnqmVJi3ZAu697mHHa+75a93ZwBcA==
+"@robhan-cdk-lib/utils@^0.0.227":
+  version "0.0.227"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.227.tgz#a7b02f504969b16db648575cfaeb207a9ca63b05"
+  integrity sha512-Zu+5h/K684jAW+imZDIRcmOA6aU7W2a+Ql/Qv0GOVnf0eQOPB/FTCtdgnYmcOSAcA0dQFb2qEuwrDqS73jiPLg==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -2104,9 +2104,9 @@ dunder-proto@^1.0.0, dunder-proto@^1.0.1:
     gopd "^1.2.0"
 
 electron-to-chromium@^1.5.328:
-  version "1.5.338"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.338.tgz#7ca765a1fabed5e60b43c6f5e74363ecafcd3336"
-  integrity sha512-KVQQ3xko9/coDX3qXLUEEbqkKT8L+1DyAovrtu0Khtrt9wjSZ+7CZV4GVzxFy9Oe1NbrIU1oVXCwHJruIA1PNg==
+  version "1.5.339"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.339.tgz#d797bf5f222a7f6241a42b43a97bf52ff43947f1"
+  integrity sha512-Is+0BBHJ4NrdpAYiperrmp53pLywG/yV/6lIMTAnhxvzj/Cmn5Q/ogSHC6AKe7X+8kPLxxFk0cs5oc/3j/fxIg==
 
 emittery@^0.13.1:
   version "0.13.1"
@@ -4521,10 +4521,10 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-projen@^0.99.49:
-  version "0.99.49"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.99.49.tgz#4e4d3f78931e350d3923dd6fee1d780d9fb6ca37"
-  integrity sha512-lgJZdIkaLH5XEDju6mJkVaDRQEkqs78jsf5PSX+uepdbyjrYj7O5ZWg2ptlIxhkiiWR/RD5Uyzh2mTk3zmwsPw==
+projen@^0.99.50:
+  version "0.99.50"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.99.50.tgz#7bb1c570fb2dce152ba0110a4455bbfcb0f5f14d"
+  integrity sha512-PhF/mTHCAbGXBL7EBFBSRrt5fdQVayGw9WkJzgEnTwbSMGUJACX1dK5OnhZntuCkBnqR7wRLQZj4sSywKcCbAA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
