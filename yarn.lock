@@ -779,10 +779,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-10.0.0.tgz#f6b40472d96c210094a556ee5ccb8e77f1bd30af"
   integrity sha512-hAX0pT/73190NLqBPPWSdBVGtbY6VOhWYK3qqHqtXQ1gK7kS2yz4+ivsN07hpJ6I3aeMtKP6J6npsEKOAzuTLA==
 
-"@robhan-cdk-lib/utils@^0.0.237":
-  version "0.0.237"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.237.tgz#fcd872143b9bd3fea101bded915d17e8f8ddb9aa"
-  integrity sha512-mMblmKxc8lvKuGpLe/vkwkQeIYEzEuppeEUHntZU/yQKTZAlH1ZVHlM0adtRvgi1Bo5QgA4adaMUJi0vd7pTHA==
+"@robhan-cdk-lib/utils@^0.0.238":
+  version "0.0.238"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.238.tgz#4581afff76d5258946af3fa0d6794ff8d96962a5"
+  integrity sha512-QI7juNDQljGoN7Dr70cJZMhOmzT6MWvr5iNLgEfoCdNaNxcMcRsOKeiF+GPfgpWBBA/cKLFNxHe3uYvoiUyi9g==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -2112,9 +2112,9 @@ dunder-proto@^1.0.0, dunder-proto@^1.0.1:
     gopd "^1.2.0"
 
 electron-to-chromium@^1.5.328:
-  version "1.5.344"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.344.tgz#6437cc08a7d9b914a98120e182f37793c9eaffd4"
-  integrity sha512-4MxfbmNDm+KPh066EZy+eUnkcDPcZ35wNmOWzFuh/ijvHsve6kbLTLURy88uCNK5FbpN+yk2nQY6BYh1GEt+wg==
+  version "1.5.345"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.345.tgz#39d8f7cbc19350e5d7d94a471c111eb7326e8ef6"
+  integrity sha512-F9JXQGiMrz6yVNPI2qOVPvB9HzjH5cGzhs8oJ6A28V5L/YnzN/0KsuiibqF+F1Fd9qxFzD1BUnYSd8JfULxTwg==
 
 emittery@^0.13.1:
   version "0.13.1"
