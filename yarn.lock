@@ -777,10 +777,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-10.0.0.tgz#f6b40472d96c210094a556ee5ccb8e77f1bd30af"
   integrity sha512-hAX0pT/73190NLqBPPWSdBVGtbY6VOhWYK3qqHqtXQ1gK7kS2yz4+ivsN07hpJ6I3aeMtKP6J6npsEKOAzuTLA==
 
-"@robhan-cdk-lib/utils@^0.0.277":
-  version "0.0.277"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.277.tgz#fce7c2ab4fedd55ef741a273a9e64172d10061b8"
-  integrity sha512-DDj6QMnKrrlN6bNecp7qmaGDha8RLJisErw1OOyPgkgBv3q+uBrQgDM3ZuuG8DUvc8UtOYpFSOIld+XRci8Lhg==
+"@robhan-cdk-lib/utils@^0.0.278":
+  version "0.0.278"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.278.tgz#5444a545143cc61daa5668d56ae9c98cebf873df"
+  integrity sha512-F9XBEpa35C4aQAoFbrp9Xy3YAP1fY/mVrpC9YOQQ2PyTrxl1Ujq5RCuYUwYfYFNAzQq9L7Qr21eVVTq6bqLQsg==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -1488,9 +1488,9 @@ balanced-match@^4.0.2:
   integrity sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==
 
 baseline-browser-mapping@^2.10.12:
-  version "2.10.36"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.36.tgz#ff3c7c87095c70075b1ac787160fd4fc98750a74"
-  integrity sha512-lVq/Df7LXlO79MVaaUHztSwWiG9oXoWHlgvNS51v8Dpd4+G4/VIy6qYePTw31nAVls33nUtnfezYeLkYAak9dg==
+  version "2.10.37"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.37.tgz#3e636475b6b293244e2b23e2c71a2ab9d9e6ba7d"
+  integrity sha512-girxaJ7WZssDOFhzCGZTDKoTa1gk6A1TbflaYTpykLJ4UU9Fz9kx1aREM8JCuoVHbL8X8T/mJg7w2oYSq72Oig==
 
 brace-expansion@^1.1.7:
   version "1.1.15"
@@ -3743,9 +3743,9 @@ jsii-diff@^1.135.0:
     yargs "^17.7.2"
 
 jsii-docgen@^10.5.0:
-  version "10.11.24"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.11.24.tgz#509a3f2fca563db50ddea15c15b3c80b1214f806"
-  integrity sha512-Vqv0dCKVEjfEDUQxgbeE57GzHbfWBzAW8cts/CFMe0b661f/KSoDGGpjBvFxPamQQe9lY5JSgBd9r1O1DzkG9g==
+  version "10.12.0"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.12.0.tgz#92185793c6bd12a96b6b72f968e7bbead32f9605"
+  integrity sha512-uC7MsOl+1Gg2mvc3FuRnBaYNr8dLCQRqGXCij7WOzN9tfLGf/qqzXJvQKSmsvYCLXrYeJsCkSeN24RTpYFZiew==
   dependencies:
     "@jsii/spec" "^1.134.0"
     case "^1.6.3"
@@ -4561,10 +4561,10 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-projen@^0.99.73:
-  version "0.99.73"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.99.73.tgz#13273bfb277d9541f8c407870ceb971665f60521"
-  integrity sha512-n0uV14TAwQvZTQb1EInZAWVBfy2Tip5Nu9Q7suta1PK/7NjAQAGvl5DpGjRl/sUQshke+adDQezHY416MIY6tg==
+projen@^0.99.74:
+  version "0.99.74"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.99.74.tgz#d9a86aa97df57cd62bf6f96b55b4e7c65c571bfc"
+  integrity sha512-K2QfAqJukE7Cxu1FqxQqFkU6ihA7NL48/BD+6M9pVurUqaTFE50KiuL4JDTobcp6ZfaHuOggdmrcuUDPaT1f5w==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -4576,7 +4576,7 @@ projen@^0.99.73:
     fast-json-patch "^3.1.1"
     ini "^2.0.0"
     parse-conflict-json "^4.0.0"
-    semver "^7.8.3"
+    semver "^7.8.4"
     shx "^0.4.0"
     xmlbuilder2 "^4.0.3"
     yaml "^2.2.2"
@@ -4858,7 +4858,7 @@ semver@^6.3.0, semver@^6.3.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.1.tgz#556d2ef8689146e46dcea4bfdd095f3434dffcb4"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
-semver@^7.0.0, semver@^7.3.4, semver@^7.5.3, semver@^7.5.4, semver@^7.7.1, semver@^7.7.2, semver@^7.7.3, semver@^7.7.4, semver@^7.8.0, semver@^7.8.1, semver@^7.8.2, semver@^7.8.3:
+semver@^7.0.0, semver@^7.3.4, semver@^7.5.3, semver@^7.5.4, semver@^7.7.1, semver@^7.7.2, semver@^7.7.3, semver@^7.7.4, semver@^7.8.0, semver@^7.8.1, semver@^7.8.2, semver@^7.8.3, semver@^7.8.4:
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.8.4.tgz#c73eceebae0616934be8dff28a7fd70757c8e696"
   integrity sha512-rUCObTnP32Q08R2uuIrt7r9PlEonuTmtuXYcW6s5kjdlj3xbnwe+21yXptAUYcMAABLkYYTtnmzb3w3EDZfueA==
