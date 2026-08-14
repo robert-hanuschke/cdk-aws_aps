@@ -765,10 +765,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-10.0.0.tgz#f6b40472d96c210094a556ee5ccb8e77f1bd30af"
   integrity sha512-hAX0pT/73190NLqBPPWSdBVGtbY6VOhWYK3qqHqtXQ1gK7kS2yz4+ivsN07hpJ6I3aeMtKP6J6npsEKOAzuTLA==
 
-"@robhan-cdk-lib/utils@^0.0.317":
-  version "0.0.317"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.317.tgz#9a9557565d87657005fc42a8a00eca8072a717e5"
-  integrity sha512-guiKnKnETRXFjqncArSZI3AiWiec38T9vzHXEz6SalRRuiGqry7X7Zyn706zExuokDF5npGGFtpYhzSud/aGbQ==
+"@robhan-cdk-lib/utils@^0.0.319":
+  version "0.0.319"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.319.tgz#1771d7c10d08f0c2154c4f7e00c8b8c25774f1a0"
+  integrity sha512-FG7ahIdl26fHqYWMoEneSIkaJY9+HH2B6GO0TlplErJ7aUJ7dYpGE4h4RIQjbdUXJrTl5+03GmiHleeNHkNW2w==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -1476,9 +1476,9 @@ balanced-match@^4.0.2:
   integrity sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==
 
 baseline-browser-mapping@^2.11.12:
-  version "2.11.13"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.11.13.tgz#660073103c1bee93e54df55f117b7528adf6af19"
-  integrity sha512-k9HNuUVMlqVjQ9UHzfPjIqiDbWw7WqT1AoT7GL8VwvF3r0ZfArtgiSPAlmupyNquNgOJHTuH4CKYf8ttMTWBTQ==
+  version "2.11.14"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.11.14.tgz#d51bb92285608b0e6356841a2eea76842a771d52"
+  integrity sha512-JyJ954WzuIR8/FFzX0o5krdSTrBAkcCSRfWSleRsIHSWV+cZe2FI1PKggVkFke1hBldRs+LRxUczzE9iPmgZww==
 
 brace-expansion@^1.1.7:
   version "1.1.18"
