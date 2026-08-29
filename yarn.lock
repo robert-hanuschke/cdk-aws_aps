@@ -778,10 +778,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-10.0.0.tgz#f6b40472d96c210094a556ee5ccb8e77f1bd30af"
   integrity sha512-hAX0pT/73190NLqBPPWSdBVGtbY6VOhWYK3qqHqtXQ1gK7kS2yz4+ivsN07hpJ6I3aeMtKP6J6npsEKOAzuTLA==
 
-"@robhan-cdk-lib/utils@^0.0.326":
-  version "0.0.326"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.326.tgz#3c086d453deb848501438dc3c9e3dd3cfa25f9e6"
-  integrity sha512-e2yO0mHJMg91sOcHmL7MlS18yQt3JdpdePlkKwbrh4Frba6foCAykUGeU/1zVkTR/+oQsqgPhn7m0MOfq1bC7A==
+"@robhan-cdk-lib/utils@^0.0.328":
+  version "0.0.328"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.328.tgz#2a3ad4922bf76f60f37e7263a104d34259001eac"
+  integrity sha512-zn3ov7u2iNl07NkuL+/AyUiNJYpB9DJhHahE5ah1OaxWhchk/hHIQWj1Oqi71r1979YDTX3yEMJKnIlE5l9mYA==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -4524,10 +4524,10 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-projen@^0.103.6:
-  version "0.103.6"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.103.6.tgz#6430d635eed7a6a1f20f0dfe4888a7982c849876"
-  integrity sha512-mHg0tMrMuJAubX/Q0V6XFkGEQ8SpCeNKzPZwEvNR38iyN0jhGniRBuF9/QN7HqK6KhXUYrwV7Edzg7l4tx4Tww==
+projen@^0.103.10:
+  version "0.103.10"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.103.10.tgz#19dacabbd90abad7588b54a6774e58dbad9c820d"
+  integrity sha512-CiX+VsdvGWvWb9qpMUhZm3MyNV0CSPuUT7bkBNsFcRr65NywSpdQ2MkKtfaht683C+wB8AVYWyfPxF+k1vja/w==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
