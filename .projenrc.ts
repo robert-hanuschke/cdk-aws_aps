@@ -7,17 +7,18 @@ const project = new awscdk.AwsCdkConstructLibrary({
     secret: 'GITHUB_TOKEN',
   },
   autoApproveUpgrades: true,
-  cdkVersion: '2.243.0',
+  cdkVersion: '2.273.0',
   defaultReleaseBranch: 'main',
-  deps: [
-    '@robhan-cdk-lib/utils',
-  ],
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve'],
     },
   },
   description: 'AWS CDK Construct Library for Amazon Managed Service for Prometheus',
+  devDeps: [
+    '@aws-cdk/integ-runner@2.205.6',
+    '@aws-cdk/integ-tests-alpha@2.273.0-alpha.0',
+  ],
   jsiiVersion: '~5.9.0',
   keywords: ['Prometheus', 'Amazon Managed Service for Prometheus', 'aps'],
   license: 'MIT',
@@ -44,6 +45,34 @@ const project = new awscdk.AwsCdkConstructLibrary({
   },
   repositoryUrl: 'https://github.com/robert-hanuschke/cdk-aws_aps',
 });
+
+project.gitignore.addPatterns('.jsii.tabl.json');
+project.gitattributes.addAttributes(
+  '/test/integ.*.snapshot/asset.*/**',
+  '-diff',
+  'linguist-generated',
+);
+project.testTask.exec('tsc --project test/tsconfig.json --noEmit');
+
+const strictRosettaTask = project.addTask('rosetta:strict', {
+  description: 'Compile documentation examples in strict mode',
+});
+strictRosettaTask.exec('jsii-rosetta extract .jsii --strict --cleanup');
+project.postCompileTask.spawn(strictRosettaTask);
+
+const integTask = project.addTask('integ', {
+  description: 'Deploy the integration test in a non-production AWS account',
+});
+integTask.exec(
+  'integ-runner --force --language typescript --parallel-regions us-east-1 --max-workers 1 --strict test/integ.workspace.ts',
+);
+
+const integSnapshotTask = project.addTask('integ:snapshot', {
+  description: 'Update the integration snapshot without deploying',
+});
+integSnapshotTask.exec(
+  'integ-runner --dry-run --language typescript --parallel-regions us-east-1 --max-workers 1 --strict --update-on-failed test/integ.workspace.ts',
+);
 
 const releaseWorkflow = project.github?.tryFindWorkflow('release');
 

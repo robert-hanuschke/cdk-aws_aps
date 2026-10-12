@@ -4,6 +4,10 @@
 
 ### AnomalyDetector <a name="AnomalyDetector" id="@robhan-cdk-lib/aws_aps.AnomalyDetector"></a>
 
+- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector">IAnomalyDetector</a>
+
+An Amazon Managed Service for Prometheus anomaly detector.
+
 #### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.Initializer"></a>
 
 ```typescript
@@ -44,6 +48,7 @@ new AnomalyDetector(scope: Construct, id: string, props: AnomalyDetectorProps)
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -72,6 +77,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -104,7 +131,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.isAnomalyDetector">isAnomalyDetector</a></code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.fromAnomalyDetectorArn">fromAnomalyDetectorArn</a></code> | Reference an existing anomaly detector by ARN. |
 
 ---
 
@@ -172,17 +199,31 @@ Check whether the given construct is a Resource.
 
 ---
 
-##### `isAnomalyDetector` <a name="isAnomalyDetector" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.isAnomalyDetector"></a>
+##### `fromAnomalyDetectorArn` <a name="fromAnomalyDetectorArn" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.fromAnomalyDetectorArn"></a>
 
 ```typescript
 import { AnomalyDetector } from '@robhan-cdk-lib/aws_aps'
 
-AnomalyDetector.isAnomalyDetector(x: any)
+AnomalyDetector.fromAnomalyDetectorArn(scope: Construct, id: string, anomalyDetectorArn: string)
 ```
 
-###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.isAnomalyDetector.parameter.x"></a>
+Reference an existing anomaly detector by ARN.
 
-- *Type:* any
+###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.fromAnomalyDetectorArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.fromAnomalyDetectorArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `anomalyDetectorArn`<sup>Required</sup> <a name="anomalyDetectorArn" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.fromAnomalyDetectorArn.parameter.anomalyDetectorArn"></a>
+
+- *Type:* string
 
 ---
 
@@ -193,13 +234,8 @@ AnomalyDetector.isAnomalyDetector(x: any)
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.alias">alias</a></code> | <code>string</code> | The user-friendly name of the anomaly detector. 1 to 64 characters length. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.anomalyDetectorArn">anomalyDetectorArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.configuration">configuration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a></code> | The algorithm configuration of the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.evaluationIntervalInSeconds">evaluationIntervalInSeconds</a></code> | <code>number</code> | The frequency, in seconds, at which the anomaly detector evaluates metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.labels">labels</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]</code> | The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.missingDataAction">missingDataAction</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a></code> | The action taken when data is missing during evaluation. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.anomalyDetectorArn">anomalyDetectorArn</a></code> | <code>string</code> | The ARN of the anomaly detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector.property.anomalyDetectorRef">anomalyDetectorRef</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.AnomalyDetectorReference</code> | A reference to a AnomalyDetector resource. |
 
 ---
 
@@ -247,21 +283,6 @@ The stack in which this resource is defined.
 
 ---
 
-##### `alias`<sup>Required</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.alias"></a>
-
-```typescript
-public readonly alias: string;
-```
-
-- *Type:* string
-
-The user-friendly name of the anomaly detector. 1 to 64 characters length.
-
-Minimum length of 1. Maximum length of 64.
-Pattern: [0-9A-Za-z][-.0-9A-Z_a-z]*
-
----
-
 ##### `anomalyDetectorArn`<sup>Required</sup> <a name="anomalyDetectorArn" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.anomalyDetectorArn"></a>
 
 ```typescript
@@ -270,406 +291,28 @@ public readonly anomalyDetectorArn: string;
 
 - *Type:* string
 
-The Amazon Resource Name (ARN) of the anomaly detector.
+The ARN of the anomaly detector.
 
 ---
 
-##### `configuration`<sup>Required</sup> <a name="configuration" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.configuration"></a>
+##### `anomalyDetectorRef`<sup>Required</sup> <a name="anomalyDetectorRef" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.anomalyDetectorRef"></a>
 
 ```typescript
-public readonly configuration: AnomalyDetectorConfiguration;
+public readonly anomalyDetectorRef: AnomalyDetectorReference;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a>
+- *Type:* aws-cdk-lib.interfaces.aws_aps.AnomalyDetectorReference
 
-The algorithm configuration of the anomaly detector.
-
----
-
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.workspace"></a>
-
-```typescript
-public readonly workspace: IWorkspace;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
-
----
-
-##### `evaluationIntervalInSeconds`<sup>Optional</sup> <a name="evaluationIntervalInSeconds" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.evaluationIntervalInSeconds"></a>
-
-```typescript
-public readonly evaluationIntervalInSeconds: number;
-```
-
-- *Type:* number
-
-The frequency, in seconds, at which the anomaly detector evaluates metrics.
-
-Minimum value of 30. Maximum value of 86400.
-
----
-
-##### `labels`<sup>Optional</sup> <a name="labels" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.labels"></a>
-
-```typescript
-public readonly labels: Label[];
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]
-
-The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
-
-Map Entries: Minimum number of 0 items. Maximum number of 140 items.
-Key Length Constraints: Minimum length of 1. Maximum length of 7168.
-Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
-Value Length Constraints: Minimum length of 1. Maximum length of 7168.
-
----
-
-##### `missingDataAction`<sup>Optional</sup> <a name="missingDataAction" id="@robhan-cdk-lib/aws_aps.AnomalyDetector.property.missingDataAction"></a>
-
-```typescript
-public readonly missingDataAction: MissingDataAction;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a>
-
-The action taken when data is missing during evaluation.
-
----
-
-
-### AnomalyDetectorBase <a name="AnomalyDetectorBase" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase"></a>
-
-- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector">IAnomalyDetector</a>
-
-#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer"></a>
-
-```typescript
-import { AnomalyDetectorBase } from '@robhan-cdk-lib/aws_aps'
-
-new AnomalyDetectorBase(scope: Construct, id: string, props?: ResourceProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.ResourceProps</code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Optional</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.Initializer.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.ResourceProps
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.with">with</a></code> | Applies one or more mixins to this construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-
----
-
-##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.with"></a>
-
-```typescript
-public with(mixins: ...IMixin[]): IConstruct
-```
-
-Applies one or more mixins to this construct.
-
-Mixins are applied in order. The list of constructs is captured at the
-start of the call, so constructs added by a mixin will not be visited.
-Use multiple `with()` calls if subsequent mixins should apply to added
-constructs.
-
-###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.with.parameter.mixins"></a>
-
-- *Type:* ...constructs.IMixin[]
-
----
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-
----
-
-##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isConstruct"></a>
-
-```typescript
-import { AnomalyDetectorBase } from '@robhan-cdk-lib/aws_aps'
-
-AnomalyDetectorBase.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
-
-###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isOwnedResource"></a>
-
-```typescript
-import { AnomalyDetectorBase } from '@robhan-cdk-lib/aws_aps'
-
-AnomalyDetectorBase.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isResource"></a>
-
-```typescript
-import { AnomalyDetectorBase } from '@robhan-cdk-lib/aws_aps'
-
-AnomalyDetectorBase.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.alias">alias</a></code> | <code>string</code> | The user-friendly name of the anomaly detector. 1 to 64 characters length. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.anomalyDetectorArn">anomalyDetectorArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.configuration">configuration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a></code> | The algorithm configuration of the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.evaluationIntervalInSeconds">evaluationIntervalInSeconds</a></code> | <code>number</code> | The frequency, in seconds, at which the anomaly detector evaluates metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.labels">labels</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]</code> | The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.missingDataAction">missingDataAction</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a></code> | The action taken when data is missing during evaluation. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed in a Stack (those created by
-creating new class instances like `new Role()`, `new Bucket()`, etc.), this
-is always the same as the environment of the stack they belong to.
-
-For referenced resources (those obtained from referencing methods like
-`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
-different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `alias`<sup>Required</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.alias"></a>
-
-```typescript
-public readonly alias: string;
-```
-
-- *Type:* string
-
-The user-friendly name of the anomaly detector. 1 to 64 characters length.
-
-Minimum length of 1. Maximum length of 64.
-Pattern: [0-9A-Za-z][-.0-9A-Z_a-z]*
-
----
-
-##### `anomalyDetectorArn`<sup>Required</sup> <a name="anomalyDetectorArn" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.anomalyDetectorArn"></a>
-
-```typescript
-public readonly anomalyDetectorArn: string;
-```
-
-- *Type:* string
-
-The Amazon Resource Name (ARN) of the anomaly detector.
-
----
-
-##### `configuration`<sup>Required</sup> <a name="configuration" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.configuration"></a>
-
-```typescript
-public readonly configuration: AnomalyDetectorConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a>
-
-The algorithm configuration of the anomaly detector.
-
----
-
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.workspace"></a>
-
-```typescript
-public readonly workspace: IWorkspace;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
-
----
-
-##### `evaluationIntervalInSeconds`<sup>Optional</sup> <a name="evaluationIntervalInSeconds" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.evaluationIntervalInSeconds"></a>
-
-```typescript
-public readonly evaluationIntervalInSeconds: number;
-```
-
-- *Type:* number
-
-The frequency, in seconds, at which the anomaly detector evaluates metrics.
-
-Minimum value of 30. Maximum value of 86400.
-
----
-
-##### `labels`<sup>Optional</sup> <a name="labels" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.labels"></a>
-
-```typescript
-public readonly labels: Label[];
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]
-
-The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
-
-Map Entries: Minimum number of 0 items. Maximum number of 140 items.
-Key Length Constraints: Minimum length of 1. Maximum length of 7168.
-Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
-Value Length Constraints: Minimum length of 1. Maximum length of 7168.
-
----
-
-##### `missingDataAction`<sup>Optional</sup> <a name="missingDataAction" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorBase.property.missingDataAction"></a>
-
-```typescript
-public readonly missingDataAction: MissingDataAction;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a>
-
-The action taken when data is missing during evaluation.
+A reference to a AnomalyDetector resource.
 
 ---
 
 
 ### ResourcePolicy <a name="ResourcePolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicy"></a>
+
+- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy">IResourcePolicy</a>
+
+A resource-based policy attached to an Amazon Managed Service for Prometheus workspace.
 
 #### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.Initializer"></a>
 
@@ -711,6 +354,7 @@ new ResourcePolicy(scope: Construct, id: string, props: ResourcePolicyProps)
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -739,6 +383,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -771,7 +437,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.isResourcePolicy">isResourcePolicy</a></code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.fromWorkspaceArn">fromWorkspaceArn</a></code> | Reference an existing resource policy by the ARN of its workspace. |
 
 ---
 
@@ -839,17 +505,31 @@ Check whether the given construct is a Resource.
 
 ---
 
-##### `isResourcePolicy` <a name="isResourcePolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.isResourcePolicy"></a>
+##### `fromWorkspaceArn` <a name="fromWorkspaceArn" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.fromWorkspaceArn"></a>
 
 ```typescript
 import { ResourcePolicy } from '@robhan-cdk-lib/aws_aps'
 
-ResourcePolicy.isResourcePolicy(x: any)
+ResourcePolicy.fromWorkspaceArn(scope: Construct, id: string, workspaceArn: string)
 ```
 
-###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.isResourcePolicy.parameter.x"></a>
+Reference an existing resource policy by the ARN of its workspace.
 
-- *Type:* any
+###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.fromWorkspaceArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.fromWorkspaceArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `workspaceArn`<sup>Required</sup> <a name="workspaceArn" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.fromWorkspaceArn.parameter.workspaceArn"></a>
+
+- *Type:* string
 
 ---
 
@@ -860,8 +540,9 @@ ResourcePolicy.isResourcePolicy(x: any)
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.policyDocument">policyDocument</a></code> | <code>string</code> | The JSON to use as the Resource-based Policy. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to attach the policy to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.policyDocument">policyDocument</a></code> | <code>aws-cdk-lib.aws_iam.PolicyDocument</code> | The policy document rendered by this resource. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.resourcePolicyRef">resourcePolicyRef</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.ResourcePolicyReference</code> | A reference to a ResourcePolicy resource. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The ARN of the workspace protected by the policy. |
 
 ---
 
@@ -912,286 +593,45 @@ The stack in which this resource is defined.
 ##### `policyDocument`<sup>Required</sup> <a name="policyDocument" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.property.policyDocument"></a>
 
 ```typescript
-public readonly policyDocument: string;
+public readonly policyDocument: PolicyDocument;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyDocument
+
+The policy document rendered by this resource.
+
+---
+
+##### `resourcePolicyRef`<sup>Required</sup> <a name="resourcePolicyRef" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.property.resourcePolicyRef"></a>
+
+```typescript
+public readonly resourcePolicyRef: ResourcePolicyReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_aps.ResourcePolicyReference
+
+A reference to a ResourcePolicy resource.
+
+---
+
+##### `workspaceArn`<sup>Required</sup> <a name="workspaceArn" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.property.workspaceArn"></a>
+
+```typescript
+public readonly workspaceArn: string;
 ```
 
 - *Type:* string
 
-The JSON to use as the Resource-based Policy.
-
----
-
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.ResourcePolicy.property.workspace"></a>
-
-```typescript
-public readonly workspace: IWorkspace;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-The workspace to attach the policy to.
-
----
-
-
-### ResourcePolicyBase <a name="ResourcePolicyBase" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase"></a>
-
-- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy">IResourcePolicy</a>
-
-#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer"></a>
-
-```typescript
-import { ResourcePolicyBase } from '@robhan-cdk-lib/aws_aps'
-
-new ResourcePolicyBase(scope: Construct, id: string, props?: ResourceProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.ResourceProps</code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Optional</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.Initializer.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.ResourceProps
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.with">with</a></code> | Applies one or more mixins to this construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-
----
-
-##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.with"></a>
-
-```typescript
-public with(mixins: ...IMixin[]): IConstruct
-```
-
-Applies one or more mixins to this construct.
-
-Mixins are applied in order. The list of constructs is captured at the
-start of the call, so constructs added by a mixin will not be visited.
-Use multiple `with()` calls if subsequent mixins should apply to added
-constructs.
-
-###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.with.parameter.mixins"></a>
-
-- *Type:* ...constructs.IMixin[]
-
----
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-
----
-
-##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isConstruct"></a>
-
-```typescript
-import { ResourcePolicyBase } from '@robhan-cdk-lib/aws_aps'
-
-ResourcePolicyBase.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
-
-###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isOwnedResource"></a>
-
-```typescript
-import { ResourcePolicyBase } from '@robhan-cdk-lib/aws_aps'
-
-ResourcePolicyBase.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isResource"></a>
-
-```typescript
-import { ResourcePolicyBase } from '@robhan-cdk-lib/aws_aps'
-
-ResourcePolicyBase.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.policyDocument">policyDocument</a></code> | <code>string</code> | The JSON to use as the Resource-based Policy. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to attach the policy to. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed in a Stack (those created by
-creating new class instances like `new Role()`, `new Bucket()`, etc.), this
-is always the same as the environment of the stack they belong to.
-
-For referenced resources (those obtained from referencing methods like
-`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
-different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `policyDocument`<sup>Required</sup> <a name="policyDocument" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.policyDocument"></a>
-
-```typescript
-public readonly policyDocument: string;
-```
-
-- *Type:* string
-
-The JSON to use as the Resource-based Policy.
-
----
-
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.ResourcePolicyBase.property.workspace"></a>
-
-```typescript
-public readonly workspace: IWorkspace;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-The workspace to attach the policy to.
+The ARN of the workspace protected by the policy.
 
 ---
 
 
 ### RuleGroupsNamespace <a name="RuleGroupsNamespace" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace"></a>
 
-The definition of a rule groups namespace in an Amazon Managed Service for Prometheus workspace.
+- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace">IRuleGroupsNamespace</a>
 
-A rule groups namespace is associated with exactly one rules file. A workspace can have multiple
-rule groups namespaces.
+An Amazon Managed Service for Prometheus rule groups namespace.
 
 #### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.Initializer"></a>
 
@@ -1233,6 +673,7 @@ new RuleGroupsNamespace(scope: Construct, id: string, props: RuleGroupsNamespace
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -1261,6 +702,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -1293,8 +756,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceAttributes">fromRuleGroupsNamespaceAttributes</a></code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isRuleGroupsNamespace">isRuleGroupsNamespace</a></code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn">fromRuleGroupsNamespaceArn</a></code> | Reference an existing rule groups namespace by ARN. |
 
 ---
 
@@ -1362,43 +824,31 @@ Check whether the given construct is a Resource.
 
 ---
 
-##### `fromRuleGroupsNamespaceAttributes` <a name="fromRuleGroupsNamespaceAttributes" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceAttributes"></a>
+##### `fromRuleGroupsNamespaceArn` <a name="fromRuleGroupsNamespaceArn" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn"></a>
 
 ```typescript
 import { RuleGroupsNamespace } from '@robhan-cdk-lib/aws_aps'
 
-RuleGroupsNamespace.fromRuleGroupsNamespaceAttributes(scope: Construct, id: string, attrs: RuleGroupsNamespaceAttributes)
+RuleGroupsNamespace.fromRuleGroupsNamespaceArn(scope: Construct, id: string, ruleGroupsNamespaceArn: string)
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceAttributes.parameter.scope"></a>
+Reference an existing rule groups namespace by ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceAttributes.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-###### `attrs`<sup>Required</sup> <a name="attrs" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceAttributes.parameter.attrs"></a>
+###### `ruleGroupsNamespaceArn`<sup>Required</sup> <a name="ruleGroupsNamespaceArn" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn.parameter.ruleGroupsNamespaceArn"></a>
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes">RuleGroupsNamespaceAttributes</a>
-
----
-
-##### `isRuleGroupsNamespace` <a name="isRuleGroupsNamespace" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isRuleGroupsNamespace"></a>
-
-```typescript
-import { RuleGroupsNamespace } from '@robhan-cdk-lib/aws_aps'
-
-RuleGroupsNamespace.isRuleGroupsNamespace(x: any)
-```
-
-###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.isRuleGroupsNamespace.parameter.x"></a>
-
-- *Type:* any
+- *Type:* string
 
 ---
 
@@ -1409,10 +859,8 @@ RuleGroupsNamespace.isRuleGroupsNamespace(x: any)
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.data">data</a></code> | <code>string</code> | The rules file used in the namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.name">name</a></code> | <code>string</code> | The name of the rule groups namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.ruleGroupsNamespaceArn">ruleGroupsNamespaceArn</a></code> | <code>string</code> | The workspace to add the rule groups namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to add the rule groups namespace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.ruleGroupsNamespaceArn">ruleGroupsNamespaceArn</a></code> | <code>string</code> | The ARN of the rule groups namespace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.ruleGroupsNamespaceRef">ruleGroupsNamespaceRef</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.RuleGroupsNamespaceReference</code> | A reference to a RuleGroupsNamespace resource. |
 
 ---
 
@@ -1460,309 +908,7 @@ The stack in which this resource is defined.
 
 ---
 
-##### `data`<sup>Required</sup> <a name="data" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.data"></a>
-
-```typescript
-public readonly data: string;
-```
-
-- *Type:* string
-
-The rules file used in the namespace.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-The name of the rule groups namespace.
-
----
-
 ##### `ruleGroupsNamespaceArn`<sup>Required</sup> <a name="ruleGroupsNamespaceArn" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.ruleGroupsNamespaceArn"></a>
-
-```typescript
-public readonly ruleGroupsNamespaceArn: string;
-```
-
-- *Type:* string
-
-The workspace to add the rule groups namespace.
-
----
-
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.workspace"></a>
-
-```typescript
-public readonly workspace: IWorkspace;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-The workspace to add the rule groups namespace.
-
----
-
-
-### RuleGroupsNamespaceBase <a name="RuleGroupsNamespaceBase" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase"></a>
-
-- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace">IRuleGroupsNamespace</a>
-
-#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.Initializer"></a>
-
-```typescript
-import { RuleGroupsNamespaceBase } from '@robhan-cdk-lib/aws_aps'
-
-new RuleGroupsNamespaceBase(scope: Construct, id: string, props?: ResourceProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.ResourceProps</code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Optional</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.Initializer.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.ResourceProps
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.with">with</a></code> | Applies one or more mixins to this construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-
----
-
-##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.with"></a>
-
-```typescript
-public with(mixins: ...IMixin[]): IConstruct
-```
-
-Applies one or more mixins to this construct.
-
-Mixins are applied in order. The list of constructs is captured at the
-start of the call, so constructs added by a mixin will not be visited.
-Use multiple `with()` calls if subsequent mixins should apply to added
-constructs.
-
-###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.with.parameter.mixins"></a>
-
-- *Type:* ...constructs.IMixin[]
-
----
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-
----
-
-##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isConstruct"></a>
-
-```typescript
-import { RuleGroupsNamespaceBase } from '@robhan-cdk-lib/aws_aps'
-
-RuleGroupsNamespaceBase.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
-
-###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isOwnedResource"></a>
-
-```typescript
-import { RuleGroupsNamespaceBase } from '@robhan-cdk-lib/aws_aps'
-
-RuleGroupsNamespaceBase.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isResource"></a>
-
-```typescript
-import { RuleGroupsNamespaceBase } from '@robhan-cdk-lib/aws_aps'
-
-RuleGroupsNamespaceBase.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.data">data</a></code> | <code>string</code> | The rules file used in the namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.name">name</a></code> | <code>string</code> | The name of the rule groups namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.ruleGroupsNamespaceArn">ruleGroupsNamespaceArn</a></code> | <code>string</code> | The ARN of the rule groups namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to add the rule groups namespace. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed in a Stack (those created by
-creating new class instances like `new Role()`, `new Bucket()`, etc.), this
-is always the same as the environment of the stack they belong to.
-
-For referenced resources (those obtained from referencing methods like
-`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
-different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `data`<sup>Required</sup> <a name="data" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.data"></a>
-
-```typescript
-public readonly data: string;
-```
-
-- *Type:* string
-
-The rules file used in the namespace.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-The name of the rule groups namespace.
-
----
-
-##### `ruleGroupsNamespaceArn`<sup>Required</sup> <a name="ruleGroupsNamespaceArn" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.ruleGroupsNamespaceArn"></a>
 
 ```typescript
 public readonly ruleGroupsNamespaceArn: string;
@@ -1774,20 +920,24 @@ The ARN of the rule groups namespace.
 
 ---
 
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase.property.workspace"></a>
+##### `ruleGroupsNamespaceRef`<sup>Required</sup> <a name="ruleGroupsNamespaceRef" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace.property.ruleGroupsNamespaceRef"></a>
 
 ```typescript
-public readonly workspace: IWorkspace;
+public readonly ruleGroupsNamespaceRef: RuleGroupsNamespaceReference;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+- *Type:* aws-cdk-lib.interfaces.aws_aps.RuleGroupsNamespaceReference
 
-The workspace to add the rule groups namespace.
+A reference to a RuleGroupsNamespace resource.
 
 ---
 
 
 ### Scraper <a name="Scraper" id="@robhan-cdk-lib/aws_aps.Scraper"></a>
+
+- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IScraper">IScraper</a>
+
+An Amazon Managed Service for Prometheus scraper.
 
 #### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.Scraper.Initializer"></a>
 
@@ -1829,6 +979,7 @@ new Scraper(scope: Construct, id: string, props: ScraperProps)
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -1857,6 +1008,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.Scraper.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@robhan-cdk-lib/aws_aps.Scraper.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@robhan-cdk-lib/aws_aps.Scraper.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -1889,8 +1062,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.fromScraperAttributes">fromScraperAttributes</a></code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.isScraper">isScraper</a></code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.fromScraperArn">fromScraperArn</a></code> | Reference an existing scraper by ARN. |
 
 ---
 
@@ -1958,43 +1130,31 @@ Check whether the given construct is a Resource.
 
 ---
 
-##### `fromScraperAttributes` <a name="fromScraperAttributes" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperAttributes"></a>
+##### `fromScraperArn` <a name="fromScraperArn" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperArn"></a>
 
 ```typescript
 import { Scraper } from '@robhan-cdk-lib/aws_aps'
 
-Scraper.fromScraperAttributes(scope: Construct, id: string, attrs: ScraperAttributes)
+Scraper.fromScraperArn(scope: Construct, id: string, scraperArn: string)
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperAttributes.parameter.scope"></a>
+Reference an existing scraper by ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperArn.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperAttributes.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperArn.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-###### `attrs`<sup>Required</sup> <a name="attrs" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperAttributes.parameter.attrs"></a>
+###### `scraperArn`<sup>Required</sup> <a name="scraperArn" id="@robhan-cdk-lib/aws_aps.Scraper.fromScraperArn.parameter.scraperArn"></a>
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes">ScraperAttributes</a>
-
----
-
-##### `isScraper` <a name="isScraper" id="@robhan-cdk-lib/aws_aps.Scraper.isScraper"></a>
-
-```typescript
-import { Scraper } from '@robhan-cdk-lib/aws_aps'
-
-Scraper.isScraper(x: any)
-```
-
-###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.Scraper.isScraper.parameter.x"></a>
-
-- *Type:* any
+- *Type:* string
 
 ---
 
@@ -2005,13 +1165,10 @@ Scraper.isScraper(x: any)
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.scraperArn">scraperArn</a></code> | <code>string</code> | The ARN of the scraper. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.scraperId">scraperId</a></code> | <code>string</code> | The ID of the scraper. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Source">Source</a></code> | The Amazon EKS cluster from which the scraper collects metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.alias">alias</a></code> | <code>string</code> | An optional user-assigned scraper alias. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a></code> | The role configuration in an Amazon Managed Service for Prometheus scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.scraperId">scraperId</a></code> | <code>string</code> | The unique ID of the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.scraperRef">scraperRef</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.ScraperReference</code> | A reference to a Scraper resource. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Scraper.property.scraperRoleArn">scraperRoleArn</a></code> | <code>string</code> | The ARN of the service-created scraper role. |
 
 ---
 
@@ -2059,30 +1216,6 @@ The stack in which this resource is defined.
 
 ---
 
-##### `destination`<sup>Required</sup> <a name="destination" id="@robhan-cdk-lib/aws_aps.Scraper.property.destination"></a>
-
-```typescript
-public readonly destination: Destination;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a>
-
-The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
-
----
-
-##### `scrapeConfiguration`<sup>Required</sup> <a name="scrapeConfiguration" id="@robhan-cdk-lib/aws_aps.Scraper.property.scrapeConfiguration"></a>
-
-```typescript
-public readonly scrapeConfiguration: ScrapeConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a>
-
-The configuration in use by the scraper.
-
----
-
 ##### `scraperArn`<sup>Required</sup> <a name="scraperArn" id="@robhan-cdk-lib/aws_aps.Scraper.property.scraperArn"></a>
 
 ```typescript
@@ -2103,376 +1236,50 @@ public readonly scraperId: string;
 
 - *Type:* string
 
-The ID of the scraper.
+The unique ID of the scraper.
 
 ---
 
-##### `source`<sup>Required</sup> <a name="source" id="@robhan-cdk-lib/aws_aps.Scraper.property.source"></a>
+##### `scraperRef`<sup>Required</sup> <a name="scraperRef" id="@robhan-cdk-lib/aws_aps.Scraper.property.scraperRef"></a>
 
 ```typescript
-public readonly source: Source;
+public readonly scraperRef: ScraperReference;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Source">Source</a>
+- *Type:* aws-cdk-lib.interfaces.aws_aps.ScraperReference
 
-The Amazon EKS cluster from which the scraper collects metrics.
+A reference to a Scraper resource.
 
 ---
 
-##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.Scraper.property.alias"></a>
+##### `scraperRoleArn`<sup>Required</sup> <a name="scraperRoleArn" id="@robhan-cdk-lib/aws_aps.Scraper.property.scraperRoleArn"></a>
 
 ```typescript
-public readonly alias: string;
-```
-
-- *Type:* string
-
-An optional user-assigned scraper alias.
-
----
-
-##### `roleConfiguration`<sup>Optional</sup> <a name="roleConfiguration" id="@robhan-cdk-lib/aws_aps.Scraper.property.roleConfiguration"></a>
-
-```typescript
-public readonly roleConfiguration: RoleConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a>
-
-The role configuration in an Amazon Managed Service for Prometheus scraper.
-
----
-
-
-### ScraperBase <a name="ScraperBase" id="@robhan-cdk-lib/aws_aps.ScraperBase"></a>
-
-- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IScraper">IScraper</a>
-
-#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.ScraperBase.Initializer"></a>
-
-```typescript
-import { ScraperBase } from '@robhan-cdk-lib/aws_aps'
-
-new ScraperBase(scope: Construct, id: string, props?: ResourceProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.ResourceProps</code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Optional</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.ScraperBase.Initializer.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.ResourceProps
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.with">with</a></code> | Applies one or more mixins to this construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-
----
-
-##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.ScraperBase.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.ScraperBase.with"></a>
-
-```typescript
-public with(mixins: ...IMixin[]): IConstruct
-```
-
-Applies one or more mixins to this construct.
-
-Mixins are applied in order. The list of constructs is captured at the
-start of the call, so constructs added by a mixin will not be visited.
-Use multiple `with()` calls if subsequent mixins should apply to added
-constructs.
-
-###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.ScraperBase.with.parameter.mixins"></a>
-
-- *Type:* ...constructs.IMixin[]
-
----
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.ScraperBase.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.ScraperBase.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-
----
-
-##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.ScraperBase.isConstruct"></a>
-
-```typescript
-import { ScraperBase } from '@robhan-cdk-lib/aws_aps'
-
-ScraperBase.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
-
-###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.ScraperBase.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.ScraperBase.isOwnedResource"></a>
-
-```typescript
-import { ScraperBase } from '@robhan-cdk-lib/aws_aps'
-
-ScraperBase.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.ScraperBase.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.ScraperBase.isResource"></a>
-
-```typescript
-import { ScraperBase } from '@robhan-cdk-lib/aws_aps'
-
-ScraperBase.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.ScraperBase.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.scraperArn">scraperArn</a></code> | <code>string</code> | The ARN of the scraper. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.scraperId">scraperId</a></code> | <code>string</code> | The ID of the scraper. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Source">Source</a></code> | The Amazon EKS cluster from which the scraper collects metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.alias">alias</a></code> | <code>string</code> | An optional user-assigned scraper alias. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperBase.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a></code> | The role configuration in an Amazon Managed Service for Prometheus scraper. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed in a Stack (those created by
-creating new class instances like `new Role()`, `new Bucket()`, etc.), this
-is always the same as the environment of the stack they belong to.
-
-For referenced resources (those obtained from referencing methods like
-`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
-different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `destination`<sup>Required</sup> <a name="destination" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.destination"></a>
-
-```typescript
-public readonly destination: Destination;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a>
-
-The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
-
----
-
-##### `scrapeConfiguration`<sup>Required</sup> <a name="scrapeConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.scrapeConfiguration"></a>
-
-```typescript
-public readonly scrapeConfiguration: ScrapeConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a>
-
-The configuration in use by the scraper.
-
----
-
-##### `scraperArn`<sup>Required</sup> <a name="scraperArn" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.scraperArn"></a>
-
-```typescript
-public readonly scraperArn: string;
+public readonly scraperRoleArn: string;
 ```
 
 - *Type:* string
 
-The ARN of the scraper.
+The ARN of the service-created scraper role.
 
----
-
-##### `scraperId`<sup>Required</sup> <a name="scraperId" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.scraperId"></a>
-
-```typescript
-public readonly scraperId: string;
-```
-
-- *Type:* string
-
-The ID of the scraper.
-
----
-
-##### `source`<sup>Required</sup> <a name="source" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.source"></a>
-
-```typescript
-public readonly source: Source;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Source">Source</a>
-
-The Amazon EKS cluster from which the scraper collects metrics.
-
----
-
-##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.alias"></a>
-
-```typescript
-public readonly alias: string;
-```
-
-- *Type:* string
-
-An optional user-assigned scraper alias.
-
-1-100 characters.
-
-Pattern: ^[0-9A-Za-z][-.0-9A-Z_a-z]*$
-
----
-
-##### `roleConfiguration`<sup>Optional</sup> <a name="roleConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperBase.property.roleConfiguration"></a>
-
-```typescript
-public readonly roleConfiguration: RoleConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a>
-
-The role configuration in an Amazon Managed Service for Prometheus scraper.
+This attribute is available on scrapers created by this construct. It is intentionally not on
+`IScraper`, because the role ARN cannot be derived when referencing a scraper by ARN alone.
 
 ---
 
 
 ### Workspace <a name="Workspace" id="@robhan-cdk-lib/aws_aps.Workspace"></a>
 
+- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+An Amazon Managed Service for Prometheus workspace.
+
 #### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.Workspace.Initializer"></a>
 
 ```typescript
 import { Workspace } from '@robhan-cdk-lib/aws_aps'
 
-new Workspace(scope: Construct, id: string, props: WorkspaceProps)
+new Workspace(scope: Construct, id: string, props?: WorkspaceProps)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -2495,7 +1302,7 @@ new Workspace(scope: Construct, id: string, props: WorkspaceProps)
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.Workspace.Initializer.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.Workspace.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps">WorkspaceProps</a>
 
@@ -2507,6 +1314,7 @@ new Workspace(scope: Construct, id: string, props: WorkspaceProps)
 | --- | --- |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
@@ -2535,6 +1343,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.Workspace.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@robhan-cdk-lib/aws_aps.Workspace.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@robhan-cdk-lib/aws_aps.Workspace.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -2567,8 +1397,8 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceAttributes">fromWorkspaceAttributes</a></code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.isWorkspace">isWorkspace</a></code> | *No description.* |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceArn">fromWorkspaceArn</a></code> | Reference an existing workspace by ARN. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceAttributes">fromWorkspaceAttributes</a></code> | Reference an existing workspace from its attributes. |
 
 ---
 
@@ -2636,6 +1466,34 @@ Check whether the given construct is a Resource.
 
 ---
 
+##### `fromWorkspaceArn` <a name="fromWorkspaceArn" id="@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceArn"></a>
+
+```typescript
+import { Workspace } from '@robhan-cdk-lib/aws_aps'
+
+Workspace.fromWorkspaceArn(scope: Construct, id: string, workspaceArn: string)
+```
+
+Reference an existing workspace by ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `workspaceArn`<sup>Required</sup> <a name="workspaceArn" id="@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceArn.parameter.workspaceArn"></a>
+
+- *Type:* string
+
+---
+
 ##### `fromWorkspaceAttributes` <a name="fromWorkspaceAttributes" id="@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceAttributes"></a>
 
 ```typescript
@@ -2643,6 +1501,8 @@ import { Workspace } from '@robhan-cdk-lib/aws_aps'
 
 Workspace.fromWorkspaceAttributes(scope: Construct, id: string, attrs: WorkspaceAttributes)
 ```
+
+Reference an existing workspace from its attributes.
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.Workspace.fromWorkspaceAttributes.parameter.scope"></a>
 
@@ -2662,20 +1522,6 @@ Workspace.fromWorkspaceAttributes(scope: Construct, id: string, attrs: Workspace
 
 ---
 
-##### `isWorkspace` <a name="isWorkspace" id="@robhan-cdk-lib/aws_aps.Workspace.isWorkspace"></a>
-
-```typescript
-import { Workspace } from '@robhan-cdk-lib/aws_aps'
-
-Workspace.isWorkspace(x: any)
-```
-
-###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.Workspace.isWorkspace.parameter.x"></a>
-
-- *Type:* any
-
----
-
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -2683,15 +1529,10 @@ Workspace.isWorkspace(x: any)
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.prometheusEndpoint">prometheusEndpoint</a></code> | <code>string</code> | The Prometheus-compatible query endpoint for the workspace. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The ARN of the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.workspaceId">workspaceId</a></code> | <code>string</code> | The unique ID for the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.alertManagerDefinition">alertManagerDefinition</a></code> | <code>string</code> | The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.alias">alias</a></code> | <code>string</code> | The alias that is assigned to this workspace to help identify it. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.kmsKey">kmsKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | The customer managed AWS KMS key to use for encrypting data within your workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.loggingConfiguration">loggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration">LoggingConfiguration</a></code> | Contains information about the current rules and alerting logging configuration for the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.queryLoggingConfiguration">queryLoggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration">QueryLoggingConfiguration</a></code> | The definition of logging configuration in an Amazon Managed Service for Prometheus workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.workspaceConfiguration">workspaceConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a></code> | Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.prometheusEndpoint">prometheusEndpoint</a></code> | <code>string</code> | The Prometheus endpoint available for this workspace.. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.workspaceId">workspaceId</a></code> | <code>string</code> | The unique ID of the workspace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.Workspace.property.workspaceRef">workspaceRef</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.WorkspaceReference</code> | A reference to a Workspace resource. |
 
 ---
 
@@ -2739,6 +1580,18 @@ The stack in which this resource is defined.
 
 ---
 
+##### `prometheusEndpoint`<sup>Required</sup> <a name="prometheusEndpoint" id="@robhan-cdk-lib/aws_aps.Workspace.property.prometheusEndpoint"></a>
+
+```typescript
+public readonly prometheusEndpoint: string;
+```
+
+- *Type:* string
+
+The Prometheus-compatible query endpoint for the workspace.
+
+---
+
 ##### `workspaceArn`<sup>Required</sup> <a name="workspaceArn" id="@robhan-cdk-lib/aws_aps.Workspace.property.workspaceArn"></a>
 
 ```typescript
@@ -2759,472 +1612,28 @@ public readonly workspaceId: string;
 
 - *Type:* string
 
-The unique ID for the workspace.
+The unique ID of the workspace.
 
 ---
 
-##### `alertManagerDefinition`<sup>Optional</sup> <a name="alertManagerDefinition" id="@robhan-cdk-lib/aws_aps.Workspace.property.alertManagerDefinition"></a>
+##### `workspaceRef`<sup>Required</sup> <a name="workspaceRef" id="@robhan-cdk-lib/aws_aps.Workspace.property.workspaceRef"></a>
 
 ```typescript
-public readonly alertManagerDefinition: string;
+public readonly workspaceRef: WorkspaceReference;
 ```
 
-- *Type:* string
+- *Type:* aws-cdk-lib.interfaces.aws_aps.WorkspaceReference
 
-The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace.
-
----
-
-##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.Workspace.property.alias"></a>
-
-```typescript
-public readonly alias: string;
-```
-
-- *Type:* string
-
-The alias that is assigned to this workspace to help identify it.
-
-It does not need to be
-unique.
-
----
-
-##### `kmsKey`<sup>Optional</sup> <a name="kmsKey" id="@robhan-cdk-lib/aws_aps.Workspace.property.kmsKey"></a>
-
-```typescript
-public readonly kmsKey: IKey;
-```
-
-- *Type:* aws-cdk-lib.aws_kms.IKey
-
-The customer managed AWS KMS key to use for encrypting data within your workspace.
-
----
-
-##### `loggingConfiguration`<sup>Optional</sup> <a name="loggingConfiguration" id="@robhan-cdk-lib/aws_aps.Workspace.property.loggingConfiguration"></a>
-
-```typescript
-public readonly loggingConfiguration: LoggingConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration">LoggingConfiguration</a>
-
-Contains information about the current rules and alerting logging configuration for the workspace.
-
-Note: These logging configurations are only for rules and alerting logs.
-
----
-
-##### `queryLoggingConfiguration`<sup>Optional</sup> <a name="queryLoggingConfiguration" id="@robhan-cdk-lib/aws_aps.Workspace.property.queryLoggingConfiguration"></a>
-
-```typescript
-public readonly queryLoggingConfiguration: QueryLoggingConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration">QueryLoggingConfiguration</a>
-
-The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
-
----
-
-##### `workspaceConfiguration`<sup>Optional</sup> <a name="workspaceConfiguration" id="@robhan-cdk-lib/aws_aps.Workspace.property.workspaceConfiguration"></a>
-
-```typescript
-public readonly workspaceConfiguration: WorkspaceConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a>
-
-Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
-
----
-
-##### `prometheusEndpoint`<sup>Required</sup> <a name="prometheusEndpoint" id="@robhan-cdk-lib/aws_aps.Workspace.property.prometheusEndpoint"></a>
-
-```typescript
-public readonly prometheusEndpoint: string;
-```
-
-- *Type:* string
-
-The Prometheus endpoint available for this workspace..
-
----
-
-
-### WorkspaceBase <a name="WorkspaceBase" id="@robhan-cdk-lib/aws_aps.WorkspaceBase"></a>
-
-- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.Initializer"></a>
-
-```typescript
-import { WorkspaceBase } from '@robhan-cdk-lib/aws_aps'
-
-new WorkspaceBase(scope: Construct, id: string, props?: ResourceProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.ResourceProps</code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Optional</sup> <a name="props" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.Initializer.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.ResourceProps
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.with">with</a></code> | Applies one or more mixins to this construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-
----
-
-##### `toString` <a name="toString" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `with` <a name="with" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.with"></a>
-
-```typescript
-public with(mixins: ...IMixin[]): IConstruct
-```
-
-Applies one or more mixins to this construct.
-
-Mixins are applied in order. The list of constructs is captured at the
-start of the call, so constructs added by a mixin will not be visited.
-Use multiple `with()` calls if subsequent mixins should apply to added
-constructs.
-
-###### `mixins`<sup>Required</sup> <a name="mixins" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.with.parameter.mixins"></a>
-
-- *Type:* ...constructs.IMixin[]
-
----
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-
----
-
-##### `isConstruct` <a name="isConstruct" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.isConstruct"></a>
-
-```typescript
-import { WorkspaceBase } from '@robhan-cdk-lib/aws_aps'
-
-WorkspaceBase.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
-
-###### `x`<sup>Required</sup> <a name="x" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.isOwnedResource"></a>
-
-```typescript
-import { WorkspaceBase } from '@robhan-cdk-lib/aws_aps'
-
-WorkspaceBase.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.isResource"></a>
-
-```typescript
-import { WorkspaceBase } from '@robhan-cdk-lib/aws_aps'
-
-WorkspaceBase.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The ARN of the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.workspaceId">workspaceId</a></code> | <code>string</code> | The unique ID for the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.alertManagerDefinition">alertManagerDefinition</a></code> | <code>string</code> | The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.alias">alias</a></code> | <code>string</code> | The alias that is assigned to this workspace to help identify it. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.kmsKey">kmsKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | The customer managed AWS KMS key to use for encrypting data within your workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.loggingConfiguration">loggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration">LoggingConfiguration</a></code> | Contains information about the current rules and alerting logging configuration for the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.queryLoggingConfiguration">queryLoggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration">QueryLoggingConfiguration</a></code> | The definition of logging configuration in an Amazon Managed Service for Prometheus workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase.property.workspaceConfiguration">workspaceConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a></code> | Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed in a Stack (those created by
-creating new class instances like `new Role()`, `new Bucket()`, etc.), this
-is always the same as the environment of the stack they belong to.
-
-For referenced resources (those obtained from referencing methods like
-`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
-different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `workspaceArn`<sup>Required</sup> <a name="workspaceArn" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.workspaceArn"></a>
-
-```typescript
-public readonly workspaceArn: string;
-```
-
-- *Type:* string
-
-The ARN of the workspace.
-
----
-
-##### `workspaceId`<sup>Required</sup> <a name="workspaceId" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.workspaceId"></a>
-
-```typescript
-public readonly workspaceId: string;
-```
-
-- *Type:* string
-
-The unique ID for the workspace.
-
----
-
-##### `alertManagerDefinition`<sup>Optional</sup> <a name="alertManagerDefinition" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.alertManagerDefinition"></a>
-
-```typescript
-public readonly alertManagerDefinition: string;
-```
-
-- *Type:* string
-
-The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace.
-
----
-
-##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.alias"></a>
-
-```typescript
-public readonly alias: string;
-```
-
-- *Type:* string
-
-The alias that is assigned to this workspace to help identify it.
-
-It does not need to be
-unique.
-
----
-
-##### `kmsKey`<sup>Optional</sup> <a name="kmsKey" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.kmsKey"></a>
-
-```typescript
-public readonly kmsKey: IKey;
-```
-
-- *Type:* aws-cdk-lib.aws_kms.IKey
-
-The customer managed AWS KMS key to use for encrypting data within your workspace.
-
----
-
-##### `loggingConfiguration`<sup>Optional</sup> <a name="loggingConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.loggingConfiguration"></a>
-
-```typescript
-public readonly loggingConfiguration: LoggingConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration">LoggingConfiguration</a>
-
-Contains information about the current rules and alerting logging configuration for the workspace.
-
-Note: These logging configurations are only for rules and alerting logs.
-
----
-
-##### `queryLoggingConfiguration`<sup>Optional</sup> <a name="queryLoggingConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.queryLoggingConfiguration"></a>
-
-```typescript
-public readonly queryLoggingConfiguration: QueryLoggingConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration">QueryLoggingConfiguration</a>
-
-The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
-
----
-
-##### `workspaceConfiguration`<sup>Optional</sup> <a name="workspaceConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceBase.property.workspaceConfiguration"></a>
-
-```typescript
-public readonly workspaceConfiguration: WorkspaceConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a>
-
-Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+A reference to a Workspace resource.
 
 ---
 
 
 ## Structs <a name="Structs" id="Structs"></a>
 
-### AmpConfiguration <a name="AmpConfiguration" id="@robhan-cdk-lib/aws_aps.AmpConfiguration"></a>
-
-The AmpConfiguration structure defines the Amazon Managed Service for Prometheus instance a scraper should send metrics to.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.AmpConfiguration.Initializer"></a>
-
-```typescript
-import { AmpConfiguration } from '@robhan-cdk-lib/aws_aps'
-
-const ampConfiguration: AmpConfiguration = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AmpConfiguration.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The Amazon Managed Service for Prometheus workspace. |
-
----
-
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.AmpConfiguration.property.workspace"></a>
-
-```typescript
-public readonly workspace: IWorkspace;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-The Amazon Managed Service for Prometheus workspace.
-
----
-
 ### AnomalyDetectorConfiguration <a name="AnomalyDetectorConfiguration" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration"></a>
 
-The configuration for the anomaly detection algorithm.
+Algorithm configuration for an anomaly detector.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration.Initializer"></a>
 
@@ -3238,7 +1647,7 @@ const anomalyDetectorConfiguration: AnomalyDetectorConfiguration = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration.property.randomCutForest">randomCutForest</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration">RandomCutForestConfiguration</a></code> | The Random Cut Forest algorithm configuration for anomaly detection. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration.property.randomCutForest">randomCutForest</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration">RandomCutForestConfiguration</a></code> | Random Cut Forest algorithm settings. |
 
 ---
 
@@ -3250,13 +1659,58 @@ public readonly randomCutForest: RandomCutForestConfiguration;
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration">RandomCutForestConfiguration</a>
 
-The Random Cut Forest algorithm configuration for anomaly detection.
+Random Cut Forest algorithm settings.
+
+---
+
+### AnomalyDetectorLabel <a name="AnomalyDetectorLabel" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorLabel"></a>
+
+A metric label associated with an anomaly detector.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorLabel.Initializer"></a>
+
+```typescript
+import { AnomalyDetectorLabel } from '@robhan-cdk-lib/aws_aps'
+
+const anomalyDetectorLabel: AnomalyDetectorLabel = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorLabel.property.key">key</a></code> | <code>string</code> | The label key. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorLabel.property.value">value</a></code> | <code>string</code> | The label value. |
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorLabel.property.key"></a>
+
+```typescript
+public readonly key: string;
+```
+
+- *Type:* string
+
+The label key.
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorLabel.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+The label value.
 
 ---
 
 ### AnomalyDetectorProps <a name="AnomalyDetectorProps" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps"></a>
 
-Properties for creating an Amazon Managed Service for Prometheus Anomaly Detector.
+Properties for an Amazon Managed Service for Prometheus anomaly detector.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.Initializer"></a>
 
@@ -3270,12 +1724,13 @@ const anomalyDetectorProps: AnomalyDetectorProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.alias">alias</a></code> | <code>string</code> | The user-friendly name of the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.configuration">configuration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a></code> | The algorithm configuration of the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.evaluationIntervalInSeconds">evaluationIntervalInSeconds</a></code> | <code>number</code> | The frequency, in seconds, at which the anomaly detector evaluates metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.labels">labels</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]</code> | The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.missingDataAction">missingDataAction</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a></code> | The action taken when data is missing during evaluation. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.alias">alias</a></code> | <code>string</code> | A user-friendly name for the detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.configuration">configuration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a></code> | The algorithm configuration. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.workspace">workspace</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.IWorkspaceRef</code> | The workspace whose metrics are evaluated. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.evaluationIntervalInSeconds">evaluationIntervalInSeconds</a></code> | <code>number</code> | The interval, in seconds, between evaluations. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.labels">labels</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorLabel">AnomalyDetectorLabel</a>[]</code> | Metric labels associated with the detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.missingDataAction">missingDataAction</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a></code> | The action to take when evaluation data is missing. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.tags">tags</a></code> | <code>{[ key: string ]: string}</code> | Tags to apply to the anomaly detector. |
 
 ---
 
@@ -3287,9 +1742,7 @@ public readonly alias: string;
 
 - *Type:* string
 
-The user-friendly name of the anomaly detector.
-
-1 to 128 characters length.
+A user-friendly name for the detector.
 
 ---
 
@@ -3301,19 +1754,19 @@ public readonly configuration: AnomalyDetectorConfiguration;
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a>
 
-The algorithm configuration of the anomaly detector.
+The algorithm configuration.
 
 ---
 
 ##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.workspace"></a>
 
 ```typescript
-public readonly workspace: IWorkspace;
+public readonly workspace: IWorkspaceRef;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+- *Type:* aws-cdk-lib.interfaces.aws_aps.IWorkspaceRef
 
-An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
+The workspace whose metrics are evaluated.
 
 ---
 
@@ -3324,27 +1777,25 @@ public readonly evaluationIntervalInSeconds: number;
 ```
 
 - *Type:* number
+- *Default:* 60
 
-The frequency, in seconds, at which the anomaly detector evaluates metrics.
+The interval, in seconds, between evaluations.
 
-Minimum value of 30. Maximum value of 86400.
+Literal values must be integers from 30 through 86,400. Unresolved values are validated by
+the service after deployment.
 
 ---
 
 ##### `labels`<sup>Optional</sup> <a name="labels" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.labels"></a>
 
 ```typescript
-public readonly labels: Label[];
+public readonly labels: AnomalyDetectorLabel[];
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorLabel">AnomalyDetectorLabel</a>[]
+- *Default:* no labels
 
-The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
-
-Map Entries: Minimum number of 0 items. Maximum number of 140 items.
-Key Length Constraints: Minimum length of 1. Maximum length of 7168.
-Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
-Value Length Constraints: Minimum length of 1. Maximum length of 7168.
+Metric labels associated with the detector.
 
 ---
 
@@ -3355,525 +1806,97 @@ public readonly missingDataAction: MissingDataAction;
 ```
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a>
+- *Default:* service default
 
-The action taken when data is missing during evaluation.
+The action to take when evaluation data is missing.
 
 ---
 
-### CloudWatchLogDestination <a name="CloudWatchLogDestination" id="@robhan-cdk-lib/aws_aps.CloudWatchLogDestination"></a>
-
-Configuration details for logging to CloudWatch Logs.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.CloudWatchLogDestination.Initializer"></a>
+##### `tags`<sup>Optional</sup> <a name="tags" id="@robhan-cdk-lib/aws_aps.AnomalyDetectorProps.property.tags"></a>
 
 ```typescript
-import { CloudWatchLogDestination } from '@robhan-cdk-lib/aws_aps'
+public readonly tags: {[ key: string ]: string};
+```
 
-const cloudWatchLogDestination: CloudWatchLogDestination = { ... }
+- *Type:* {[ key: string ]: string}
+- *Default:* no tags
+
+Tags to apply to the anomaly detector.
+
+---
+
+### EksScraperSourceOptions <a name="EksScraperSourceOptions" id="@robhan-cdk-lib/aws_aps.EksScraperSourceOptions"></a>
+
+Options for collecting metrics from an Amazon EKS cluster.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.EksScraperSourceOptions.Initializer"></a>
+
+```typescript
+import { EksScraperSourceOptions } from '@robhan-cdk-lib/aws_aps'
+
+const eksScraperSourceOptions: EksScraperSourceOptions = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.CloudWatchLogDestination.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch log group. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.EksScraperSourceOptions.property.cluster">cluster</a></code> | <code>aws-cdk-lib.interfaces.aws_eks.IClusterRef</code> | The EKS cluster from which metrics are collected. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.EksScraperSourceOptions.property.subnets">subnets</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.ISubnetRef[]</code> | Subnets used to reach scrape targets. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.EksScraperSourceOptions.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.ISecurityGroupRef[]</code> | Security groups used to reach scrape targets. |
 
 ---
 
-##### `logGroup`<sup>Required</sup> <a name="logGroup" id="@robhan-cdk-lib/aws_aps.CloudWatchLogDestination.property.logGroup"></a>
+##### `cluster`<sup>Required</sup> <a name="cluster" id="@robhan-cdk-lib/aws_aps.EksScraperSourceOptions.property.cluster"></a>
 
 ```typescript
-public readonly logGroup: ILogGroup;
+public readonly cluster: IClusterRef;
 ```
 
-- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+- *Type:* aws-cdk-lib.interfaces.aws_eks.IClusterRef
 
-The CloudWatch log group.
+The EKS cluster from which metrics are collected.
+
+The cluster must have private endpoint access and VPC DNS enabled. Automatic scraper access
+entries require EKS authentication mode `API` or `API_AND_CONFIG_MAP`; otherwise configure the
+required Kubernetes RBAC permissions manually.
 
 ---
 
-### Destination <a name="Destination" id="@robhan-cdk-lib/aws_aps.Destination"></a>
-
-Where to send the metrics from a scraper.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.Destination.Initializer"></a>
+##### `subnets`<sup>Required</sup> <a name="subnets" id="@robhan-cdk-lib/aws_aps.EksScraperSourceOptions.property.subnets"></a>
 
 ```typescript
-import { Destination } from '@robhan-cdk-lib/aws_aps'
-
-const destination: Destination = { ... }
+public readonly subnets: ISubnetRef[];
 ```
 
-#### Properties <a name="Properties" id="Properties"></a>
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.ISubnetRef[]
 
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Destination.property.ampConfiguration">ampConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AmpConfiguration">AmpConfiguration</a></code> | The Amazon Managed Service for Prometheus workspace to send metrics to. |
+Subnets used to reach scrape targets.
+
+Each subnet must have an available IP address.
 
 ---
 
-##### `ampConfiguration`<sup>Required</sup> <a name="ampConfiguration" id="@robhan-cdk-lib/aws_aps.Destination.property.ampConfiguration"></a>
+##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="@robhan-cdk-lib/aws_aps.EksScraperSourceOptions.property.securityGroups"></a>
 
 ```typescript
-public readonly ampConfiguration: AmpConfiguration;
+public readonly securityGroups: ISecurityGroupRef[];
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AmpConfiguration">AmpConfiguration</a>
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.ISecurityGroupRef[]
+- *Default:* no explicit security groups
 
-The Amazon Managed Service for Prometheus workspace to send metrics to.
+Security groups used to reach scrape targets.
 
----
-
-### EksConfiguration <a name="EksConfiguration" id="@robhan-cdk-lib/aws_aps.EksConfiguration"></a>
-
-The EksConfiguration structure describes the connection to the Amazon EKS cluster from which a scraper collects metrics.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.EksConfiguration.Initializer"></a>
-
-```typescript
-import { EksConfiguration } from '@robhan-cdk-lib/aws_aps'
-
-const eksConfiguration: EksConfiguration = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.EksConfiguration.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The Amazon EKS cluster. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.EksConfiguration.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | A list of subnets for the Amazon EKS cluster VPC configuration. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.EksConfiguration.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | A list of the security group IDs for the Amazon EKS cluster VPC configuration. |
-
----
-
-##### `cluster`<sup>Required</sup> <a name="cluster" id="@robhan-cdk-lib/aws_aps.EksConfiguration.property.cluster"></a>
-
-```typescript
-public readonly cluster: ICluster;
-```
-
-- *Type:* aws-cdk-lib.aws_eks.ICluster
-
-The Amazon EKS cluster.
-
----
-
-##### `subnets`<sup>Required</sup> <a name="subnets" id="@robhan-cdk-lib/aws_aps.EksConfiguration.property.subnets"></a>
-
-```typescript
-public readonly subnets: ISubnet[];
-```
-
-- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
-
-A list of subnets for the Amazon EKS cluster VPC configuration.
-
-Min 1, max 5.
-
----
-
-##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="@robhan-cdk-lib/aws_aps.EksConfiguration.property.securityGroups"></a>
-
-```typescript
-public readonly securityGroups: ISecurityGroup[];
-```
-
-- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
-
-A list of the security group IDs for the Amazon EKS cluster VPC configuration.
-
-Min 1, max 5.
-
----
-
-### IgnoreNearExpected <a name="IgnoreNearExpected" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected"></a>
-
-Configuration for threshold settings that determine when values near expected values should be ignored during anomaly detection.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.Initializer"></a>
-
-```typescript
-import { IgnoreNearExpected } from '@robhan-cdk-lib/aws_aps'
-
-const ignoreNearExpected: IgnoreNearExpected = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected.property.amount">amount</a></code> | <code>number</code> | The absolute amount by which values can differ from expected values before being considered anomalous. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected.property.ratio">ratio</a></code> | <code>number</code> | The ratio by which values can differ from expected values before being considered anomalous. |
-
----
-
-##### `amount`<sup>Optional</sup> <a name="amount" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.property.amount"></a>
-
-```typescript
-public readonly amount: number;
-```
-
-- *Type:* number
-
-The absolute amount by which values can differ from expected values before being considered anomalous.
-
----
-
-##### `ratio`<sup>Optional</sup> <a name="ratio" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.property.ratio"></a>
-
-```typescript
-public readonly ratio: number;
-```
-
-- *Type:* number
-
-The ratio by which values can differ from expected values before being considered anomalous.
-
----
-
-### Label <a name="Label" id="@robhan-cdk-lib/aws_aps.Label"></a>
-
-A label is a name:value pair used to add context to ingested metrics.
-
-This structure defines the
-name and value for one label that is used in a label set. You can set ingestion limits on time
-series that match defined label sets, to help prevent a workspace from being overwhelmed with
-unexpected spikes in time series ingestion.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.Label.Initializer"></a>
-
-```typescript
-import { Label } from '@robhan-cdk-lib/aws_aps'
-
-const label: Label = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Label.property.name">name</a></code> | <code>string</code> | The name for this label. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Label.property.value">value</a></code> | <code>string</code> | The value for this label. |
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="@robhan-cdk-lib/aws_aps.Label.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-The name for this label.
-
-Pattern: ^[a-zA-Z_][a-zA-Z0-9_]*$
-
-At least one character.
-
----
-
-##### `value`<sup>Required</sup> <a name="value" id="@robhan-cdk-lib/aws_aps.Label.property.value"></a>
-
-```typescript
-public readonly value: string;
-```
-
-- *Type:* string
-
-The value for this label.
-
-At least one character.
-
----
-
-### LimitsPerLabelSet <a name="LimitsPerLabelSet" id="@robhan-cdk-lib/aws_aps.LimitsPerLabelSet"></a>
-
-This defines a label set for the workspace, and defines the ingestion limit for active time series that match that label set.
-
-Each label name in a label set must be unique.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.LimitsPerLabelSet.Initializer"></a>
-
-```typescript
-import { LimitsPerLabelSet } from '@robhan-cdk-lib/aws_aps'
-
-const limitsPerLabelSet: LimitsPerLabelSet = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.LimitsPerLabelSet.property.labelSet">labelSet</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]</code> | This defines one label set that will have an enforced ingestion limit. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.LimitsPerLabelSet.property.limits">limits</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.LimitsPerLabelSetEntry">LimitsPerLabelSetEntry</a></code> | This structure contains the information about the limits that apply to time series that match this label set. |
-
----
-
-##### `labelSet`<sup>Required</sup> <a name="labelSet" id="@robhan-cdk-lib/aws_aps.LimitsPerLabelSet.property.labelSet"></a>
-
-```typescript
-public readonly labelSet: Label[];
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]
-
-This defines one label set that will have an enforced ingestion limit.
-
-You can set ingestion
-limits on time series that match defined label sets, to help prevent a workspace from being
-overwhelmed with unexpected spikes in time series ingestion.
-
-Label values accept all UTF-8 characters with one exception. If the label name is metric
-name label __name__, then the metric part of the name must conform to the following pattern:
-[a-zA-Z_:][a-zA-Z0-9_:]*
-
-Minimum 0
-
----
-
-##### `limits`<sup>Required</sup> <a name="limits" id="@robhan-cdk-lib/aws_aps.LimitsPerLabelSet.property.limits"></a>
-
-```typescript
-public readonly limits: LimitsPerLabelSetEntry;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.LimitsPerLabelSetEntry">LimitsPerLabelSetEntry</a>
-
-This structure contains the information about the limits that apply to time series that match this label set.
-
----
-
-### LimitsPerLabelSetEntry <a name="LimitsPerLabelSetEntry" id="@robhan-cdk-lib/aws_aps.LimitsPerLabelSetEntry"></a>
-
-This structure contains the limits that apply to time series that match one label set.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.LimitsPerLabelSetEntry.Initializer"></a>
-
-```typescript
-import { LimitsPerLabelSetEntry } from '@robhan-cdk-lib/aws_aps'
-
-const limitsPerLabelSetEntry: LimitsPerLabelSetEntry = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.LimitsPerLabelSetEntry.property.maxSeries">maxSeries</a></code> | <code>number</code> | The maximum number of active series that can be ingested that match this label set. |
-
----
-
-##### `maxSeries`<sup>Optional</sup> <a name="maxSeries" id="@robhan-cdk-lib/aws_aps.LimitsPerLabelSetEntry.property.maxSeries"></a>
-
-```typescript
-public readonly maxSeries: number;
-```
-
-- *Type:* number
-
-The maximum number of active series that can be ingested that match this label set.
-
-Setting this to 0 causes no label set limit to be enforced, but it does cause Amazon Managed
-Service for Prometheus to vend label set metrics to CloudWatch Logs.
-
-Minimum 0
-
----
-
-### LoggingConfiguration <a name="LoggingConfiguration" id="@robhan-cdk-lib/aws_aps.LoggingConfiguration"></a>
-
-Contains information about the rules and alerting logging configuration for the workspace.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.LoggingConfiguration.Initializer"></a>
-
-```typescript
-import { LoggingConfiguration } from '@robhan-cdk-lib/aws_aps'
-
-const loggingConfiguration: LoggingConfiguration = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch log group to which the vended log data will be published. |
-
----
-
-##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="@robhan-cdk-lib/aws_aps.LoggingConfiguration.property.logGroup"></a>
-
-```typescript
-public readonly logGroup: ILogGroup;
-```
-
-- *Type:* aws-cdk-lib.aws_logs.ILogGroup
-
-The CloudWatch log group to which the vended log data will be published.
-
----
-
-### LoggingDestination <a name="LoggingDestination" id="@robhan-cdk-lib/aws_aps.LoggingDestination"></a>
-
-The logging destination in an Amazon Managed Service for Prometheus workspace.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.LoggingDestination.Initializer"></a>
-
-```typescript
-import { LoggingDestination } from '@robhan-cdk-lib/aws_aps'
-
-const loggingDestination: LoggingDestination = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.LoggingDestination.property.cloudWatchLogs">cloudWatchLogs</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.CloudWatchLogDestination">CloudWatchLogDestination</a></code> | Configuration details for logging to CloudWatch Logs. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.LoggingDestination.property.filters">filters</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.LoggingFilter">LoggingFilter</a></code> | Filtering criteria that determine which queries are logged. |
-
----
-
-##### `cloudWatchLogs`<sup>Required</sup> <a name="cloudWatchLogs" id="@robhan-cdk-lib/aws_aps.LoggingDestination.property.cloudWatchLogs"></a>
-
-```typescript
-public readonly cloudWatchLogs: CloudWatchLogDestination;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.CloudWatchLogDestination">CloudWatchLogDestination</a>
-
-Configuration details for logging to CloudWatch Logs.
-
----
-
-##### `filters`<sup>Required</sup> <a name="filters" id="@robhan-cdk-lib/aws_aps.LoggingDestination.property.filters"></a>
-
-```typescript
-public readonly filters: LoggingFilter;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.LoggingFilter">LoggingFilter</a>
-
-Filtering criteria that determine which queries are logged.
-
----
-
-### LoggingFilter <a name="LoggingFilter" id="@robhan-cdk-lib/aws_aps.LoggingFilter"></a>
-
-Filtering criteria that determine which queries are logged.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.LoggingFilter.Initializer"></a>
-
-```typescript
-import { LoggingFilter } from '@robhan-cdk-lib/aws_aps'
-
-const loggingFilter: LoggingFilter = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.LoggingFilter.property.qspThreshold">qspThreshold</a></code> | <code>number</code> | Integer. |
-
----
-
-##### `qspThreshold`<sup>Required</sup> <a name="qspThreshold" id="@robhan-cdk-lib/aws_aps.LoggingFilter.property.qspThreshold"></a>
-
-```typescript
-public readonly qspThreshold: number;
-```
-
-- *Type:* number
-
-Integer.
-
-Minimum 0
-
----
-
-### MissingDataAction <a name="MissingDataAction" id="@robhan-cdk-lib/aws_aps.MissingDataAction"></a>
-
-Specifies the action to take when data is missing during anomaly detection evaluation.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.MissingDataAction.Initializer"></a>
-
-```typescript
-import { MissingDataAction } from '@robhan-cdk-lib/aws_aps'
-
-const missingDataAction: MissingDataAction = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction.property.markAsAnomaly">markAsAnomaly</a></code> | <code>boolean</code> | Marks missing data points as anomalies. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction.property.skip">skip</a></code> | <code>boolean</code> | Skips evaluation when data is missing. |
-
----
-
-##### `markAsAnomaly`<sup>Optional</sup> <a name="markAsAnomaly" id="@robhan-cdk-lib/aws_aps.MissingDataAction.property.markAsAnomaly"></a>
-
-```typescript
-public readonly markAsAnomaly: boolean;
-```
-
-- *Type:* boolean
-
-Marks missing data points as anomalies.
-
----
-
-##### `skip`<sup>Optional</sup> <a name="skip" id="@robhan-cdk-lib/aws_aps.MissingDataAction.property.skip"></a>
-
-```typescript
-public readonly skip: boolean;
-```
-
-- *Type:* boolean
-
-Skips evaluation when data is missing.
-
----
-
-### QueryLoggingConfiguration <a name="QueryLoggingConfiguration" id="@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration"></a>
-
-The query logging configuration in an Amazon Managed Service for Prometheus workspace.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration.Initializer"></a>
-
-```typescript
-import { QueryLoggingConfiguration } from '@robhan-cdk-lib/aws_aps'
-
-const queryLoggingConfiguration: QueryLoggingConfiguration = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration.property.destinations">destinations</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.LoggingDestination">LoggingDestination</a>[]</code> | Defines a destination and its associated filtering criteria for query logging. |
-
----
-
-##### `destinations`<sup>Required</sup> <a name="destinations" id="@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration.property.destinations"></a>
-
-```typescript
-public readonly destinations: LoggingDestination[];
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.LoggingDestination">LoggingDestination</a>[]
-
-Defines a destination and its associated filtering criteria for query logging.
-
-Minimum 1 and maximum 1 item in array.
+`undefined` omits `securityGroupIds` and leaves selection to the service. An explicit empty
+array is preserved in the synthesized resource. Supply only groups whose rules allow the
+intended private scrape traffic.
 
 ---
 
 ### RandomCutForestConfiguration <a name="RandomCutForestConfiguration" id="@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration"></a>
 
-Configuration for the Random Cut Forest algorithm used for anomaly detection in time-series data.
+Random Cut Forest configuration for anomaly detection.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.Initializer"></a>
 
@@ -3887,11 +1910,11 @@ const randomCutForestConfiguration: RandomCutForestConfiguration = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.query">query</a></code> | <code>string</code> | The Prometheus query used to retrieve the time-series data for anomaly detection. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.ignoreNearExpectedFromAbove">ignoreNearExpectedFromAbove</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected">IgnoreNearExpected</a></code> | Configuration for ignoring values that are near expected values from above during anomaly detection. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.ignoreNearExpectedFromBelow">ignoreNearExpectedFromBelow</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected">IgnoreNearExpected</a></code> | Configuration for ignoring values that are near expected values from below during anomaly detection. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.sampleSize">sampleSize</a></code> | <code>number</code> | The number of data points sampled from the input stream for the Random Cut Forest algorithm. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.shingleSize">shingleSize</a></code> | <code>number</code> | The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.query">query</a></code> | <code>string</code> | The PromQL query evaluated by the detector. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.ignoreNearExpectedFromAbove">ignoreNearExpectedFromAbove</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected">IgnoreNearExpected</a></code> | Values above the expected value that should not be treated as anomalies. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.ignoreNearExpectedFromBelow">ignoreNearExpectedFromBelow</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected">IgnoreNearExpected</a></code> | Values below the expected value that should not be treated as anomalies. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.sampleSize">sampleSize</a></code> | <code>number</code> | The number of data points sampled by the algorithm. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RandomCutForestConfiguration.property.shingleSize">shingleSize</a></code> | <code>number</code> | The number of consecutive data points in each shingle. |
 
 ---
 
@@ -3903,9 +1926,11 @@ public readonly query: string;
 
 - *Type:* string
 
-The Prometheus query used to retrieve the time-series data for anomaly detection.
+The PromQL query evaluated by the detector.
 
-1 to 8192 characters length.
+The service requires the query to be wrapped by one of these aggregation operators: `avg`,
+`count`, `group`, `max`, `min`, `quantile`, `stddev`, `stdvar`, or `sum`. Query syntax and
+aggregation semantics are validated by Amazon Managed Service for Prometheus.
 
 ---
 
@@ -3916,8 +1941,9 @@ public readonly ignoreNearExpectedFromAbove: IgnoreNearExpected;
 ```
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected">IgnoreNearExpected</a>
+- *Default:* no upper tolerance
 
-Configuration for ignoring values that are near expected values from above during anomaly detection.
+Values above the expected value that should not be treated as anomalies.
 
 ---
 
@@ -3928,8 +1954,9 @@ public readonly ignoreNearExpectedFromBelow: IgnoreNearExpected;
 ```
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected">IgnoreNearExpected</a>
+- *Default:* no lower tolerance
 
-Configuration for ignoring values that are near expected values from below during anomaly detection.
+Values below the expected value that should not be treated as anomalies.
 
 ---
 
@@ -3940,13 +1967,9 @@ public readonly sampleSize: number;
 ```
 
 - *Type:* number
+- *Default:* 256
 
-The number of data points sampled from the input stream for the Random Cut Forest algorithm.
-
-The default number is 256 consecutive data points.
-
-Minimum: 256
-Maximum: 1024
+The number of data points sampled by the algorithm.
 
 ---
 
@@ -3957,19 +1980,15 @@ public readonly shingleSize: number;
 ```
 
 - *Type:* number
+- *Default:* 8
 
-The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm.
-
-The default number is 8 consecutive data points.
-
-Minimum: 2
-Maximum: 1024
+The number of consecutive data points in each shingle.
 
 ---
 
 ### ResourcePolicyProps <a name="ResourcePolicyProps" id="@robhan-cdk-lib/aws_aps.ResourcePolicyProps"></a>
 
-Properties for creating an Amazon Managed Service for Prometheus Resource Policy.
+Properties for an Amazon Managed Service for Prometheus workspace resource policy.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ResourcePolicyProps.Initializer"></a>
 
@@ -3983,156 +2002,41 @@ const resourcePolicyProps: ResourcePolicyProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyProps.property.policyDocument">policyDocument</a></code> | <code>string</code> | The JSON to use as the Resource-based Policy. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyProps.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to attach the policy to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyProps.property.policyDocument">policyDocument</a></code> | <code>aws-cdk-lib.aws_iam.PolicyDocument</code> | The IAM policy document that grants access to the workspace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyProps.property.workspace">workspace</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.IWorkspaceRef</code> | The workspace protected by the policy. |
 
 ---
 
 ##### `policyDocument`<sup>Required</sup> <a name="policyDocument" id="@robhan-cdk-lib/aws_aps.ResourcePolicyProps.property.policyDocument"></a>
 
 ```typescript
-public readonly policyDocument: string;
+public readonly policyDocument: PolicyDocument;
 ```
 
-- *Type:* string
+- *Type:* aws-cdk-lib.aws_iam.PolicyDocument
 
-The JSON to use as the Resource-based Policy.
+The IAM policy document that grants access to the workspace.
+
+Every statement must include a principal. When the workspace uses a customer-managed KMS key,
+principals also need permission to use that key.
 
 ---
 
 ##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.ResourcePolicyProps.property.workspace"></a>
 
 ```typescript
-public readonly workspace: IWorkspace;
+public readonly workspace: IWorkspaceRef;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+- *Type:* aws-cdk-lib.interfaces.aws_aps.IWorkspaceRef
 
-The workspace to attach the policy to.
-
----
-
-### RoleConfiguration <a name="RoleConfiguration" id="@robhan-cdk-lib/aws_aps.RoleConfiguration"></a>
-
-The role configuration in an Amazon Managed Service for Prometheus scraper.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.RoleConfiguration.Initializer"></a>
-
-```typescript
-import { RoleConfiguration } from '@robhan-cdk-lib/aws_aps'
-
-const roleConfiguration: RoleConfiguration = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration.property.sourceRole">sourceRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The source role. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration.property.targetRole">targetRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The target role. |
-
----
-
-##### `sourceRole`<sup>Optional</sup> <a name="sourceRole" id="@robhan-cdk-lib/aws_aps.RoleConfiguration.property.sourceRole"></a>
-
-```typescript
-public readonly sourceRole: IRole;
-```
-
-- *Type:* aws-cdk-lib.aws_iam.IRole
-
-The source role.
-
----
-
-##### `targetRole`<sup>Optional</sup> <a name="targetRole" id="@robhan-cdk-lib/aws_aps.RoleConfiguration.property.targetRole"></a>
-
-```typescript
-public readonly targetRole: IRole;
-```
-
-- *Type:* aws-cdk-lib.aws_iam.IRole
-
-The target role.
-
----
-
-### RuleGroupsNamespaceAttributes <a name="RuleGroupsNamespaceAttributes" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes"></a>
-
-Properties for importing a rule groups namespace in an Amazon Managed Service for Prometheus workspace from attributes.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes.Initializer"></a>
-
-```typescript
-import { RuleGroupsNamespaceAttributes } from '@robhan-cdk-lib/aws_aps'
-
-const ruleGroupsNamespaceAttributes: RuleGroupsNamespaceAttributes = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes.property.data">data</a></code> | <code>string</code> | The rules file used in the namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes.property.name">name</a></code> | <code>string</code> | The name of the rule groups namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes.property.ruleGroupsNamespaceArn">ruleGroupsNamespaceArn</a></code> | <code>string</code> | The ARN of the rule groups namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to add the rule groups namespace. |
-
----
-
-##### `data`<sup>Required</sup> <a name="data" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes.property.data"></a>
-
-```typescript
-public readonly data: string;
-```
-
-- *Type:* string
-
-The rules file used in the namespace.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-The name of the rule groups namespace.
-
-Between 1 and 64 characters.
-
----
-
-##### `ruleGroupsNamespaceArn`<sup>Required</sup> <a name="ruleGroupsNamespaceArn" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes.property.ruleGroupsNamespaceArn"></a>
-
-```typescript
-public readonly ruleGroupsNamespaceArn: string;
-```
-
-- *Type:* string
-
-The ARN of the rule groups namespace.
-
----
-
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceAttributes.property.workspace"></a>
-
-```typescript
-public readonly workspace: IWorkspace;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-The workspace to add the rule groups namespace.
+The workspace protected by the policy.
 
 ---
 
 ### RuleGroupsNamespaceProps <a name="RuleGroupsNamespaceProps" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceProps"></a>
 
-Properties for creating a rule groups namespace in an Amazon Managed Service for Prometheus workspace.
+Properties for an Amazon Managed Service for Prometheus rule groups namespace.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceProps.Initializer"></a>
 
@@ -4146,9 +2050,10 @@ const ruleGroupsNamespaceProps: RuleGroupsNamespaceProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceProps.property.data">data</a></code> | <code>string</code> | The rules file used in the namespace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceProps.property.data">data</a></code> | <code>string</code> | The Prometheus rules file as YAML. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceProps.property.name">name</a></code> | <code>string</code> | The name of the rule groups namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceProps.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to add the rule groups namespace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceProps.property.workspace">workspace</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.IWorkspaceRef</code> | The workspace that contains the rule groups namespace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceProps.property.tags">tags</a></code> | <code>{[ key: string ]: string}</code> | Tags to apply to the rule groups namespace. |
 
 ---
 
@@ -4160,7 +2065,7 @@ public readonly data: string;
 
 - *Type:* string
 
-The rules file used in the namespace.
+The Prometheus rules file as YAML.
 
 ---
 
@@ -4174,158 +2079,127 @@ public readonly name: string;
 
 The name of the rule groups namespace.
 
-Between 1 and 64 characters.
-
 ---
 
 ##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceProps.property.workspace"></a>
 
 ```typescript
-public readonly workspace: IWorkspace;
+public readonly workspace: IWorkspaceRef;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+- *Type:* aws-cdk-lib.interfaces.aws_aps.IWorkspaceRef
 
-The workspace to add the rule groups namespace.
+The workspace that contains the rule groups namespace.
 
 ---
 
-### ScrapeConfiguration <a name="ScrapeConfiguration" id="@robhan-cdk-lib/aws_aps.ScrapeConfiguration"></a>
-
-A scrape configuration for a scraper, base 64 encoded.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ScrapeConfiguration.Initializer"></a>
+##### `tags`<sup>Optional</sup> <a name="tags" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceProps.property.tags"></a>
 
 ```typescript
-import { ScrapeConfiguration } from '@robhan-cdk-lib/aws_aps'
+public readonly tags: {[ key: string ]: string};
+```
 
-const scrapeConfiguration: ScrapeConfiguration = { ... }
+- *Type:* {[ key: string ]: string}
+- *Default:* no tags
+
+Tags to apply to the rule groups namespace.
+
+---
+
+### ScraperComponent <a name="ScraperComponent" id="@robhan-cdk-lib/aws_aps.ScraperComponent"></a>
+
+A scraper component that can emit diagnostic logs.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ScraperComponent.Initializer"></a>
+
+```typescript
+import { ScraperComponent } from '@robhan-cdk-lib/aws_aps'
+
+const scraperComponent: ScraperComponent = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration.property.configurationBlob">configurationBlob</a></code> | <code>string</code> | The base 64 encoded scrape configuration file. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperComponent.property.type">type</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperComponentType">ScraperComponentType</a></code> | The component type. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperComponent.property.options">options</a></code> | <code>{[ key: string ]: string}</code> | Component-specific logging options. |
 
 ---
 
-##### `configurationBlob`<sup>Required</sup> <a name="configurationBlob" id="@robhan-cdk-lib/aws_aps.ScrapeConfiguration.property.configurationBlob"></a>
+##### `type`<sup>Required</sup> <a name="type" id="@robhan-cdk-lib/aws_aps.ScraperComponent.property.type"></a>
 
 ```typescript
-public readonly configurationBlob: string;
+public readonly type: ScraperComponentType;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScraperComponentType">ScraperComponentType</a>
 
-The base 64 encoded scrape configuration file.
+The component type.
 
 ---
 
-### ScraperAttributes <a name="ScraperAttributes" id="@robhan-cdk-lib/aws_aps.ScraperAttributes"></a>
-
-Properties for importing an Amazon Managed Service for Prometheus Scraper from attributes.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.Initializer"></a>
+##### `options`<sup>Optional</sup> <a name="options" id="@robhan-cdk-lib/aws_aps.ScraperComponent.property.options"></a>
 
 ```typescript
-import { ScraperAttributes } from '@robhan-cdk-lib/aws_aps'
+public readonly options: {[ key: string ]: string};
+```
 
-const scraperAttributes: ScraperAttributes = { ... }
+- *Type:* {[ key: string ]: string}
+- *Default:* no component-specific options
+
+Component-specific logging options.
+
+---
+
+### ScraperLoggingConfiguration <a name="ScraperLoggingConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperLoggingConfiguration"></a>
+
+Diagnostic logging configuration for a scraper.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ScraperLoggingConfiguration.Initializer"></a>
+
+```typescript
+import { ScraperLoggingConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+const scraperLoggingConfiguration: ScraperLoggingConfiguration = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.scraperArn">scraperArn</a></code> | <code>string</code> | The ARN of the scraper. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Source">Source</a></code> | The Amazon EKS cluster from which the scraper collects metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.alias">alias</a></code> | <code>string</code> | An optional user-assigned scraper alias. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperAttributes.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a></code> | The role configuration in an Amazon Managed Service for Prometheus scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperLoggingConfiguration.property.components">components</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperComponent">ScraperComponent</a>[]</code> | The scraper components for which logging is enabled. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperLoggingConfiguration.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.interfaces.aws_logs.ILogGroupRef</code> | The CloudWatch log group that receives scraper logs. |
 
 ---
 
-##### `destination`<sup>Required</sup> <a name="destination" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.destination"></a>
+##### `components`<sup>Required</sup> <a name="components" id="@robhan-cdk-lib/aws_aps.ScraperLoggingConfiguration.property.components"></a>
 
 ```typescript
-public readonly destination: Destination;
+public readonly components: ScraperComponent[];
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a>
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScraperComponent">ScraperComponent</a>[]
 
-The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+The scraper components for which logging is enabled.
 
 ---
 
-##### `scrapeConfiguration`<sup>Required</sup> <a name="scrapeConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.scrapeConfiguration"></a>
+##### `logGroup`<sup>Required</sup> <a name="logGroup" id="@robhan-cdk-lib/aws_aps.ScraperLoggingConfiguration.property.logGroup"></a>
 
 ```typescript
-public readonly scrapeConfiguration: ScrapeConfiguration;
+public readonly logGroup: ILogGroupRef;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a>
+- *Type:* aws-cdk-lib.interfaces.aws_logs.ILogGroupRef
 
-The configuration in use by the scraper.
-
----
-
-##### `scraperArn`<sup>Required</sup> <a name="scraperArn" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.scraperArn"></a>
-
-```typescript
-public readonly scraperArn: string;
-```
-
-- *Type:* string
-
-The ARN of the scraper.
-
----
-
-##### `source`<sup>Required</sup> <a name="source" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.source"></a>
-
-```typescript
-public readonly source: Source;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Source">Source</a>
-
-The Amazon EKS cluster from which the scraper collects metrics.
-
----
-
-##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.alias"></a>
-
-```typescript
-public readonly alias: string;
-```
-
-- *Type:* string
-
-An optional user-assigned scraper alias.
-
-1-100 characters.
-
-Pattern: ^[0-9A-Za-z][-.0-9A-Z_a-z]*$
-
----
-
-##### `roleConfiguration`<sup>Optional</sup> <a name="roleConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperAttributes.property.roleConfiguration"></a>
-
-```typescript
-public readonly roleConfiguration: RoleConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a>
-
-The role configuration in an Amazon Managed Service for Prometheus scraper.
+The CloudWatch log group that receives scraper logs.
 
 ---
 
 ### ScraperProps <a name="ScraperProps" id="@robhan-cdk-lib/aws_aps.ScraperProps"></a>
 
-Properties for creating an Amazon Managed Service for Prometheus Scraper.
+Properties for an Amazon Managed Service for Prometheus scraper.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ScraperProps.Initializer"></a>
 
@@ -4339,23 +2213,25 @@ const scraperProps: ScraperProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Source">Source</a></code> | The Amazon EKS cluster from which the scraper collects metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.alias">alias</a></code> | <code>string</code> | An optional user-assigned scraper alias. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a></code> | The role configuration in an Amazon Managed Service for Prometheus scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperDestination">ScraperDestination</a></code> | The destination for collected metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The Prometheus scrape configuration. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperSource">ScraperSource</a></code> | The source from which metrics are collected. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.alias">alias</a></code> | <code>string</code> | A user-assigned alias for the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.loggingConfiguration">loggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperLoggingConfiguration">ScraperLoggingConfiguration</a></code> | Diagnostic logging configuration. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScraperRoleConfiguration">ScraperRoleConfiguration</a></code> | IAM roles used to access the source and destination. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperProps.property.tags">tags</a></code> | <code>{[ key: string ]: string}</code> | Tags to apply to the scraper. |
 
 ---
 
 ##### `destination`<sup>Required</sup> <a name="destination" id="@robhan-cdk-lib/aws_aps.ScraperProps.property.destination"></a>
 
 ```typescript
-public readonly destination: Destination;
+public readonly destination: ScraperDestination;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a>
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScraperDestination">ScraperDestination</a>
 
-The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+The destination for collected metrics.
 
 ---
 
@@ -4367,19 +2243,19 @@ public readonly scrapeConfiguration: ScrapeConfiguration;
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a>
 
-The configuration in use by the scraper.
+The Prometheus scrape configuration.
 
 ---
 
 ##### `source`<sup>Required</sup> <a name="source" id="@robhan-cdk-lib/aws_aps.ScraperProps.property.source"></a>
 
 ```typescript
-public readonly source: Source;
+public readonly source: ScraperSource;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Source">Source</a>
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScraperSource">ScraperSource</a>
 
-The Amazon EKS cluster from which the scraper collects metrics.
+The source from which metrics are collected.
 
 ---
 
@@ -4390,62 +2266,156 @@ public readonly alias: string;
 ```
 
 - *Type:* string
+- *Default:* no alias
 
-An optional user-assigned scraper alias.
+A user-assigned alias for the scraper.
 
-1-100 characters.
+---
 
-Pattern: ^[0-9A-Za-z][-.0-9A-Z_a-z]*$
+##### `loggingConfiguration`<sup>Optional</sup> <a name="loggingConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperProps.property.loggingConfiguration"></a>
+
+```typescript
+public readonly loggingConfiguration: ScraperLoggingConfiguration;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScraperLoggingConfiguration">ScraperLoggingConfiguration</a>
+- *Default:* scraper diagnostic logging is disabled
+
+Diagnostic logging configuration.
 
 ---
 
 ##### `roleConfiguration`<sup>Optional</sup> <a name="roleConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperProps.property.roleConfiguration"></a>
 
 ```typescript
-public readonly roleConfiguration: RoleConfiguration;
+public readonly roleConfiguration: ScraperRoleConfiguration;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a>
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScraperRoleConfiguration">ScraperRoleConfiguration</a>
+- *Default:* service-created roles
 
-The role configuration in an Amazon Managed Service for Prometheus scraper.
+IAM roles used to access the source and destination.
+
+Required for cross-account collection and for workspaces encrypted with a customer-managed
+KMS key. The caller is responsible for the roles' trust and permissions.
 
 ---
 
-### Source <a name="Source" id="@robhan-cdk-lib/aws_aps.Source"></a>
-
-The source of collected metrics for a scraper.
-
-#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.Source.Initializer"></a>
+##### `tags`<sup>Optional</sup> <a name="tags" id="@robhan-cdk-lib/aws_aps.ScraperProps.property.tags"></a>
 
 ```typescript
-import { Source } from '@robhan-cdk-lib/aws_aps'
+public readonly tags: {[ key: string ]: string};
+```
 
-const source: Source = { ... }
+- *Type:* {[ key: string ]: string}
+- *Default:* no tags
+
+Tags to apply to the scraper.
+
+---
+
+### ScraperRoleConfiguration <a name="ScraperRoleConfiguration" id="@robhan-cdk-lib/aws_aps.ScraperRoleConfiguration"></a>
+
+IAM roles used by a scraper to access its source and destination.
+
+Supply both roles for cross-account collection. The caller owns the roles' trust and permissions.
+Both roles are also required when writing to a workspace encrypted with a customer-managed KMS
+key, including same-account collection.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.ScraperRoleConfiguration.Initializer"></a>
+
+```typescript
+import { ScraperRoleConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+const scraperRoleConfiguration: ScraperRoleConfiguration = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.Source.property.eksConfiguration">eksConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.EksConfiguration">EksConfiguration</a></code> | The Amazon EKS cluster from which a scraper collects metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperRoleConfiguration.property.sourceRole">sourceRole</a></code> | <code>aws-cdk-lib.interfaces.aws_iam.IRoleRef</code> | The role used to access the metric source. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperRoleConfiguration.property.targetRole">targetRole</a></code> | <code>aws-cdk-lib.interfaces.aws_iam.IRoleRef</code> | The role used to write to the destination. |
 
 ---
 
-##### `eksConfiguration`<sup>Required</sup> <a name="eksConfiguration" id="@robhan-cdk-lib/aws_aps.Source.property.eksConfiguration"></a>
+##### `sourceRole`<sup>Optional</sup> <a name="sourceRole" id="@robhan-cdk-lib/aws_aps.ScraperRoleConfiguration.property.sourceRole"></a>
 
 ```typescript
-public readonly eksConfiguration: EksConfiguration;
+public readonly sourceRole: IRoleRef;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.EksConfiguration">EksConfiguration</a>
+- *Type:* aws-cdk-lib.interfaces.aws_iam.IRoleRef
+- *Default:* a service role is created by Amazon Managed Service for Prometheus
 
-The Amazon EKS cluster from which a scraper collects metrics.
+The role used to access the metric source.
+
+---
+
+##### `targetRole`<sup>Optional</sup> <a name="targetRole" id="@robhan-cdk-lib/aws_aps.ScraperRoleConfiguration.property.targetRole"></a>
+
+```typescript
+public readonly targetRole: IRoleRef;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_iam.IRoleRef
+- *Default:* a service role is created by Amazon Managed Service for Prometheus
+
+The role used to write to the destination.
+
+---
+
+### VpcScraperSourceOptions <a name="VpcScraperSourceOptions" id="@robhan-cdk-lib/aws_aps.VpcScraperSourceOptions"></a>
+
+Options for collecting metrics from resources reachable in a VPC.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.VpcScraperSourceOptions.Initializer"></a>
+
+```typescript
+import { VpcScraperSourceOptions } from '@robhan-cdk-lib/aws_aps'
+
+const vpcScraperSourceOptions: VpcScraperSourceOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.VpcScraperSourceOptions.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.ISecurityGroupRef[]</code> | Security groups used to reach scrape targets. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.VpcScraperSourceOptions.property.subnets">subnets</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.ISubnetRef[]</code> | Subnets used to reach scrape targets. |
+
+---
+
+##### `securityGroups`<sup>Required</sup> <a name="securityGroups" id="@robhan-cdk-lib/aws_aps.VpcScraperSourceOptions.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: ISecurityGroupRef[];
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.ISecurityGroupRef[]
+
+Security groups used to reach scrape targets.
+
+---
+
+##### `subnets`<sup>Required</sup> <a name="subnets" id="@robhan-cdk-lib/aws_aps.VpcScraperSourceOptions.property.subnets"></a>
+
+```typescript
+public readonly subnets: ISubnetRef[];
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.ISubnetRef[]
+
+Subnets used to reach scrape targets.
+
+Prefer private subnets and narrowly scoped security
+group rules for the intended Prometheus endpoints.
 
 ---
 
 ### WorkspaceAttributes <a name="WorkspaceAttributes" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes"></a>
 
-Properties for importing an Amazon Managed Service for Prometheus Workspace from attributes.
+Attributes for referencing an existing workspace.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes.Initializer"></a>
 
@@ -4459,13 +2429,8 @@ const workspaceAttributes: WorkspaceAttributes = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The arn of this workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.alertManagerDefinition">alertManagerDefinition</a></code> | <code>string</code> | The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.alias">alias</a></code> | <code>string</code> | The alias that is assigned to this workspace to help identify it. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.kmsKey">kmsKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | The customer managed AWS KMS key to use for encrypting data within your workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.loggingConfiguration">loggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration">LoggingConfiguration</a></code> | Contains information about the current rules and alerting logging configuration for the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.queryLoggingConfiguration">queryLoggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration">QueryLoggingConfiguration</a></code> | The definition of logging configuration in an Amazon Managed Service for Prometheus workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.workspaceConfiguration">workspaceConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a></code> | Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The ARN of the workspace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.prometheusEndpoint">prometheusEndpoint</a></code> | <code>string</code> | The Prometheus-compatible query endpoint. |
 
 ---
 
@@ -4477,90 +2442,26 @@ public readonly workspaceArn: string;
 
 - *Type:* string
 
-The arn of this workspace.
+The ARN of the workspace.
 
 ---
 
-##### `alertManagerDefinition`<sup>Optional</sup> <a name="alertManagerDefinition" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.alertManagerDefinition"></a>
+##### `prometheusEndpoint`<sup>Optional</sup> <a name="prometheusEndpoint" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.prometheusEndpoint"></a>
 
 ```typescript
-public readonly alertManagerDefinition: string;
+public readonly prometheusEndpoint: string;
 ```
 
 - *Type:* string
+- *Default:* derived from the workspace ARN
 
-The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace.
-
----
-
-##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.alias"></a>
-
-```typescript
-public readonly alias: string;
-```
-
-- *Type:* string
-
-The alias that is assigned to this workspace to help identify it.
-
-It does not need to be
-unique.
-
----
-
-##### `kmsKey`<sup>Optional</sup> <a name="kmsKey" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.kmsKey"></a>
-
-```typescript
-public readonly kmsKey: IKey;
-```
-
-- *Type:* aws-cdk-lib.aws_kms.IKey
-
-The customer managed AWS KMS key to use for encrypting data within your workspace.
-
----
-
-##### `loggingConfiguration`<sup>Optional</sup> <a name="loggingConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.loggingConfiguration"></a>
-
-```typescript
-public readonly loggingConfiguration: LoggingConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration">LoggingConfiguration</a>
-
-Contains information about the current rules and alerting logging configuration for the workspace.
-
-Note: These logging configurations are only for rules and alerting logs.
-
----
-
-##### `queryLoggingConfiguration`<sup>Optional</sup> <a name="queryLoggingConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.queryLoggingConfiguration"></a>
-
-```typescript
-public readonly queryLoggingConfiguration: QueryLoggingConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration">QueryLoggingConfiguration</a>
-
-The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
-
----
-
-##### `workspaceConfiguration`<sup>Optional</sup> <a name="workspaceConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceAttributes.property.workspaceConfiguration"></a>
-
-```typescript
-public readonly workspaceConfiguration: WorkspaceConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a>
-
-Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+The Prometheus-compatible query endpoint.
 
 ---
 
 ### WorkspaceConfiguration <a name="WorkspaceConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceConfiguration"></a>
 
-Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+Workspace-level retention, query, and ingestion settings.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.Initializer"></a>
 
@@ -4574,25 +2475,36 @@ const workspaceConfiguration: WorkspaceConfiguration = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.property.limitsPerLabelSets">limitsPerLabelSets</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.LimitsPerLabelSet">LimitsPerLabelSet</a>[]</code> | This is an array of structures, where each structure defines a label set for the workspace, and defines the ingestion limit for active time series for each of those label sets. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.property.retentionPeriodInDays">retentionPeriodInDays</a></code> | <code>number</code> | Specifies how many days that metrics will be retained in the workspace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.property.labelSets">labelSets</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabelSet">WorkspaceLabelSet</a>[]</code> | Label sets with individual active-series limits. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.property.outOfOrderTimeWindowInSeconds">outOfOrderTimeWindowInSeconds</a></code> | <code>number</code> | The time window, in seconds, during which out-of-order samples are accepted. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.property.retentionPeriodInDays">retentionPeriodInDays</a></code> | <code>number</code> | The number of days to retain metrics. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.property.ruleQueryOffsetInSeconds">ruleQueryOffsetInSeconds</a></code> | <code>number</code> | The duration, in seconds, by which rule evaluation queries are offset into the past. |
 
 ---
 
-##### `limitsPerLabelSets`<sup>Optional</sup> <a name="limitsPerLabelSets" id="@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.property.limitsPerLabelSets"></a>
+##### `labelSets`<sup>Optional</sup> <a name="labelSets" id="@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.property.labelSets"></a>
 
 ```typescript
-public readonly limitsPerLabelSets: LimitsPerLabelSet[];
+public readonly labelSets: WorkspaceLabelSet[];
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.LimitsPerLabelSet">LimitsPerLabelSet</a>[]
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabelSet">WorkspaceLabelSet</a>[]
+- *Default:* no label-set-specific limits
 
-This is an array of structures, where each structure defines a label set for the workspace, and defines the ingestion limit for active time series for each of those label sets.
+Label sets with individual active-series limits.
 
-Each
-label name in a label set must be unique.
+---
 
-Minimum 0
+##### `outOfOrderTimeWindowInSeconds`<sup>Optional</sup> <a name="outOfOrderTimeWindowInSeconds" id="@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.property.outOfOrderTimeWindowInSeconds"></a>
+
+```typescript
+public readonly outOfOrderTimeWindowInSeconds: number;
+```
+
+- *Type:* number
+- *Default:* the service default
+
+The time window, in seconds, during which out-of-order samples are accepted.
 
 ---
 
@@ -4603,16 +2515,185 @@ public readonly retentionPeriodInDays: number;
 ```
 
 - *Type:* number
+- *Default:* the service default
 
-Specifies how many days that metrics will be retained in the workspace.
+The number of days to retain metrics.
 
-Minimum 1
+---
+
+##### `ruleQueryOffsetInSeconds`<sup>Optional</sup> <a name="ruleQueryOffsetInSeconds" id="@robhan-cdk-lib/aws_aps.WorkspaceConfiguration.property.ruleQueryOffsetInSeconds"></a>
+
+```typescript
+public readonly ruleQueryOffsetInSeconds: number;
+```
+
+- *Type:* number
+- *Default:* the service default
+
+The duration, in seconds, by which rule evaluation queries are offset into the past.
+
+---
+
+### WorkspaceLabel <a name="WorkspaceLabel" id="@robhan-cdk-lib/aws_aps.WorkspaceLabel"></a>
+
+A label used to identify a set of ingested time series.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.WorkspaceLabel.Initializer"></a>
+
+```typescript
+import { WorkspaceLabel } from '@robhan-cdk-lib/aws_aps'
+
+const workspaceLabel: WorkspaceLabel = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabel.property.name">name</a></code> | <code>string</code> | The label name. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabel.property.value">value</a></code> | <code>string</code> | The label value. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@robhan-cdk-lib/aws_aps.WorkspaceLabel.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The label name.
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="@robhan-cdk-lib/aws_aps.WorkspaceLabel.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+The label value.
+
+---
+
+### WorkspaceLabelSet <a name="WorkspaceLabelSet" id="@robhan-cdk-lib/aws_aps.WorkspaceLabelSet"></a>
+
+A label set and the ingestion limits that apply to matching time series.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.WorkspaceLabelSet.Initializer"></a>
+
+```typescript
+import { WorkspaceLabelSet } from '@robhan-cdk-lib/aws_aps'
+
+const workspaceLabelSet: WorkspaceLabelSet = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabelSet.property.labels">labels</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabel">WorkspaceLabel</a>[]</code> | The labels that identify matching time series. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabelSet.property.limits">limits</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabelSetLimits">WorkspaceLabelSetLimits</a></code> | The limits for time series matching this label set. |
+
+---
+
+##### `labels`<sup>Required</sup> <a name="labels" id="@robhan-cdk-lib/aws_aps.WorkspaceLabelSet.property.labels"></a>
+
+```typescript
+public readonly labels: WorkspaceLabel[];
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabel">WorkspaceLabel</a>[]
+
+The labels that identify matching time series.
+
+---
+
+##### `limits`<sup>Required</sup> <a name="limits" id="@robhan-cdk-lib/aws_aps.WorkspaceLabelSet.property.limits"></a>
+
+```typescript
+public readonly limits: WorkspaceLabelSetLimits;
+```
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabelSetLimits">WorkspaceLabelSetLimits</a>
+
+The limits for time series matching this label set.
+
+---
+
+### WorkspaceLabelSetLimits <a name="WorkspaceLabelSetLimits" id="@robhan-cdk-lib/aws_aps.WorkspaceLabelSetLimits"></a>
+
+The limits that apply to time series matching a workspace label set.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.WorkspaceLabelSetLimits.Initializer"></a>
+
+```typescript
+import { WorkspaceLabelSetLimits } from '@robhan-cdk-lib/aws_aps'
+
+const workspaceLabelSetLimits: WorkspaceLabelSetLimits = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceLabelSetLimits.property.maxSeries">maxSeries</a></code> | <code>number</code> | The maximum number of active series that can be ingested for the label set. |
+
+---
+
+##### `maxSeries`<sup>Optional</sup> <a name="maxSeries" id="@robhan-cdk-lib/aws_aps.WorkspaceLabelSetLimits.property.maxSeries"></a>
+
+```typescript
+public readonly maxSeries: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The maximum number of active series that can be ingested for the label set.
+
+A value of `0` disables the limit while still publishing label-set metrics.
+
+---
+
+### WorkspaceLoggingConfiguration <a name="WorkspaceLoggingConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceLoggingConfiguration"></a>
+
+The rules and alerting log destination for an Amazon Managed Service for Prometheus workspace.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.WorkspaceLoggingConfiguration.Initializer"></a>
+
+```typescript
+import { WorkspaceLoggingConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+const workspaceLoggingConfiguration: WorkspaceLoggingConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceLoggingConfiguration.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.interfaces.aws_logs.ILogGroupRef</code> | The CloudWatch log group to which rules and alerting logs are published. |
+
+---
+
+##### `logGroup`<sup>Required</sup> <a name="logGroup" id="@robhan-cdk-lib/aws_aps.WorkspaceLoggingConfiguration.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroupRef;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_logs.ILogGroupRef
+
+The CloudWatch log group to which rules and alerting logs are published.
 
 ---
 
 ### WorkspaceProps <a name="WorkspaceProps" id="@robhan-cdk-lib/aws_aps.WorkspaceProps"></a>
 
-Properties for creating an Amazon Managed Service for Prometheus Workspace.
+Properties for an Amazon Managed Service for Prometheus workspace.
 
 #### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.WorkspaceProps.Initializer"></a>
 
@@ -4626,12 +2707,13 @@ const workspaceProps: WorkspaceProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.alertManagerDefinition">alertManagerDefinition</a></code> | <code>string</code> | The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.alias">alias</a></code> | <code>string</code> | The alias that is assigned to this workspace to help identify it. It does not need to be unique. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.kmsKey">kmsKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | The customer managed AWS KMS key to use for encrypting data within your workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.loggingConfiguration">loggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration">LoggingConfiguration</a></code> | Contains information about the current rules and alerting logging configuration for the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.queryLoggingConfiguration">queryLoggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration">QueryLoggingConfiguration</a></code> | The definition of logging configuration in an Amazon Managed Service for Prometheus workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.workspaceConfiguration">workspaceConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a></code> | Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.alertManagerDefinition">alertManagerDefinition</a></code> | <code>string</code> | The alert manager definition as YAML. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.alias">alias</a></code> | <code>string</code> | A user-assigned alias for the workspace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.kmsKey">kmsKey</a></code> | <code>aws-cdk-lib.interfaces.aws_kms.IKeyRef</code> | The customer-managed KMS key used to encrypt workspace data. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.loggingConfiguration">loggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceLoggingConfiguration">WorkspaceLoggingConfiguration</a></code> | Rules and alerting logging configuration. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.queryLoggingConfiguration">queryLoggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceQueryLoggingConfiguration">WorkspaceQueryLoggingConfiguration</a></code> | Query logging configuration. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.tags">tags</a></code> | <code>{[ key: string ]: string}</code> | Tags to apply to the workspace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceProps.property.workspaceConfiguration">workspaceConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a></code> | Workspace retention and ingestion settings. |
 
 ---
 
@@ -4642,8 +2724,9 @@ public readonly alertManagerDefinition: string;
 ```
 
 - *Type:* string
+- *Default:* no alert manager definition
 
-The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace.
+The alert manager definition as YAML.
 
 ---
 
@@ -4654,48 +2737,65 @@ public readonly alias: string;
 ```
 
 - *Type:* string
+- *Default:* no alias
 
-The alias that is assigned to this workspace to help identify it. It does not need to be unique.
-
-0 to 100 characters
+A user-assigned alias for the workspace.
 
 ---
 
 ##### `kmsKey`<sup>Optional</sup> <a name="kmsKey" id="@robhan-cdk-lib/aws_aps.WorkspaceProps.property.kmsKey"></a>
 
 ```typescript
-public readonly kmsKey: IKey;
+public readonly kmsKey: IKeyRef;
 ```
 
-- *Type:* aws-cdk-lib.aws_kms.IKey
+- *Type:* aws-cdk-lib.interfaces.aws_kms.IKeyRef
+- *Default:* an AWS-owned key
 
-The customer managed AWS KMS key to use for encrypting data within your workspace.
+The customer-managed KMS key used to encrypt workspace data.
+
+A managed scraper writing to a workspace encrypted with a customer-managed key requires an
+explicit scraper role configuration, even when the scraper and workspace share an account.
+Resource-policy principals also require access to this key.
 
 ---
 
 ##### `loggingConfiguration`<sup>Optional</sup> <a name="loggingConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceProps.property.loggingConfiguration"></a>
 
 ```typescript
-public readonly loggingConfiguration: LoggingConfiguration;
+public readonly loggingConfiguration: WorkspaceLoggingConfiguration;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration">LoggingConfiguration</a>
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceLoggingConfiguration">WorkspaceLoggingConfiguration</a>
+- *Default:* rules and alerting logs are not published
 
-Contains information about the current rules and alerting logging configuration for the workspace.
-
-Note: These logging configurations are only for rules and alerting logs.
+Rules and alerting logging configuration.
 
 ---
 
 ##### `queryLoggingConfiguration`<sup>Optional</sup> <a name="queryLoggingConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceProps.property.queryLoggingConfiguration"></a>
 
 ```typescript
-public readonly queryLoggingConfiguration: QueryLoggingConfiguration;
+public readonly queryLoggingConfiguration: WorkspaceQueryLoggingConfiguration;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration">QueryLoggingConfiguration</a>
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceQueryLoggingConfiguration">WorkspaceQueryLoggingConfiguration</a>
+- *Default:* queries are not logged
 
-The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+Query logging configuration.
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="@robhan-cdk-lib/aws_aps.WorkspaceProps.property.tags"></a>
+
+```typescript
+public readonly tags: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+- *Default:* no tags
+
+Tags to apply to the workspace.
 
 ---
 
@@ -4706,19 +2806,307 @@ public readonly workspaceConfiguration: WorkspaceConfiguration;
 ```
 
 - *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a>
+- *Default:* service defaults
 
-Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+Workspace retention and ingestion settings.
 
 ---
+
+### WorkspaceQueryLoggingConfiguration <a name="WorkspaceQueryLoggingConfiguration" id="@robhan-cdk-lib/aws_aps.WorkspaceQueryLoggingConfiguration"></a>
+
+The query log destination and filtering criteria for a workspace.
+
+#### Initializer <a name="Initializer" id="@robhan-cdk-lib/aws_aps.WorkspaceQueryLoggingConfiguration.Initializer"></a>
+
+```typescript
+import { WorkspaceQueryLoggingConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+const workspaceQueryLoggingConfiguration: WorkspaceQueryLoggingConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceQueryLoggingConfiguration.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.interfaces.aws_logs.ILogGroupRef</code> | The CloudWatch log group to which query logs are published. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceQueryLoggingConfiguration.property.qspThreshold">qspThreshold</a></code> | <code>number</code> | The Query Samples Processed threshold above which queries are logged. |
+
+---
+
+##### `logGroup`<sup>Required</sup> <a name="logGroup" id="@robhan-cdk-lib/aws_aps.WorkspaceQueryLoggingConfiguration.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroupRef;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_logs.ILogGroupRef
+
+The CloudWatch log group to which query logs are published.
+
+---
+
+##### `qspThreshold`<sup>Optional</sup> <a name="qspThreshold" id="@robhan-cdk-lib/aws_aps.WorkspaceQueryLoggingConfiguration.property.qspThreshold"></a>
+
+```typescript
+public readonly qspThreshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The Query Samples Processed threshold above which queries are logged.
+
+When query logging is enabled, the default `0` makes every query that processes one or more
+samples eligible for logging. Consider log volume, cost, and query-content sensitivity when
+choosing this value.
+
+---
+
+## Classes <a name="Classes" id="Classes"></a>
+
+### IgnoreNearExpected <a name="IgnoreNearExpected" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected"></a>
+
+Threshold settings for values close to the expected value.
+
+#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.Initializer"></a>
+
+```typescript
+import { IgnoreNearExpected } from '@robhan-cdk-lib/aws_aps'
+
+new IgnoreNearExpected()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected.amount">amount</a></code> | Ignore values within a non-negative absolute amount of the expected value. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IgnoreNearExpected.ratio">ratio</a></code> | Ignore values within a non-negative ratio of the expected value. |
+
+---
+
+##### `amount` <a name="amount" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.amount"></a>
+
+```typescript
+import { IgnoreNearExpected } from '@robhan-cdk-lib/aws_aps'
+
+IgnoreNearExpected.amount(amount: number)
+```
+
+Ignore values within a non-negative absolute amount of the expected value.
+
+###### `amount`<sup>Required</sup> <a name="amount" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.amount.parameter.amount"></a>
+
+- *Type:* number
+
+---
+
+##### `ratio` <a name="ratio" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.ratio"></a>
+
+```typescript
+import { IgnoreNearExpected } from '@robhan-cdk-lib/aws_aps'
+
+IgnoreNearExpected.ratio(ratio: number)
+```
+
+Ignore values within a non-negative ratio of the expected value.
+
+###### `ratio`<sup>Required</sup> <a name="ratio" id="@robhan-cdk-lib/aws_aps.IgnoreNearExpected.ratio.parameter.ratio"></a>
+
+- *Type:* number
+
+---
+
+
+
+### ScrapeConfiguration <a name="ScrapeConfiguration" id="@robhan-cdk-lib/aws_aps.ScrapeConfiguration"></a>
+
+A Prometheus scrape configuration.
+
+#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.ScrapeConfiguration.Initializer"></a>
+
+```typescript
+import { ScrapeConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+new ScrapeConfiguration()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration.fromString">fromString</a></code> | Create a scrape configuration from Prometheus YAML. |
+
+---
+
+##### `fromString` <a name="fromString" id="@robhan-cdk-lib/aws_aps.ScrapeConfiguration.fromString"></a>
+
+```typescript
+import { ScrapeConfiguration } from '@robhan-cdk-lib/aws_aps'
+
+ScrapeConfiguration.fromString(configuration: string)
+```
+
+Create a scrape configuration from Prometheus YAML.
+
+The CloudFormation resource provider accepts raw YAML and serializes it to the service API's
+blob shape. Do not base64-encode this value.
+
+###### `configuration`<sup>Required</sup> <a name="configuration" id="@robhan-cdk-lib/aws_aps.ScrapeConfiguration.fromString.parameter.configuration"></a>
+
+- *Type:* string
+
+---
+
+
+
+### ScraperDestination <a name="ScraperDestination" id="@robhan-cdk-lib/aws_aps.ScraperDestination"></a>
+
+A destination for metrics collected by a scraper.
+
+#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.ScraperDestination.Initializer"></a>
+
+```typescript
+import { ScraperDestination } from '@robhan-cdk-lib/aws_aps'
+
+new ScraperDestination()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperDestination.amp">amp</a></code> | Send collected metrics from an Amazon EKS source to an Amazon Managed Service for Prometheus workspace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperDestination.cloudWatch">cloudWatch</a></code> | Send collected metrics from an EKS or VPC source to a CloudWatch dataset. |
+
+---
+
+##### `amp` <a name="amp" id="@robhan-cdk-lib/aws_aps.ScraperDestination.amp"></a>
+
+```typescript
+import { ScraperDestination } from '@robhan-cdk-lib/aws_aps'
+
+ScraperDestination.amp(workspace: IWorkspaceRef)
+```
+
+Send collected metrics from an Amazon EKS source to an Amazon Managed Service for Prometheus workspace.
+
+VPC sources must use {@link cloudWatch} instead.
+
+###### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.ScraperDestination.amp.parameter.workspace"></a>
+
+- *Type:* aws-cdk-lib.interfaces.aws_aps.IWorkspaceRef
+
+---
+
+##### `cloudWatch` <a name="cloudWatch" id="@robhan-cdk-lib/aws_aps.ScraperDestination.cloudWatch"></a>
+
+```typescript
+import { ScraperDestination } from '@robhan-cdk-lib/aws_aps'
+
+ScraperDestination.cloudWatch(datasetArn: string)
+```
+
+Send collected metrics from an EKS or VPC source to a CloudWatch dataset.
+
+###### `datasetArn`<sup>Required</sup> <a name="datasetArn" id="@robhan-cdk-lib/aws_aps.ScraperDestination.cloudWatch.parameter.datasetArn"></a>
+
+- *Type:* string
+
+---
+
+
+
+### ScraperSource <a name="ScraperSource" id="@robhan-cdk-lib/aws_aps.ScraperSource"></a>
+
+A source from which a scraper collects metrics.
+
+#### Initializers <a name="Initializers" id="@robhan-cdk-lib/aws_aps.ScraperSource.Initializer"></a>
+
+```typescript
+import { ScraperSource } from '@robhan-cdk-lib/aws_aps'
+
+new ScraperSource()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperSource.eks">eks</a></code> | Collect metrics from an Amazon EKS cluster. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperSource.vpc">vpc</a></code> | Collect metrics from resources reachable in a VPC. |
+
+---
+
+##### `eks` <a name="eks" id="@robhan-cdk-lib/aws_aps.ScraperSource.eks"></a>
+
+```typescript
+import { ScraperSource } from '@robhan-cdk-lib/aws_aps'
+
+ScraperSource.eks(options: EksScraperSourceOptions)
+```
+
+Collect metrics from an Amazon EKS cluster.
+
+###### `options`<sup>Required</sup> <a name="options" id="@robhan-cdk-lib/aws_aps.ScraperSource.eks.parameter.options"></a>
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.EksScraperSourceOptions">EksScraperSourceOptions</a>
+
+---
+
+##### `vpc` <a name="vpc" id="@robhan-cdk-lib/aws_aps.ScraperSource.vpc"></a>
+
+```typescript
+import { ScraperSource } from '@robhan-cdk-lib/aws_aps'
+
+ScraperSource.vpc(options: VpcScraperSourceOptions)
+```
+
+Collect metrics from resources reachable in a VPC.
+
+This source must be paired with {@link ScraperDestination.cloudWatch}.
+
+###### `options`<sup>Required</sup> <a name="options" id="@robhan-cdk-lib/aws_aps.ScraperSource.vpc.parameter.options"></a>
+
+- *Type:* <a href="#@robhan-cdk-lib/aws_aps.VpcScraperSourceOptions">VpcScraperSourceOptions</a>
+
+---
+
 
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
 
 ### IAnomalyDetector <a name="IAnomalyDetector" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector"></a>
 
-- *Extends:* aws-cdk-lib.IResource
+- *Extends:* aws-cdk-lib.IResource, aws-cdk-lib.interfaces.aws_aps.IAnomalyDetectorRef
 
-- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector">AnomalyDetector</a>, <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorBase">AnomalyDetectorBase</a>, <a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector">IAnomalyDetector</a>
+- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetector">AnomalyDetector</a>, <a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector">IAnomalyDetector</a>
+
+An Amazon Managed Service for Prometheus anomaly detector.
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -4728,13 +3116,8 @@ Use this structure to define label sets and the ingestion limits for time series
 | <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.alias">alias</a></code> | <code>string</code> | The user-friendly name of the anomaly detector. 1 to 128 characters length. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.anomalyDetectorArn">anomalyDetectorArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.configuration">configuration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a></code> | The algorithm configuration of the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.evaluationIntervalInSeconds">evaluationIntervalInSeconds</a></code> | <code>number</code> | The frequency, in seconds, at which the anomaly detector evaluates metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.labels">labels</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]</code> | The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.missingDataAction">missingDataAction</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a></code> | The action taken when data is missing during evaluation. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.anomalyDetectorRef">anomalyDetectorRef</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.AnomalyDetectorReference</code> | A reference to a AnomalyDetector resource. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.anomalyDetectorArn">anomalyDetectorArn</a></code> | <code>string</code> | The ARN of the anomaly detector. |
 
 ---
 
@@ -4782,18 +3165,15 @@ The stack in which this resource is defined.
 
 ---
 
-##### `alias`<sup>Required</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.alias"></a>
+##### `anomalyDetectorRef`<sup>Required</sup> <a name="anomalyDetectorRef" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.anomalyDetectorRef"></a>
 
 ```typescript
-public readonly alias: string;
+public readonly anomalyDetectorRef: AnomalyDetectorReference;
 ```
 
-- *Type:* string
+- *Type:* aws-cdk-lib.interfaces.aws_aps.AnomalyDetectorReference
 
-The user-friendly name of the anomaly detector. 1 to 128 characters length.
-
-Minimum length of 1. Maximum length of 64.
-Pattern: [0-9A-Za-z][-.0-9A-Z_a-z]*
+A reference to a AnomalyDetector resource.
 
 ---
 
@@ -4805,82 +3185,17 @@ public readonly anomalyDetectorArn: string;
 
 - *Type:* string
 
-The Amazon Resource Name (ARN) of the anomaly detector.
-
----
-
-##### `configuration`<sup>Required</sup> <a name="configuration" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.configuration"></a>
-
-```typescript
-public readonly configuration: AnomalyDetectorConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.AnomalyDetectorConfiguration">AnomalyDetectorConfiguration</a>
-
-The algorithm configuration of the anomaly detector.
-
----
-
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.workspace"></a>
-
-```typescript
-public readonly workspace: IWorkspace;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
-
----
-
-##### `evaluationIntervalInSeconds`<sup>Optional</sup> <a name="evaluationIntervalInSeconds" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.evaluationIntervalInSeconds"></a>
-
-```typescript
-public readonly evaluationIntervalInSeconds: number;
-```
-
-- *Type:* number
-
-The frequency, in seconds, at which the anomaly detector evaluates metrics.
-
-Minimum value of 30. Maximum value of 86400.
-
----
-
-##### `labels`<sup>Optional</sup> <a name="labels" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.labels"></a>
-
-```typescript
-public readonly labels: Label[];
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Label">Label</a>[]
-
-The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
-
-Map Entries: Minimum number of 0 items. Maximum number of 140 items.
-Key Length Constraints: Minimum length of 1. Maximum length of 7168.
-Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
-Value Length Constraints: Minimum length of 1. Maximum length of 7168.
-
----
-
-##### `missingDataAction`<sup>Optional</sup> <a name="missingDataAction" id="@robhan-cdk-lib/aws_aps.IAnomalyDetector.property.missingDataAction"></a>
-
-```typescript
-public readonly missingDataAction: MissingDataAction;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.MissingDataAction">MissingDataAction</a>
-
-The action taken when data is missing during evaluation.
+The ARN of the anomaly detector.
 
 ---
 
 ### IResourcePolicy <a name="IResourcePolicy" id="@robhan-cdk-lib/aws_aps.IResourcePolicy"></a>
 
-- *Extends:* aws-cdk-lib.IResource
+- *Extends:* aws-cdk-lib.IResource, aws-cdk-lib.interfaces.aws_aps.IResourcePolicyRef
 
-- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy">ResourcePolicy</a>, <a href="#@robhan-cdk-lib/aws_aps.ResourcePolicyBase">ResourcePolicyBase</a>, <a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy">IResourcePolicy</a>
+- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.ResourcePolicy">ResourcePolicy</a>, <a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy">IResourcePolicy</a>
+
+An Amazon Managed Service for Prometheus workspace resource policy.
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -4890,8 +3205,8 @@ The action taken when data is missing during evaluation.
 | <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.policyDocument">policyDocument</a></code> | <code>string</code> | The JSON to use as the Resource-based Policy. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to attach the policy to. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.resourcePolicyRef">resourcePolicyRef</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.ResourcePolicyReference</code> | A reference to a ResourcePolicy resource. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The ARN of the workspace protected by the policy. |
 
 ---
 
@@ -4939,35 +3254,37 @@ The stack in which this resource is defined.
 
 ---
 
-##### `policyDocument`<sup>Required</sup> <a name="policyDocument" id="@robhan-cdk-lib/aws_aps.IResourcePolicy.property.policyDocument"></a>
+##### `resourcePolicyRef`<sup>Required</sup> <a name="resourcePolicyRef" id="@robhan-cdk-lib/aws_aps.IResourcePolicy.property.resourcePolicyRef"></a>
 
 ```typescript
-public readonly policyDocument: string;
+public readonly resourcePolicyRef: ResourcePolicyReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_aps.ResourcePolicyReference
+
+A reference to a ResourcePolicy resource.
+
+---
+
+##### `workspaceArn`<sup>Required</sup> <a name="workspaceArn" id="@robhan-cdk-lib/aws_aps.IResourcePolicy.property.workspaceArn"></a>
+
+```typescript
+public readonly workspaceArn: string;
 ```
 
 - *Type:* string
 
-The JSON to use as the Resource-based Policy.
-
----
-
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.IResourcePolicy.property.workspace"></a>
-
-```typescript
-public readonly workspace: IWorkspace;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-The workspace to attach the policy to.
+The ARN of the workspace protected by the policy.
 
 ---
 
 ### IRuleGroupsNamespace <a name="IRuleGroupsNamespace" id="@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace"></a>
 
-- *Extends:* aws-cdk-lib.IResource
+- *Extends:* aws-cdk-lib.IResource, aws-cdk-lib.interfaces.aws_aps.IRuleGroupsNamespaceRef
 
-- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace">RuleGroupsNamespace</a>, <a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespaceBase">RuleGroupsNamespaceBase</a>, <a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace">IRuleGroupsNamespace</a>
+- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.RuleGroupsNamespace">RuleGroupsNamespace</a>, <a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace">IRuleGroupsNamespace</a>
+
+An Amazon Managed Service for Prometheus rule groups namespace.
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -4977,10 +3294,8 @@ The workspace to attach the policy to.
 | <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.data">data</a></code> | <code>string</code> | The rules file used in the namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.name">name</a></code> | <code>string</code> | The name of the rule groups namespace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.ruleGroupsNamespaceRef">ruleGroupsNamespaceRef</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.RuleGroupsNamespaceReference</code> | A reference to a RuleGroupsNamespace resource. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.ruleGroupsNamespaceArn">ruleGroupsNamespaceArn</a></code> | <code>string</code> | The ARN of the rule groups namespace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.workspace">workspace</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a></code> | The workspace to add the rule groups namespace. |
 
 ---
 
@@ -5028,27 +3343,15 @@ The stack in which this resource is defined.
 
 ---
 
-##### `data`<sup>Required</sup> <a name="data" id="@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.data"></a>
+##### `ruleGroupsNamespaceRef`<sup>Required</sup> <a name="ruleGroupsNamespaceRef" id="@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.ruleGroupsNamespaceRef"></a>
 
 ```typescript
-public readonly data: string;
+public readonly ruleGroupsNamespaceRef: RuleGroupsNamespaceReference;
 ```
 
-- *Type:* string
+- *Type:* aws-cdk-lib.interfaces.aws_aps.RuleGroupsNamespaceReference
 
-The rules file used in the namespace.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-The name of the rule groups namespace.
+A reference to a RuleGroupsNamespace resource.
 
 ---
 
@@ -5064,23 +3367,13 @@ The ARN of the rule groups namespace.
 
 ---
 
-##### `workspace`<sup>Required</sup> <a name="workspace" id="@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace.property.workspace"></a>
-
-```typescript
-public readonly workspace: IWorkspace;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
-
-The workspace to add the rule groups namespace.
-
----
-
 ### IScraper <a name="IScraper" id="@robhan-cdk-lib/aws_aps.IScraper"></a>
 
-- *Extends:* aws-cdk-lib.IResource
+- *Extends:* aws-cdk-lib.IResource, aws-cdk-lib.interfaces.aws_aps.IScraperRef
 
-- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.Scraper">Scraper</a>, <a href="#@robhan-cdk-lib/aws_aps.ScraperBase">ScraperBase</a>, <a href="#@robhan-cdk-lib/aws_aps.IScraper">IScraper</a>
+- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.Scraper">Scraper</a>, <a href="#@robhan-cdk-lib/aws_aps.IScraper">IScraper</a>
+
+An Amazon Managed Service for Prometheus scraper.
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -5090,13 +3383,9 @@ The workspace to add the rule groups namespace.
 | <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.destination">destination</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a></code> | The Amazon Managed Service for Prometheus workspace the scraper sends metrics to. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.scrapeConfiguration">scrapeConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a></code> | The configuration in use by the scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.scraperRef">scraperRef</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.ScraperReference</code> | A reference to a Scraper resource. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.scraperArn">scraperArn</a></code> | <code>string</code> | The ARN of the scraper. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.scraperId">scraperId</a></code> | <code>string</code> | The ID of the scraper. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.source">source</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.Source">Source</a></code> | The Amazon EKS cluster from which the scraper collects metrics. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.alias">alias</a></code> | <code>string</code> | An optional user-assigned scraper alias. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.roleConfiguration">roleConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a></code> | The role configuration in an Amazon Managed Service for Prometheus scraper. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IScraper.property.scraperId">scraperId</a></code> | <code>string</code> | The unique ID of the scraper. |
 
 ---
 
@@ -5144,27 +3433,15 @@ The stack in which this resource is defined.
 
 ---
 
-##### `destination`<sup>Required</sup> <a name="destination" id="@robhan-cdk-lib/aws_aps.IScraper.property.destination"></a>
+##### `scraperRef`<sup>Required</sup> <a name="scraperRef" id="@robhan-cdk-lib/aws_aps.IScraper.property.scraperRef"></a>
 
 ```typescript
-public readonly destination: Destination;
+public readonly scraperRef: ScraperReference;
 ```
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Destination">Destination</a>
+- *Type:* aws-cdk-lib.interfaces.aws_aps.ScraperReference
 
-The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
-
----
-
-##### `scrapeConfiguration`<sup>Required</sup> <a name="scrapeConfiguration" id="@robhan-cdk-lib/aws_aps.IScraper.property.scrapeConfiguration"></a>
-
-```typescript
-public readonly scrapeConfiguration: ScrapeConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.ScrapeConfiguration">ScrapeConfiguration</a>
-
-The configuration in use by the scraper.
+A reference to a Scraper resource.
 
 ---
 
@@ -5188,55 +3465,17 @@ public readonly scraperId: string;
 
 - *Type:* string
 
-The ID of the scraper.
-
----
-
-##### `source`<sup>Required</sup> <a name="source" id="@robhan-cdk-lib/aws_aps.IScraper.property.source"></a>
-
-```typescript
-public readonly source: Source;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.Source">Source</a>
-
-The Amazon EKS cluster from which the scraper collects metrics.
-
----
-
-##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.IScraper.property.alias"></a>
-
-```typescript
-public readonly alias: string;
-```
-
-- *Type:* string
-
-An optional user-assigned scraper alias.
-
-1-100 characters.
-
-Pattern: ^[0-9A-Za-z][-.0-9A-Z_a-z]*$
-
----
-
-##### `roleConfiguration`<sup>Optional</sup> <a name="roleConfiguration" id="@robhan-cdk-lib/aws_aps.IScraper.property.roleConfiguration"></a>
-
-```typescript
-public readonly roleConfiguration: RoleConfiguration;
-```
-
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.RoleConfiguration">RoleConfiguration</a>
-
-The role configuration in an Amazon Managed Service for Prometheus scraper.
+The unique ID of the scraper.
 
 ---
 
 ### IWorkspace <a name="IWorkspace" id="@robhan-cdk-lib/aws_aps.IWorkspace"></a>
 
-- *Extends:* aws-cdk-lib.IResource
+- *Extends:* aws-cdk-lib.IResource, aws-cdk-lib.interfaces.aws_aps.IWorkspaceRef
 
-- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.Workspace">Workspace</a>, <a href="#@robhan-cdk-lib/aws_aps.WorkspaceBase">WorkspaceBase</a>, <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+- *Implemented By:* <a href="#@robhan-cdk-lib/aws_aps.Workspace">Workspace</a>, <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+
+An Amazon Managed Service for Prometheus workspace.
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -5246,14 +3485,10 @@ The role configuration in an Amazon Managed Service for Prometheus scraper.
 | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.workspaceRef">workspaceRef</a></code> | <code>aws-cdk-lib.interfaces.aws_aps.WorkspaceReference</code> | A reference to a Workspace resource. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.prometheusEndpoint">prometheusEndpoint</a></code> | <code>string</code> | The Prometheus-compatible query endpoint for the workspace. |
 | <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The ARN of the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.workspaceId">workspaceId</a></code> | <code>string</code> | The unique ID for the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.alertManagerDefinition">alertManagerDefinition</a></code> | <code>string</code> | The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.alias">alias</a></code> | <code>string</code> | The alias that is assigned to this workspace to help identify it. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.kmsKey">kmsKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | The customer managed AWS KMS key to use for encrypting data within your workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.loggingConfiguration">loggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration">LoggingConfiguration</a></code> | Contains information about the current rules and alerting logging configuration for the workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.queryLoggingConfiguration">queryLoggingConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration">QueryLoggingConfiguration</a></code> | The definition of logging configuration in an Amazon Managed Service for Prometheus workspace. |
-| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.workspaceConfiguration">workspaceConfiguration</a></code> | <code><a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a></code> | Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.IWorkspace.property.workspaceId">workspaceId</a></code> | <code>string</code> | The unique ID of the workspace. |
 
 ---
 
@@ -5301,6 +3536,30 @@ The stack in which this resource is defined.
 
 ---
 
+##### `workspaceRef`<sup>Required</sup> <a name="workspaceRef" id="@robhan-cdk-lib/aws_aps.IWorkspace.property.workspaceRef"></a>
+
+```typescript
+public readonly workspaceRef: WorkspaceReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_aps.WorkspaceReference
+
+A reference to a Workspace resource.
+
+---
+
+##### `prometheusEndpoint`<sup>Required</sup> <a name="prometheusEndpoint" id="@robhan-cdk-lib/aws_aps.IWorkspace.property.prometheusEndpoint"></a>
+
+```typescript
+public readonly prometheusEndpoint: string;
+```
+
+- *Type:* string
+
+The Prometheus-compatible query endpoint for the workspace.
+
+---
+
 ##### `workspaceArn`<sup>Required</sup> <a name="workspaceArn" id="@robhan-cdk-lib/aws_aps.IWorkspace.property.workspaceArn"></a>
 
 ```typescript
@@ -5321,84 +3580,70 @@ public readonly workspaceId: string;
 
 - *Type:* string
 
-The unique ID for the workspace.
+The unique ID of the workspace.
 
 ---
 
-##### `alertManagerDefinition`<sup>Optional</sup> <a name="alertManagerDefinition" id="@robhan-cdk-lib/aws_aps.IWorkspace.property.alertManagerDefinition"></a>
+## Enums <a name="Enums" id="Enums"></a>
 
-```typescript
-public readonly alertManagerDefinition: string;
-```
+### MissingDataAction <a name="MissingDataAction" id="@robhan-cdk-lib/aws_aps.MissingDataAction"></a>
 
-- *Type:* string
+The action to take when evaluation data is missing.
 
-The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace.
+#### Members <a name="Members" id="Members"></a>
 
----
-
-##### `alias`<sup>Optional</sup> <a name="alias" id="@robhan-cdk-lib/aws_aps.IWorkspace.property.alias"></a>
-
-```typescript
-public readonly alias: string;
-```
-
-- *Type:* string
-
-The alias that is assigned to this workspace to help identify it.
-
-It does not need to be
-unique.
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction.MARK_AS_ANOMALY">MARK_AS_ANOMALY</a></code> | Treat the missing data point as anomalous. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.MissingDataAction.SKIP">SKIP</a></code> | Skip evaluation for the missing data point. |
 
 ---
 
-##### `kmsKey`<sup>Optional</sup> <a name="kmsKey" id="@robhan-cdk-lib/aws_aps.IWorkspace.property.kmsKey"></a>
+##### `MARK_AS_ANOMALY` <a name="MARK_AS_ANOMALY" id="@robhan-cdk-lib/aws_aps.MissingDataAction.MARK_AS_ANOMALY"></a>
 
-```typescript
-public readonly kmsKey: IKey;
-```
-
-- *Type:* aws-cdk-lib.aws_kms.IKey
-
-The customer managed AWS KMS key to use for encrypting data within your workspace.
+Treat the missing data point as anomalous.
 
 ---
 
-##### `loggingConfiguration`<sup>Optional</sup> <a name="loggingConfiguration" id="@robhan-cdk-lib/aws_aps.IWorkspace.property.loggingConfiguration"></a>
 
-```typescript
-public readonly loggingConfiguration: LoggingConfiguration;
-```
+##### `SKIP` <a name="SKIP" id="@robhan-cdk-lib/aws_aps.MissingDataAction.SKIP"></a>
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.LoggingConfiguration">LoggingConfiguration</a>
-
-Contains information about the current rules and alerting logging configuration for the workspace.
-
-Note: These logging configurations are only for rules and alerting logs.
+Skip evaluation for the missing data point.
 
 ---
 
-##### `queryLoggingConfiguration`<sup>Optional</sup> <a name="queryLoggingConfiguration" id="@robhan-cdk-lib/aws_aps.IWorkspace.property.queryLoggingConfiguration"></a>
 
-```typescript
-public readonly queryLoggingConfiguration: QueryLoggingConfiguration;
-```
+### ScraperComponentType <a name="ScraperComponentType" id="@robhan-cdk-lib/aws_aps.ScraperComponentType"></a>
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.QueryLoggingConfiguration">QueryLoggingConfiguration</a>
+Components of a scraper that support diagnostic logging.
 
-The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperComponentType.SERVICE_DISCOVERY">SERVICE_DISCOVERY</a></code> | Service discovery. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperComponentType.COLLECTOR">COLLECTOR</a></code> | Metric collection. |
+| <code><a href="#@robhan-cdk-lib/aws_aps.ScraperComponentType.EXPORTER">EXPORTER</a></code> | Metric export. |
 
 ---
 
-##### `workspaceConfiguration`<sup>Optional</sup> <a name="workspaceConfiguration" id="@robhan-cdk-lib/aws_aps.IWorkspace.property.workspaceConfiguration"></a>
+##### `SERVICE_DISCOVERY` <a name="SERVICE_DISCOVERY" id="@robhan-cdk-lib/aws_aps.ScraperComponentType.SERVICE_DISCOVERY"></a>
 
-```typescript
-public readonly workspaceConfiguration: WorkspaceConfiguration;
-```
+Service discovery.
 
-- *Type:* <a href="#@robhan-cdk-lib/aws_aps.WorkspaceConfiguration">WorkspaceConfiguration</a>
+---
 
-Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+
+##### `COLLECTOR` <a name="COLLECTOR" id="@robhan-cdk-lib/aws_aps.ScraperComponentType.COLLECTOR"></a>
+
+Metric collection.
+
+---
+
+
+##### `EXPORTER` <a name="EXPORTER" id="@robhan-cdk-lib/aws_aps.ScraperComponentType.EXPORTER"></a>
+
+Metric export.
 
 ---
 

@@ -1,227 +1,116 @@
 import { CfnWorkspace, CfnWorkspaceProps } from 'aws-cdk-lib/aws-aps';
-import { IKey } from 'aws-cdk-lib/aws-kms';
+import { IKeyRef } from 'aws-cdk-lib/aws-kms';
 import { Construct } from 'constructs';
-import { validateAlertManagerDefinition, validateAlias, validateLoggingConfiguration, validateQueryLoggingConfiguration, validateWorkspaceConfiguration } from './validation/workspace-base';
-import { IWorkspace, LoggingConfiguration, QueryLoggingConfiguration, WorkspaceBase, WorkspaceConfiguration } from './workspace-base';
+import {
+  IWorkspace,
+  WorkspaceBase,
+  WorkspaceConfiguration,
+  WorkspaceLoggingConfiguration,
+  WorkspaceQueryLoggingConfiguration,
+} from './workspace-base';
 
 /**
- * Properties for creating an Amazon Managed Service for Prometheus Workspace.
+ * Properties for an Amazon Managed Service for Prometheus workspace.
  */
 export interface WorkspaceProps {
   /**
-   * The alert manager definition, a YAML configuration for the alert manager in your Amazon
-   * Managed Service for Prometheus workspace.
+   * The alert manager definition as YAML.
+   *
+   * @default - no alert manager definition
    */
   readonly alertManagerDefinition?: string;
 
   /**
-   * The alias that is assigned to this workspace to help identify it. It does not need to be
-   * unique.
+   * A user-assigned alias for the workspace.
    *
-   * 0 to 100 characters
+   * @default - no alias
    */
   readonly alias?: string;
 
   /**
-   * The customer managed AWS KMS key to use for encrypting data within your workspace.
-   */
-  readonly kmsKey?: IKey;
-
-  /**
-   * Contains information about the current rules and alerting logging configuration for the
-   * workspace.
+   * The customer-managed KMS key used to encrypt workspace data.
    *
-   * Note: These logging configurations are only for rules and alerting logs.
+   * A managed scraper writing to a workspace encrypted with a customer-managed key requires an
+   * explicit scraper role configuration, even when the scraper and workspace share an account.
+   * Resource-policy principals also require access to this key.
+   *
+   * @default - an AWS-owned key
    */
-  readonly loggingConfiguration?: LoggingConfiguration;
+  readonly kmsKey?: IKeyRef;
 
   /**
-   * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+   * Rules and alerting logging configuration.
+   *
+   * @default - rules and alerting logs are not published
    */
-  readonly queryLoggingConfiguration?: QueryLoggingConfiguration;
+  readonly loggingConfiguration?: WorkspaceLoggingConfiguration;
 
   /**
-   * Use this structure to define label sets and the ingestion limits for time series that match
-   * label sets, and to specify the retention period of the workspace.
+   * Query logging configuration.
+   *
+   * @default - queries are not logged
+   */
+  readonly queryLoggingConfiguration?: WorkspaceQueryLoggingConfiguration;
+
+  /**
+   * Workspace retention and ingestion settings.
+   *
+   * @default - service defaults
    */
   readonly workspaceConfiguration?: WorkspaceConfiguration;
+
+  /**
+   * Tags to apply to the workspace.
+   *
+   * @default - no tags
+   */
+  readonly tags?: { [key: string]: string };
 }
 
 /**
- * Properties for importing an Amazon Managed Service for Prometheus Workspace from attributes.
+ * Attributes for referencing an existing workspace.
  */
 export interface WorkspaceAttributes {
   /**
-   * The alert manager definition, a YAML configuration for the alert manager in your Amazon
-   * Managed Service for Prometheus workspace.
-   */
-  readonly alertManagerDefinition?: string;
-
-  /**
-   * The alias that is assigned to this workspace to help identify it. It does not need to be
-   * unique.
-   */
-  readonly alias?: string;
-
-  /**
-   * The customer managed AWS KMS key to use for encrypting data within your workspace.
-   */
-  readonly kmsKey?: IKey;
-
-  /**
-   * Contains information about the current rules and alerting logging configuration for the
-   * workspace.
-   *
-   * Note: These logging configurations are only for rules and alerting logs.
-   */
-  readonly loggingConfiguration?: LoggingConfiguration;
-
-  /**
-   * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
-   */
-  readonly queryLoggingConfiguration?: QueryLoggingConfiguration;
-
-  /**
-   * Use this structure to define label sets and the ingestion limits for time series that match
-   * label sets, and to specify the retention period of the workspace.
-   */
-  readonly workspaceConfiguration?: WorkspaceConfiguration;
-
-  /**
-   * The arn of this workspace.
+   * The ARN of the workspace.
    */
   readonly workspaceArn: string;
+
+  /**
+   * The Prometheus-compatible query endpoint.
+   *
+   * @default - derived from the workspace ARN
+   */
+  readonly prometheusEndpoint?: string;
 }
 
-const IS_WORKSPACE = Symbol.for('@robhan-cdk-lib/aws_aps.Workspace');
-
+/**
+ * An Amazon Managed Service for Prometheus workspace.
+ */
 export class Workspace extends WorkspaceBase {
-  public static isWorkspace(x: any): x is Workspace {
-    return IS_WORKSPACE in x;
+  /**
+   * Reference an existing workspace by ARN.
+   */
+  public static fromWorkspaceArn(scope: Construct, id: string, workspaceArn: string): IWorkspace {
+    return Workspace.fromWorkspaceAttributes(scope, id, { workspaceArn });
   }
 
+  /**
+   * Reference an existing workspace from its attributes.
+   */
   public static fromWorkspaceAttributes(scope: Construct, id: string, attrs: WorkspaceAttributes): IWorkspace {
     class Import extends WorkspaceBase {
-      public readonly alertManagerDefinition?: string;
-      public readonly alias?: string;
-      public readonly kmsKey?: IKey;
-      public readonly loggingConfiguration?: LoggingConfiguration;
-      public readonly queryLoggingConfiguration?: QueryLoggingConfiguration;
-      public readonly workspaceConfiguration?: WorkspaceConfiguration;
-      public readonly workspaceId: string;
-      public readonly workspaceArn: string;
-      constructor(attributes: WorkspaceAttributes) {
-        super(scope, id);
+      public readonly workspaceArn = attrs.workspaceArn;
+      public readonly workspaceId = this.workspaceIdFromArn(attrs.workspaceArn);
+      public readonly prometheusEndpoint = attrs.prometheusEndpoint ?? this.prometheusEndpointFromArn(attrs.workspaceArn);
 
-        this.alertManagerDefinition = attributes.alertManagerDefinition;
-        this.alias = attributes.alias;
-        this.kmsKey = attributes.kmsKey;
-        this.loggingConfiguration = attributes.loggingConfiguration;
-        this.queryLoggingConfiguration = attributes.queryLoggingConfiguration;
-        this.workspaceConfiguration = attributes.workspaceConfiguration;
-        this.workspaceId = this.getWorkspaceId(attributes.workspaceArn);
-        this.workspaceArn = attributes.workspaceArn;
-
+      public constructor() {
+        super(scope, id, { environmentFromArn: attrs.workspaceArn });
       }
     }
-    return new Import(attrs);
+
+    return new Import();
   }
-
-  /**
-   * Validates all workspace properties.
-   *
-   * @param props - The workspace properties to validate
-   * @returns An array of error messages if validation fails, or an empty array if valid
-   *
-   * This method aggregates validation results from all individual property validators.
-   * It throws an error if props is not an object.
-   */
-  private static validateProps(props: unknown): string[] {
-    const errors: string[] = [];
-
-    if (!props || typeof props !== 'object') {
-      throw new Error('Workspace constructor properties must be an object');
-    }
-    const workspaceProps = props as WorkspaceProps;
-
-    if (
-      workspaceProps.alertManagerDefinition !== undefined
-    ) {
-      errors.push(...validateAlertManagerDefinition(workspaceProps.alertManagerDefinition).map((e) => `alertManagerDefinition: ${e}`));
-    }
-
-    if (
-      workspaceProps.alias !== undefined
-    ) {
-      errors.push(...validateAlias(workspaceProps.alias).map((e) => `alias: ${e}`));
-    }
-
-    if (
-      workspaceProps.loggingConfiguration !== undefined
-    ) {
-      errors.push(...validateLoggingConfiguration(workspaceProps.loggingConfiguration).map((e) => `loggingConfiguration: ${e}`));
-    }
-
-    if (
-      workspaceProps.queryLoggingConfiguration !== undefined
-    ) {
-      errors.push(...validateQueryLoggingConfiguration(workspaceProps.queryLoggingConfiguration).map((e) => `queryLoggingConfiguration: ${e}`));
-    }
-
-    if (
-      workspaceProps.workspaceConfiguration !== undefined
-    ) {
-      errors.push(...validateWorkspaceConfiguration(workspaceProps.workspaceConfiguration).map((e) => `workspaceConfiguration: ${e}`));
-    }
-
-    return errors;
-  }
-
-  /**
-   * The alert manager definition, a YAML configuration for the alert manager in your Amazon
-   * Managed Service for Prometheus workspace.
-   */
-  public readonly alertManagerDefinition?: string;
-
-  /**
-   * The alias that is assigned to this workspace to help identify it. It does not need to be
-   * unique.
-   */
-  public readonly alias?: string;
-
-  /**
-   * The customer managed AWS KMS key to use for encrypting data within your workspace.
-   */
-  public readonly kmsKey?: IKey;
-
-  /**
-   * Contains information about the current rules and alerting logging configuration for the
-   * workspace.
-   *
-   * Note: These logging configurations are only for rules and alerting logs.
-   */
-  public readonly loggingConfiguration?: LoggingConfiguration;
-
-  /**
-   * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
-   */
-  public readonly queryLoggingConfiguration?: QueryLoggingConfiguration;
-
-  /**
-   * Use this structure to define label sets and the ingestion limits for time series that match
-   * label sets, and to specify the retention period of the workspace.
-   */
-  public readonly workspaceConfiguration?: WorkspaceConfiguration;
-
-  /**
-   * The underlying CloudFormation resource.
-   */
-  private readonly workspace: CfnWorkspace;
-
-  /**
-   * The unique ID for the workspace.
-   */
-  public readonly workspaceId: string;
 
   /**
    * The ARN of the workspace.
@@ -229,52 +118,65 @@ export class Workspace extends WorkspaceBase {
   public readonly workspaceArn: string;
 
   /**
-   * The Prometheus endpoint available for this workspace..
+   * The unique ID of the workspace.
+   */
+  public readonly workspaceId: string;
+
+  /**
+   * The Prometheus-compatible query endpoint for the workspace.
    */
   public readonly prometheusEndpoint: string;
 
-  constructor(scope: Construct, id: string, props: WorkspaceProps) {
+  private readonly workspace: CfnWorkspace;
+
+  public constructor(scope: Construct, id: string, props: WorkspaceProps = {}) {
     super(scope, id);
 
-    Object.defineProperty(this, IS_WORKSPACE, { value: true });
-
-    const errors = Workspace.validateProps(props);
-
-    if (errors.length > 0) {
-      throw new Error(`Invalid props:\n${errors.join('\n')}`);
-    }
-
-    this.alertManagerDefinition = props.alertManagerDefinition;
-    this.alias = props.alias;
-    this.kmsKey = props.kmsKey;
-    this.loggingConfiguration = props.loggingConfiguration;
-    this.queryLoggingConfiguration = props.queryLoggingConfiguration;
-    this.workspaceConfiguration = props.workspaceConfiguration;
-
-    let cfnWorkspaceProps: CfnWorkspaceProps = {
+    const cfnWorkspaceProps: CfnWorkspaceProps = {
       alertManagerDefinition: props.alertManagerDefinition,
       alias: props.alias,
-      kmsKeyArn: props.kmsKey?.keyArn,
-      loggingConfiguration: props.loggingConfiguration && props.loggingConfiguration.logGroup ? {
-        logGroupArn: props.loggingConfiguration.logGroup.logGroupArn,
-      } : undefined,
-      queryLoggingConfiguration: props.queryLoggingConfiguration ? {
-        destinations: props.queryLoggingConfiguration.destinations.map((d) => ({
-          cloudWatchLogs: {
-            logGroupArn: d.cloudWatchLogs.logGroup.logGroupArn,
-          },
-          filters: d.filters,
-        })),
-      } : undefined,
-      workspaceConfiguration: props.workspaceConfiguration,
-
+      kmsKeyArn: props.kmsKey?.keyRef.keyArn,
+      loggingConfiguration: props.loggingConfiguration
+        ? { logGroupArn: props.loggingConfiguration.logGroup.logGroupRef.logGroupArn }
+        : undefined,
+      queryLoggingConfiguration: props.queryLoggingConfiguration
+        ? {
+          destinations: [{
+            cloudWatchLogs: {
+              logGroupArn: props.queryLoggingConfiguration.logGroup.logGroupRef.logGroupArn,
+            },
+            filters: {
+              qspThreshold: props.queryLoggingConfiguration.qspThreshold ?? 0,
+            },
+          }],
+        }
+        : undefined,
+      tags: props.tags
+        ? Object.entries(props.tags).map(([key, value]) => ({ key, value }))
+        : undefined,
+      workspaceConfiguration: props.workspaceConfiguration
+        ? {
+          limitsPerLabelSets: props.workspaceConfiguration.labelSets?.map((labelSet) => ({
+            labelSet: labelSet.labels.map((label) => ({
+              name: label.name,
+              value: label.value,
+            })),
+            limits: {
+              maxSeries: labelSet.limits.maxSeries,
+            },
+          })),
+          outOfOrderTimeWindowInSeconds: props.workspaceConfiguration.outOfOrderTimeWindowInSeconds,
+          retentionPeriodInDays: props.workspaceConfiguration.retentionPeriodInDays,
+          ruleQueryOffsetInSeconds: props.workspaceConfiguration.ruleQueryOffsetInSeconds,
+        }
+        : undefined,
     };
 
     this.workspace = new CfnWorkspace(this, 'Resource', cfnWorkspaceProps);
     this.node.defaultChild = this.workspace;
 
-    this.workspaceId = this.workspace.attrWorkspaceId;
     this.workspaceArn = this.workspace.attrArn;
+    this.workspaceId = this.workspace.attrWorkspaceId;
     this.prometheusEndpoint = this.workspace.attrPrometheusEndpoint;
   }
 }

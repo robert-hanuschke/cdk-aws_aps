@@ -1,0 +1,14 @@
+{
+  "version": "55.0.0",
+  "testCases": {
+    "aps-resources-test/DefaultTest": {
+      "stacks": [
+        "aps-resources-integ"
+      ],
+      "assertionStack": "aps-resources-test/DefaultTest/DeployAssert",
+      "assertionStackName": "apsresourcestestDefaultTestDeployAssert3C5CE13D"
+    }
+  },
+  "enableLookups": true,
+  "minimumCliVersion": "2.1145.0"
+}

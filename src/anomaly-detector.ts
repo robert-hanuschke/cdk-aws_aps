@@ -1,188 +1,142 @@
-import { validateObjectAttributes } from '@robhan-cdk-lib/utils';
-import { CfnAnomalyDetector, CfnAnomalyDetectorProps } from 'aws-cdk-lib/aws-aps';
+import { Token } from 'aws-cdk-lib';
+import { CfnAnomalyDetector, CfnAnomalyDetectorProps, IWorkspaceRef } from 'aws-cdk-lib/aws-aps';
 import { Construct } from 'constructs';
-import { AnomalyDetectorBase, AnomalyDetectorConfiguration, Label, MissingDataAction } from './anomaly-detector-base';
-import { validateAlias, validateAnomalyDetectorConfiguration, validateEvaluationIntervalInSeconds, validateLabel, validateMissingDataAction } from './validation/anomaly-detector-base';
-import { IWorkspace } from './workspace-base';
+import {
+  AnomalyDetectorBase,
+  AnomalyDetectorConfiguration,
+  AnomalyDetectorLabel,
+  IAnomalyDetector,
+  MissingDataAction,
+} from './anomaly-detector-base';
 
 /**
- * Properties for creating an Amazon Managed Service for Prometheus Anomaly Detector.
+ * Properties for an Amazon Managed Service for Prometheus anomaly detector.
  */
 export interface AnomalyDetectorProps {
   /**
-   * The user-friendly name of the anomaly detector. 1 to 128 characters length.
+   * A user-friendly name for the detector.
    */
   readonly alias: string;
 
   /**
-   * The algorithm configuration of the anomaly detector.
+   * The algorithm configuration.
    */
   readonly configuration: AnomalyDetectorConfiguration;
 
   /**
-   * The frequency, in seconds, at which the anomaly detector evaluates metrics.
+   * The interval, in seconds, between evaluations.
    *
-   * Minimum value of 30. Maximum value of 86400.
+   * Literal values must be integers from 30 through 86,400. Unresolved values are validated by
+   * the service after deployment.
+   *
+   * @default 60
    */
   readonly evaluationIntervalInSeconds?: number;
 
   /**
-   * The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
+   * Metric labels associated with the detector.
    *
-   * Map Entries: Minimum number of 0 items. Maximum number of 140 items.
-   * Key Length Constraints: Minimum length of 1. Maximum length of 7168.
-   * Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
-   * Value Length Constraints: Minimum length of 1. Maximum length of 7168.
+   * @default - no labels
    */
-  readonly labels?: Label[];
+  readonly labels?: AnomalyDetectorLabel[];
 
   /**
-   * The action taken when data is missing during evaluation.
+   * The action to take when evaluation data is missing.
+   *
+   * @default - service default
    */
   readonly missingDataAction?: MissingDataAction;
 
   /**
-   * An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
+   * The workspace whose metrics are evaluated.
    */
-  readonly workspace: IWorkspace;
+  readonly workspace: IWorkspaceRef;
+
+  /**
+   * Tags to apply to the anomaly detector.
+   *
+   * @default - no tags
+   */
+  readonly tags?: { [key: string]: string };
 }
 
-const IS_ANOMALY_DETECTOR = Symbol.for('@robhan-cdk-lib/aws_aps.AnomalyDetector');
-
+/**
+ * An Amazon Managed Service for Prometheus anomaly detector.
+ */
 export class AnomalyDetector extends AnomalyDetectorBase {
-  public static isAnomalyDetector(x: any): x is AnomalyDetector {
-    return IS_ANOMALY_DETECTOR in x;
+  /**
+   * Reference an existing anomaly detector by ARN.
+   */
+  public static fromAnomalyDetectorArn(scope: Construct, id: string, anomalyDetectorArn: string): IAnomalyDetector {
+    class Import extends AnomalyDetectorBase {
+      public readonly anomalyDetectorArn = anomalyDetectorArn;
+
+      public constructor() {
+        super(scope, id, { environmentFromArn: anomalyDetectorArn });
+      }
+    }
+
+    return new Import();
   }
 
   /**
-   * Validates all anomaly detector properties.
-   *
-   * @param props - The anomaly detector properties to validate
-   * @returns An array of error messages if validation fails, or an empty array if valid
-   *
-   * This method aggregates validation results from all individual property validators.
-   * It throws an error if props is not an object.
-   */
-  private static validateProps(props: unknown): string[] {
-    const errors: string[] = [];
-
-    if (!props || typeof props !== 'object') {
-      throw new Error('AnomalyDetector constructor properties must be an object');
-    }
-    const anomalyDetectorProps = props as AnomalyDetectorProps;
-
-    errors.push(...validateObjectAttributes({
-      inputObject: anomalyDetectorProps,
-      mandatoryAttributes: ['alias', 'configuration', 'workspace'],
-      optionalAttributes: ['evaluationIntervalInSeconds', 'labels', 'missingDataAction'],
-    }));
-
-
-    if (anomalyDetectorProps.alias !== undefined) {
-      errors.push(...validateAlias(anomalyDetectorProps.alias).map((e) => `alias: ${e}`));
-    }
-
-    if (anomalyDetectorProps.configuration !== undefined) {
-      errors.push(...validateAnomalyDetectorConfiguration(anomalyDetectorProps.configuration).map((e) => `configuration: ${e}`));
-    }
-
-    if (anomalyDetectorProps.evaluationIntervalInSeconds !== undefined) {
-      errors.push(...validateEvaluationIntervalInSeconds(anomalyDetectorProps.evaluationIntervalInSeconds).map((e) => `evaluationIntervalInSeconds: ${e}`));
-    }
-
-    if (anomalyDetectorProps.labels !== undefined) {
-      errors.push(...anomalyDetectorProps.labels.map((l, i) => {
-        return validateLabel(l).map((err) => `labels[${i}]: ${err}`);
-      }).flat());
-    }
-
-    if (anomalyDetectorProps.missingDataAction !== undefined) {
-      errors.push(...validateMissingDataAction(anomalyDetectorProps.missingDataAction).map((e) => `missingDataAction: ${e}`));
-    }
-
-
-    return errors;
-  }
-
-  /**
-   * The user-friendly name of the anomaly detector. 1 to 64 characters length.
-   *
-   * Minimum length of 1. Maximum length of 64.
-   * Pattern: [0-9A-Za-z][-.0-9A-Z_a-z]*
-   */
-  public readonly alias: string;
-
-  /**
-   * The algorithm configuration of the anomaly detector.
-   */
-  public readonly configuration: AnomalyDetectorConfiguration;
-
-  /**
-   * The frequency, in seconds, at which the anomaly detector evaluates metrics.
-   *
-   * Minimum value of 30. Maximum value of 86400.
-   */
-  public readonly evaluationIntervalInSeconds?: number;
-
-  /**
-   * The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
-   *
-   * Map Entries: Minimum number of 0 items. Maximum number of 140 items.
-   * Key Length Constraints: Minimum length of 1. Maximum length of 7168.
-   * Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
-   * Value Length Constraints: Minimum length of 1. Maximum length of 7168.
-   */
-  public readonly labels?: Label[];
-
-  /**
-   * The action taken when data is missing during evaluation.
-   */
-  public readonly missingDataAction?: MissingDataAction;
-
-  /**
-   * An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
-   */
-  public readonly workspace: IWorkspace;
-
-  /**
-   * The underlying CloudFormation resource.
-   */
-  private readonly anomalyDetector: CfnAnomalyDetector;
-
-  /**
-   * The Amazon Resource Name (ARN) of the anomaly detector.
+   * The ARN of the anomaly detector.
    */
   public readonly anomalyDetectorArn: string;
 
-  constructor(scope: Construct, id: string, props: AnomalyDetectorProps) {
+  private readonly anomalyDetector: CfnAnomalyDetector;
+
+  public constructor(scope: Construct, id: string, props: AnomalyDetectorProps) {
     super(scope, id);
 
-    Object.defineProperty(this, IS_ANOMALY_DETECTOR, { value: true });
+    validateEvaluationInterval(props.evaluationIntervalInSeconds);
 
-    const errors = AnomalyDetector.validateProps(props);
-
-    if (errors.length > 0) {
-      throw new Error(`Invalid props:\n${errors.join('\n')}`);
-    }
-
-    this.alias = props.alias;
-    this.configuration = props.configuration;
-    this.evaluationIntervalInSeconds = props.evaluationIntervalInSeconds;
-    this.labels = props.labels;
-    this.missingDataAction = props.missingDataAction;
-    this.workspace = props.workspace;
-
-    let cfnAnomalyDetectorProps: CfnAnomalyDetectorProps = {
+    const randomCutForest = props.configuration.randomCutForest;
+    const cfnAnomalyDetectorProps: CfnAnomalyDetectorProps = {
       alias: props.alias,
-      configuration: props.configuration,
+      configuration: {
+        randomCutForest: {
+          ignoreNearExpectedFromAbove: randomCutForest.ignoreNearExpectedFromAbove?._bind(),
+          ignoreNearExpectedFromBelow: randomCutForest.ignoreNearExpectedFromBelow?._bind(),
+          query: randomCutForest.query,
+          sampleSize: randomCutForest.sampleSize,
+          shingleSize: randomCutForest.shingleSize,
+        },
+      },
       evaluationIntervalInSeconds: props.evaluationIntervalInSeconds,
-      labels: props.labels,
-      missingDataAction: props.missingDataAction,
-      workspace: props.workspace.workspaceArn,
+      labels: props.labels?.map((label) => ({ key: label.key, value: label.value })),
+      missingDataAction: renderMissingDataAction(props.missingDataAction),
+      tags: props.tags
+        ? Object.entries(props.tags).map(([key, value]) => ({ key, value }))
+        : undefined,
+      workspace: props.workspace.workspaceRef.workspaceArn,
     };
 
     this.anomalyDetector = new CfnAnomalyDetector(this, 'Resource', cfnAnomalyDetectorProps);
     this.node.defaultChild = this.anomalyDetector;
     this.anomalyDetectorArn = this.anomalyDetector.attrArn;
+  }
+}
+
+function renderMissingDataAction(action?: MissingDataAction): CfnAnomalyDetector.MissingDataActionProperty | undefined {
+  switch (action) {
+    case MissingDataAction.MARK_AS_ANOMALY:
+      return { markAsAnomaly: true };
+    case MissingDataAction.SKIP:
+      return { skip: true };
+    case undefined:
+      return undefined;
+  }
+}
+
+function validateEvaluationInterval(value: number | undefined): void {
+  if (
+    value !== undefined &&
+    !Token.isUnresolved(value) &&
+    (!Number.isFinite(value) || !Number.isInteger(value) || value < 30 || value > 86_400)
+  ) {
+    throw new Error(
+      `evaluationIntervalInSeconds must be an integer from 30 through 86400, got ${value}`,
+    );
   }
 }

@@ -220,6 +220,24 @@
         }
       ]
     },
+    "integ": {
+      "name": "integ",
+      "description": "Deploy the integration test in a non-production AWS account",
+      "steps": [
+        {
+          "exec": "integ-runner --force --language typescript --parallel-regions us-east-1 --max-workers 1 --strict test/integ.workspace.ts"
+        }
+      ]
+    },
+    "integ:snapshot": {
+      "name": "integ:snapshot",
+      "description": "Update the integration snapshot without deploying",
+      "steps": [
+        {
+          "exec": "integ-runner --dry-run --language typescript --parallel-regions us-east-1 --max-workers 1 --strict --update-on-failed test/integ.workspace.ts"
+        }
+      ]
+    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package",
@@ -331,6 +349,9 @@
       "steps": [
         {
           "spawn": "docgen"
+        },
+        {
+          "spawn": "rosetta:strict"
         }
       ]
     },
@@ -371,6 +392,15 @@
       ],
       "condition": "git log --oneline -1 | grep -v \"chore(release):\" > /dev/null"
     },
+    "rosetta:strict": {
+      "name": "rosetta:strict",
+      "description": "Compile documentation examples in strict mode",
+      "steps": [
+        {
+          "exec": "jsii-rosetta extract .jsii --strict --cleanup"
+        }
+      ]
+    },
     "test": {
       "name": "test",
       "description": "Run tests",
@@ -385,6 +415,9 @@
         },
         {
           "spawn": "eslint"
+        },
+        {
+          "exec": "tsc --project test/tsconfig.json --noEmit"
         }
       ]
     },
@@ -433,7 +466,7 @@
             "--peer",
             "--no-deprecated",
             "--dep=dev,prod,peer,optional",
-            "--filter=@types/jest,@types/node,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,projen,ts-jest,ts-node,typescript,@robhan-cdk-lib/utils"
+            "--filter=@types/jest,@types/node,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,projen,ts-jest,ts-node,typescript"
           ]
         },
         {
@@ -443,6 +476,8 @@
           "execArgs": [
             "yarn",
             "upgrade",
+            "@aws-cdk/integ-runner",
+            "@aws-cdk/integ-tests-alpha",
             "@stylistic/eslint-plugin",
             "@types/jest",
             "@types/node",
@@ -464,8 +499,7 @@
             "ts-node",
             "typescript",
             "aws-cdk-lib",
-            "constructs",
-            "@robhan-cdk-lib/utils"
+            "constructs"
           ]
         },
         {

@@ -1,0 +1,995 @@
+{
+ "Resources": {
+  "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419": {
+   "Type": "Custom::DeployAssert@SdkCallampDescribeWorkspace",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F",
+      "Arn"
+     ]
+    },
+    "service": "amp",
+    "api": "DescribeWorkspace",
+    "expected": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"$ObjectLike\":{\"workspace\":{\"$ObjectLike\":{\"workspaceId\":\"",
+       {
+        "Fn::GetStackOutput": {
+         "StackName": "aps-resources-integ",
+         "Region": {
+          "Ref": "AWS::Region"
+         },
+         "OutputName": "PublishOutputFnGetAttWorkspace2F8C78CCWorkspaceId9A316985"
+        }
+       },
+       "\",\"arn\":\"",
+       {
+        "Fn::GetStackOutput": {
+         "StackName": "aps-resources-integ",
+         "Region": {
+          "Ref": "AWS::Region"
+         },
+         "OutputName": "PublishOutputFnGetAttWorkspace2F8C78CCArn58815760"
+        }
+       },
+       "\",\"alias\":\"cdk-aps-integ\",\"prometheusEndpoint\":\"",
+       {
+        "Fn::GetStackOutput": {
+         "StackName": "aps-resources-integ",
+         "Region": {
+          "Ref": "AWS::Region"
+         },
+         "OutputName": "PublishOutputFnGetAttWorkspace2F8C78CCPrometheusEndpoint26234A23"
+        }
+       },
+       "\",\"status\":{\"$ObjectLike\":{\"statusCode\":\"ACTIVE\"}},\"tags\":{\"$ObjectLike\":{\"purpose\":\"integration-test\"}}}}}}"
+      ]
+     ]
+    },
+    "stateMachineArn": {
+     "Ref": "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419WaitFor8D0AE97A"
+    },
+    "parameters": {
+     "workspaceId": {
+      "Fn::Join": [
+       "",
+       [
+        "\"",
+        {
+         "Fn::GetStackOutput": {
+          "StackName": "aps-resources-integ",
+          "Region": {
+           "Ref": "AWS::Region"
+          },
+          "OutputName": "PublishOutputFnGetAttWorkspace2F8C78CCWorkspaceId9A316985"
+         }
+        },
+        "\""
+       ]
+      ]
+     }
+    },
+    "flattenResponse": "false",
+    "salt": "1791818536486"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419WaitForIsCompleteProviderInvokeD1E17166": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "SingletonFunction76b3e830a873425f8453eddd85c86925Handler81461ECE",
+      "Arn"
+     ]
+    },
+    "Principal": {
+     "Fn::GetAtt": [
+      "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419WaitForRole30DB7B96",
+      "Arn"
+     ]
+    }
+   }
+  },
+  "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419WaitForTimeoutProviderInvoke131E6DAA": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aHandlerADF3E6EA",
+      "Arn"
+     ]
+    },
+    "Principal": {
+     "Fn::GetAtt": [
+      "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419WaitForRole30DB7B96",
+      "Arn"
+     ]
+    }
+   }
+  },
+  "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419WaitForRole30DB7B96": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "Policies": [
+     {
+      "PolicyName": "InlineInvokeFunctions",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Action": "lambda:InvokeFunction",
+         "Effect": "Allow",
+         "Resource": [
+          {
+           "Fn::GetAtt": [
+            "SingletonFunction76b3e830a873425f8453eddd85c86925Handler81461ECE",
+            "Arn"
+           ]
+          },
+          {
+           "Fn::GetAtt": [
+            "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aHandlerADF3E6EA",
+            "Arn"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419WaitFor8D0AE97A": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"StartAt\":\"framework-isComplete-task\",\"States\":{\"framework-isComplete-task\":{\"End\":true,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":10,\"MaxAttempts\":60,\"BackoffRate\":1}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"Next\":\"framework-onTimeout-task\"}],\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "SingletonFunction76b3e830a873425f8453eddd85c86925Handler81461ECE",
+         "Arn"
+        ]
+       },
+       "\"},\"framework-onTimeout-task\":{\"End\":true,\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aHandlerADF3E6EA",
+         "Arn"
+        ]
+       },
+       "\"}}}"
+      ]
+     ]
+    },
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419WaitForRole30DB7B96",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419WaitForRole30DB7B96"
+   ]
+  },
+  "SingletonFunction1488541a7b23466481b69b4408076b81Role37ABCE73": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ],
+    "Policies": [
+     {
+      "PolicyName": "Inline",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Action": [
+          "aps:DescribeWorkspace"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        },
+        {
+         "Action": [
+          "states:StartExecution"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        },
+        {
+         "Action": [
+          "aps:DescribeRuleGroupsNamespace"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        },
+        {
+         "Action": [
+          "aps:DescribeAnomalyDetector"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        },
+        {
+         "Action": [
+          "states:StartExecution"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        },
+        {
+         "Action": [
+          "aps:DescribeResourcePolicy"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        },
+        {
+         "Action": [
+          "states:StartExecution"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        },
+        {
+         "Action": [
+          "aps:DescribeScraper"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Runtime": "nodejs24.x",
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "13c53d1af041ac32db1c99c5bae43b3bd7d29a12d9113921a925efd959ba10dc.zip"
+    },
+    "Timeout": 120,
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "SingletonFunction1488541a7b23466481b69b4408076b81Role37ABCE73",
+      "Arn"
+     ]
+    },
+    "LoggingConfig": {
+     "LogFormat": "JSON",
+     "ApplicationLogLevel": "FATAL"
+    }
+   }
+  },
+  "SingletonFunction76b3e830a873425f8453eddd85c86925Role918961BB": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ],
+    "Policies": [
+     {
+      "PolicyName": "Inline",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Action": [
+          "aps:DescribeWorkspace"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        },
+        {
+         "Action": [
+          "aps:DescribeAnomalyDetector"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        },
+        {
+         "Action": [
+          "aps:DescribeResourcePolicy"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "SingletonFunction76b3e830a873425f8453eddd85c86925Handler81461ECE": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Runtime": "nodejs24.x",
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "13c53d1af041ac32db1c99c5bae43b3bd7d29a12d9113921a925efd959ba10dc.zip"
+    },
+    "Timeout": 120,
+    "Handler": "index.isComplete",
+    "Role": {
+     "Fn::GetAtt": [
+      "SingletonFunction76b3e830a873425f8453eddd85c86925Role918961BB",
+      "Arn"
+     ]
+    },
+    "LoggingConfig": {
+     "LogFormat": "JSON",
+     "ApplicationLogLevel": "FATAL"
+    }
+   }
+  },
+  "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aRoleB84BD8CE": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ]
+   }
+  },
+  "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aHandlerADF3E6EA": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Runtime": "nodejs24.x",
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "13c53d1af041ac32db1c99c5bae43b3bd7d29a12d9113921a925efd959ba10dc.zip"
+    },
+    "Timeout": 120,
+    "Handler": "index.onTimeout",
+    "Role": {
+     "Fn::GetAtt": [
+      "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aRoleB84BD8CE",
+      "Arn"
+     ]
+    },
+    "LoggingConfig": {
+     "LogFormat": "JSON",
+     "ApplicationLogLevel": "FATAL"
+    }
+   }
+  },
+  "AwsApiCallampDescribeRuleGroupsNamespace072e94f1d30eafd9a9e8ad3c1be388c3": {
+   "Type": "Custom::DeployAssert@SdkCallampDescribeRuleGroupsNamespace",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F",
+      "Arn"
+     ]
+    },
+    "service": "amp",
+    "api": "DescribeRuleGroupsNamespace",
+    "parameters": {
+     "workspaceId": {
+      "Fn::Join": [
+       "",
+       [
+        "\"",
+        {
+         "Fn::GetStackOutput": {
+          "StackName": "aps-resources-integ",
+          "Region": {
+           "Ref": "AWS::Region"
+          },
+          "OutputName": "PublishOutputFnGetAttWorkspace2F8C78CCWorkspaceId9A316985"
+         }
+        },
+        "\""
+       ]
+      ]
+     },
+     "name": "\"availability\""
+    },
+    "flattenResponse": "false",
+    "outputPaths": [
+     "ruleGroupsNamespace.status.statusCode"
+    ],
+    "salt": "1791818536488"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bf": {
+   "Type": "Custom::DeployAssert@SdkCallampDescribeAnomalyDetector",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F",
+      "Arn"
+     ]
+    },
+    "service": "amp",
+    "api": "DescribeAnomalyDetector",
+    "expected": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"$ObjectLike\":{\"anomalyDetector\":{\"$ObjectLike\":{\"arn\":\"",
+       {
+        "Fn::GetStackOutput": {
+         "StackName": "aps-resources-integ",
+         "Region": {
+          "Ref": "AWS::Region"
+         },
+         "OutputName": "PublishOutputFnGetAttDetector8252EF51Arn4958FE63"
+        }
+       },
+       "\",\"anomalyDetectorId\":\"",
+       {
+        "Fn::Select": [
+         2,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::GetStackOutput": {
+             "StackName": "aps-resources-integ",
+             "Region": {
+              "Ref": "AWS::Region"
+             },
+             "OutputName": "PublishOutputFnGetAttDetector8252EF51Arn4958FE63"
+            }
+           }
+          ]
+         }
+        ]
+       },
+       "\",\"alias\":\"availability\",\"configuration\":{\"$ObjectLike\":{\"randomCutForest\":{\"$ObjectLike\":{\"query\":\"sum(up)\"}}}},\"missingDataAction\":{\"$ObjectLike\":{\"skip\":true}},\"status\":{\"$ObjectLike\":{\"statusCode\":\"ACTIVE\"}}}}}}"
+      ]
+     ]
+    },
+    "stateMachineArn": {
+     "Ref": "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bfWaitForAEDFA13D"
+    },
+    "parameters": {
+     "workspaceId": {
+      "Fn::Join": [
+       "",
+       [
+        "\"",
+        {
+         "Fn::GetStackOutput": {
+          "StackName": "aps-resources-integ",
+          "Region": {
+           "Ref": "AWS::Region"
+          },
+          "OutputName": "PublishOutputFnGetAttWorkspace2F8C78CCWorkspaceId9A316985"
+         }
+        },
+        "\""
+       ]
+      ]
+     },
+     "anomalyDetectorId": {
+      "Fn::Join": [
+       "",
+       [
+        "\"",
+        {
+         "Fn::Select": [
+          2,
+          {
+           "Fn::Split": [
+            "/",
+            {
+             "Fn::GetStackOutput": {
+              "StackName": "aps-resources-integ",
+              "Region": {
+               "Ref": "AWS::Region"
+              },
+              "OutputName": "PublishOutputFnGetAttDetector8252EF51Arn4958FE63"
+             }
+            }
+           ]
+          }
+         ]
+        },
+        "\""
+       ]
+      ]
+     }
+    },
+    "flattenResponse": "false",
+    "salt": "1791818536489"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bfWaitForIsCompleteProviderInvokeDE3EC72A": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "SingletonFunction76b3e830a873425f8453eddd85c86925Handler81461ECE",
+      "Arn"
+     ]
+    },
+    "Principal": {
+     "Fn::GetAtt": [
+      "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bfWaitForRole520E9140",
+      "Arn"
+     ]
+    }
+   }
+  },
+  "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bfWaitForTimeoutProviderInvoke088157F0": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aHandlerADF3E6EA",
+      "Arn"
+     ]
+    },
+    "Principal": {
+     "Fn::GetAtt": [
+      "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bfWaitForRole520E9140",
+      "Arn"
+     ]
+    }
+   }
+  },
+  "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bfWaitForRole520E9140": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "Policies": [
+     {
+      "PolicyName": "InlineInvokeFunctions",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Action": "lambda:InvokeFunction",
+         "Effect": "Allow",
+         "Resource": [
+          {
+           "Fn::GetAtt": [
+            "SingletonFunction76b3e830a873425f8453eddd85c86925Handler81461ECE",
+            "Arn"
+           ]
+          },
+          {
+           "Fn::GetAtt": [
+            "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aHandlerADF3E6EA",
+            "Arn"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bfWaitForAEDFA13D": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"StartAt\":\"framework-isComplete-task\",\"States\":{\"framework-isComplete-task\":{\"End\":true,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":10,\"MaxAttempts\":60,\"BackoffRate\":1}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"Next\":\"framework-onTimeout-task\"}],\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "SingletonFunction76b3e830a873425f8453eddd85c86925Handler81461ECE",
+         "Arn"
+        ]
+       },
+       "\"},\"framework-onTimeout-task\":{\"End\":true,\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aHandlerADF3E6EA",
+         "Arn"
+        ]
+       },
+       "\"}}}"
+      ]
+     ]
+    },
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bfWaitForRole520E9140",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bfWaitForRole520E9140"
+   ]
+  },
+  "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419": {
+   "Type": "Custom::DeployAssert@SdkCallampDescribeResourcePolicy",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F",
+      "Arn"
+     ]
+    },
+    "service": "amp",
+    "api": "DescribeResourcePolicy",
+    "expected": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"$ObjectLike\":{\"policyStatus\":\"ACTIVE\",\"policyDocument\":{\"$SerializedJson\":{\"$ObjectLike\":{\"Version\":\"2012-10-17\",\"Statement\":{\"$ArrayWith\":[{\"$ObjectLike\":{\"Effect\":\"Allow\",\"Action\":\"aps:QueryMetrics\",\"Resource\":\"",
+       {
+        "Fn::GetStackOutput": {
+         "StackName": "aps-resources-integ",
+         "Region": {
+          "Ref": "AWS::Region"
+         },
+         "OutputName": "PublishOutputFnGetAttWorkspace2F8C78CCArn58815760"
+        }
+       },
+       "\"}}]}}}}}}"
+      ]
+     ]
+    },
+    "stateMachineArn": {
+     "Ref": "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419WaitForBC47D7F5"
+    },
+    "parameters": {
+     "workspaceId": {
+      "Fn::Join": [
+       "",
+       [
+        "\"",
+        {
+         "Fn::GetStackOutput": {
+          "StackName": "aps-resources-integ",
+          "Region": {
+           "Ref": "AWS::Region"
+          },
+          "OutputName": "PublishOutputFnGetAttWorkspace2F8C78CCWorkspaceId9A316985"
+         }
+        },
+        "\""
+       ]
+      ]
+     }
+    },
+    "flattenResponse": "false",
+    "salt": "1791818536489"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419WaitForIsCompleteProviderInvoke49A04391": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "SingletonFunction76b3e830a873425f8453eddd85c86925Handler81461ECE",
+      "Arn"
+     ]
+    },
+    "Principal": {
+     "Fn::GetAtt": [
+      "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419WaitForRoleEF1C6BA2",
+      "Arn"
+     ]
+    }
+   }
+  },
+  "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419WaitForTimeoutProviderInvoke8FD3C2E6": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aHandlerADF3E6EA",
+      "Arn"
+     ]
+    },
+    "Principal": {
+     "Fn::GetAtt": [
+      "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419WaitForRoleEF1C6BA2",
+      "Arn"
+     ]
+    }
+   }
+  },
+  "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419WaitForRoleEF1C6BA2": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "Policies": [
+     {
+      "PolicyName": "InlineInvokeFunctions",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Action": "lambda:InvokeFunction",
+         "Effect": "Allow",
+         "Resource": [
+          {
+           "Fn::GetAtt": [
+            "SingletonFunction76b3e830a873425f8453eddd85c86925Handler81461ECE",
+            "Arn"
+           ]
+          },
+          {
+           "Fn::GetAtt": [
+            "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aHandlerADF3E6EA",
+            "Arn"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419WaitForBC47D7F5": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"StartAt\":\"framework-isComplete-task\",\"States\":{\"framework-isComplete-task\":{\"End\":true,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":10,\"MaxAttempts\":60,\"BackoffRate\":1}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"Next\":\"framework-onTimeout-task\"}],\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "SingletonFunction76b3e830a873425f8453eddd85c86925Handler81461ECE",
+         "Arn"
+        ]
+       },
+       "\"},\"framework-onTimeout-task\":{\"End\":true,\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "SingletonFunction5c1898e096fb4e3e95d5f6c67f3ce41aHandlerADF3E6EA",
+         "Arn"
+        ]
+       },
+       "\"}}}"
+      ]
+     ]
+    },
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419WaitForRoleEF1C6BA2",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419WaitForRoleEF1C6BA2"
+   ]
+  },
+  "AwsApiCallampDescribeScraper5d9def2889fff9710cb65d8cd49786e3": {
+   "Type": "Custom::DeployAssert@SdkCallampDescribeScraper",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F",
+      "Arn"
+     ]
+    },
+    "service": "amp",
+    "api": "DescribeScraper",
+    "parameters": {
+     "scraperId": {
+      "Fn::Join": [
+       "",
+       [
+        "\"",
+        {
+         "Fn::GetStackOutput": {
+          "StackName": "aps-resources-integ",
+          "Region": {
+           "Ref": "AWS::Region"
+          },
+          "OutputName": "PublishOutputFnGetAttScraper0396A3A7ScraperId7E282C49"
+         }
+        },
+        "\""
+       ]
+      ]
+     }
+    },
+    "flattenResponse": "false",
+    "outputPaths": [
+     "scraper.status.statusCode"
+    ],
+    "salt": "1791818536490"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  }
+ },
+ "Outputs": {
+  "AssertionResultsAwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419": {
+   "Value": {
+    "Fn::GetAtt": [
+     "AwsApiCallampDescribeWorkspaced8931e53a0e4f7c23a705293837cf419",
+     "assertion"
+    ]
+   }
+  },
+  "AssertionResultsAwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bf": {
+   "Value": {
+    "Fn::GetAtt": [
+     "AwsApiCallampDescribeAnomalyDetectord7eabaac5ebb1e534c836ee41410d4bf",
+     "assertion"
+    ]
+   }
+  },
+  "AssertionResultsAwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419": {
+   "Value": {
+    "Fn::GetAtt": [
+     "AwsApiCallampDescribeResourcePolicyd8931e53a0e4f7c23a705293837cf419",
+     "assertion"
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

@@ -1,26 +1,32 @@
-import { IResource, Resource } from 'aws-cdk-lib';
-import { IWorkspace } from './workspace-base';
+import { IResource, Resource, ResourceProps } from 'aws-cdk-lib';
+import { IResourcePolicyRef, ResourcePolicyReference } from 'aws-cdk-lib/aws-aps';
+import { Construct } from 'constructs';
 
-export interface IResourcePolicy extends IResource {
+/**
+ * An Amazon Managed Service for Prometheus workspace resource policy.
+ */
+export interface IResourcePolicy extends IResource, IResourcePolicyRef {
   /**
-   * The JSON to use as the Resource-based Policy.
+   * The ARN of the workspace protected by the policy.
+   *
+   * @attribute
    */
-  readonly policyDocument: string;
-
-  /**
-   * The workspace to attach the policy to.
-   */
-  readonly workspace: IWorkspace;
+  readonly workspaceArn: string;
 }
 
+/**
+ * Base implementation shared by owned and referenced resource policies.
+ *
+ * @internal
+ */
 export abstract class ResourcePolicyBase extends Resource implements IResourcePolicy {
-  /**
-   * The JSON to use as the Resource-based Policy.
-   */
-  public abstract readonly policyDocument: string;
+  public abstract readonly workspaceArn: string;
 
-  /**
-   * The workspace to attach the policy to.
-   */
-  public abstract readonly workspace: IWorkspace;
+  public get resourcePolicyRef(): ResourcePolicyReference {
+    return { workspaceArn: this.workspaceArn };
+  }
+
+  protected constructor(scope: Construct, id: string, props: ResourceProps = {}) {
+    super(scope, id, props);
+  }
 }

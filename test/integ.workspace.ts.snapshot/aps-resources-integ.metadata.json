@@ -1,0 +1,233 @@
+{
+  "/aps-resources-integ": [
+    {
+      "type": "aws:cdk:acknowledged-rules",
+      "data": {
+        "CloudFormation-Validate::W3010": "Literal AZs in template are the result of accessing stack.availabilityZones, this is expected and safe"
+      }
+    }
+  ],
+  "/aps-resources-integ/Vpc": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "maxAzs": "*",
+        "natGateways": "*",
+        "subnetConfiguration": [
+          {
+            "name": "*",
+            "subnetType": "Isolated",
+            "cidrMask": "*"
+          }
+        ]
+      }
+    }
+  ],
+  "/aps-resources-integ/Custom::VpcRestrictDefaultSGCustomResourceProvider": [
+    {
+      "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+      "data": true
+    }
+  ],
+  "/aps-resources-integ/ScraperSecurityGroup": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "vpc": "*",
+        "allowAllOutbound": false
+      }
+    }
+  ],
+  "/aps-resources-integ/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    }
+  ],
+  "/aps-resources-integ/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    }
+  ],
+  "/aps-resources-integ/Workspace/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Workspace2F8C78CC"
+    }
+  ],
+  "/aps-resources-integ/Rules/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Rules379FE035"
+    }
+  ],
+  "/aps-resources-integ/Detector/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Detector8252EF51"
+    }
+  ],
+  "/aps-resources-integ/ResourcePolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ResourcePolicy7446AF09"
+    }
+  ],
+  "/aps-resources-integ/Vpc/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Vpc8378EB38"
+    }
+  ],
+  "/aps-resources-integ/Vpc/isolatedSubnet1": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": false,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": false,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    }
+  ],
+  "/aps-resources-integ/Vpc/isolatedSubnet2": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": false,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": false,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    }
+  ],
+  "/aps-resources-integ/Vpc/RestrictDefaultSecurityGroupCustomResource": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": "*"
+    }
+  ],
+  "/aps-resources-integ/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
+    }
+  ],
+  "/aps-resources-integ/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E"
+    }
+  ],
+  "/aps-resources-integ/ScraperSecurityGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ScraperSecurityGroup27619CCA"
+    }
+  ],
+  "/aps-resources-integ/Scraper/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Scraper0396A3A7"
+    }
+  ],
+  "/aps-resources-integ/Publish/Output{\"Fn::GetAtt\":[\"Workspace2F8C78CC\",\"WorkspaceId\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublishOutputFnGetAttWorkspace2F8C78CCWorkspaceId9A316985"
+    }
+  ],
+  "/aps-resources-integ/Publish/Output{\"Fn::GetAtt\":[\"Workspace2F8C78CC\",\"Arn\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublishOutputFnGetAttWorkspace2F8C78CCArn58815760"
+    }
+  ],
+  "/aps-resources-integ/Publish/Output{\"Fn::GetAtt\":[\"Workspace2F8C78CC\",\"PrometheusEndpoint\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublishOutputFnGetAttWorkspace2F8C78CCPrometheusEndpoint26234A23"
+    }
+  ],
+  "/aps-resources-integ/Publish/Output{\"Fn::GetAtt\":[\"Detector8252EF51\",\"Arn\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublishOutputFnGetAttDetector8252EF51Arn4958FE63"
+    }
+  ],
+  "/aps-resources-integ/Publish/Output{\"Fn::GetAtt\":[\"Scraper0396A3A7\",\"ScraperId\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublishOutputFnGetAttScraper0396A3A7ScraperId7E282C49"
+    }
+  ],
+  "/aps-resources-integ/Vpc/isolatedSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcisolatedSubnet1SubnetE62B1B9B"
+    }
+  ],
+  "/aps-resources-integ/Vpc/isolatedSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcisolatedSubnet1RouteTableE442650B"
+    }
+  ],
+  "/aps-resources-integ/Vpc/isolatedSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcisolatedSubnet1RouteTableAssociationD259E31A"
+    }
+  ],
+  "/aps-resources-integ/Vpc/isolatedSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcisolatedSubnet2Subnet39217055"
+    }
+  ],
+  "/aps-resources-integ/Vpc/isolatedSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcisolatedSubnet2RouteTable334F9764"
+    }
+  ],
+  "/aps-resources-integ/Vpc/isolatedSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcisolatedSubnet2RouteTableAssociation25A4716F"
+    }
+  ],
+  "/aps-resources-integ/Vpc/RestrictDefaultSecurityGroupCustomResource/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcRestrictDefaultSecurityGroupCustomResourceC73DA2BE"
+    }
+  ]
+}

@@ -1,47 +1,32 @@
-import { IResource, Resource } from 'aws-cdk-lib';
-import { IWorkspace } from './workspace-base';
+import { IResource, Resource, ResourceProps } from 'aws-cdk-lib';
+import { IRuleGroupsNamespaceRef, RuleGroupsNamespaceReference } from 'aws-cdk-lib/aws-aps';
+import { Construct } from 'constructs';
 
-export interface IRuleGroupsNamespace extends IResource {
-  /**
-   * The rules file used in the namespace.
-   */
-  readonly data: string;
-
-  /**
-   * The name of the rule groups namespace.
-   */
-  readonly name: string;
-
+/**
+ * An Amazon Managed Service for Prometheus rule groups namespace.
+ */
+export interface IRuleGroupsNamespace extends IResource, IRuleGroupsNamespaceRef {
   /**
    * The ARN of the rule groups namespace.
+   *
    * @attribute
    */
   readonly ruleGroupsNamespaceArn: string;
-
-  /**
-   * The workspace to add the rule groups namespace.
-   */
-  readonly workspace: IWorkspace;
 }
 
+/**
+ * Base implementation shared by owned and referenced rule groups namespaces.
+ *
+ * @internal
+ */
 export abstract class RuleGroupsNamespaceBase extends Resource implements IRuleGroupsNamespace {
-  /**
-   * The rules file used in the namespace.
-   */
-  public abstract readonly data: string;
-
-  /**
-   * The name of the rule groups namespace.
-   */
-  public abstract readonly name: string;
-
-  /**
-   * The ARN of the rule groups namespace.
-   */
   public abstract readonly ruleGroupsNamespaceArn: string;
 
-  /**
-   * The workspace to add the rule groups namespace.
-   */
-  public abstract readonly workspace: IWorkspace;
+  public get ruleGroupsNamespaceRef(): RuleGroupsNamespaceReference {
+    return { ruleGroupsNamespaceArn: this.ruleGroupsNamespaceArn };
+  }
+
+  protected constructor(scope: Construct, id: string, props: ResourceProps = {}) {
+    super(scope, id, props);
+  }
 }

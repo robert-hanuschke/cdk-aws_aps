@@ -1,10 +1,37 @@
 export * from './anomaly-detector';
-export { AnomalyDetectorBase, AnomalyDetectorConfiguration, IAnomalyDetector, IgnoreNearExpected, Label as AnomalyDetectorLabel, MissingDataAction, RandomCutForestConfiguration } from './anomaly-detector-base';
+export { IgnoreNearExpected, MissingDataAction } from './anomaly-detector-base';
+export type {
+  AnomalyDetectorConfiguration,
+  AnomalyDetectorLabel,
+  IAnomalyDetector,
+  RandomCutForestConfiguration,
+} from './anomaly-detector-base';
 export * from './resource-policy';
-export * from './resource-policy-base';
+export type { IResourcePolicy } from './resource-policy-base';
 export * from './rule-groups-namespace';
-export * from './rule-groups-namespace-base';
+export type { IRuleGroupsNamespace } from './rule-groups-namespace-base';
 export * from './scraper';
-export * from './scraper-base';
+export {
+  ScrapeConfiguration,
+  ScraperComponentType,
+  ScraperDestination,
+  ScraperSource,
+} from './scraper-base';
+export type {
+  EksScraperSourceOptions,
+  IScraper,
+  ScraperComponent,
+  ScraperLoggingConfiguration,
+  ScraperRoleConfiguration,
+  VpcScraperSourceOptions,
+} from './scraper-base';
 export * from './workspace';
-export * from './workspace-base';
+export type {
+  IWorkspace,
+  WorkspaceConfiguration,
+  WorkspaceLabel,
+  WorkspaceLabelSet,
+  WorkspaceLabelSetLimits,
+  WorkspaceLoggingConfiguration,
+  WorkspaceQueryLoggingConfiguration,
+} from './workspace-base';

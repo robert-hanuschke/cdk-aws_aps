@@ -16,6 +16,8 @@
     "docgen": "projen docgen",
     "eject": "projen eject",
     "eslint": "projen eslint",
+    "integ": "projen integ",
+    "integ:snapshot": "projen integ:snapshot",
     "package": "projen package",
     "package-all": "projen package-all",
     "package:dotnet": "projen package:dotnet",
@@ -27,6 +29,7 @@
     "post-upgrade": "projen post-upgrade",
     "pre-compile": "projen pre-compile",
     "release": "projen release",
+    "rosetta:strict": "projen rosetta:strict",
     "test": "projen test",
     "test:watch": "projen test:watch",
     "unbump": "projen unbump",
@@ -40,12 +43,14 @@
     "organization": false
   },
   "devDependencies": {
+    "@aws-cdk/integ-runner": "2.205.6",
+    "@aws-cdk/integ-tests-alpha": "2.273.0-alpha.0",
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.20.5",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
-    "aws-cdk-lib": "2.243.0",
+    "aws-cdk-lib": "2.273.0",
     "commit-and-tag-version": "^13",
     "constructs": "10.5.1",
     "eslint": "^9",
@@ -64,11 +69,8 @@
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.243.0",
+    "aws-cdk-lib": "^2.273.0",
     "constructs": "^10.5.1"
-  },
-  "dependencies": {
-    "@robhan-cdk-lib/utils": "^0.0.346"
   },
   "keywords": [
     "Amazon Managed Service for Prometheus",

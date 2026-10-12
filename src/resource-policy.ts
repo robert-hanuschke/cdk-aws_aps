@@ -1,89 +1,69 @@
-import { validateObjectAttributes } from '@robhan-cdk-lib/utils';
-import { CfnResourcePolicy, CfnResourcePolicyProps } from 'aws-cdk-lib/aws-aps';
+import { CfnResourcePolicy, CfnResourcePolicyProps, IWorkspaceRef } from 'aws-cdk-lib/aws-aps';
+import { PolicyDocument } from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
-import { ResourcePolicyBase } from './resource-policy-base';
-import { IWorkspace } from './workspace-base';
+import { IResourcePolicy, ResourcePolicyBase } from './resource-policy-base';
 
 /**
- * Properties for creating an Amazon Managed Service for Prometheus Resource Policy.
+ * Properties for an Amazon Managed Service for Prometheus workspace resource policy.
  */
 export interface ResourcePolicyProps {
   /**
-   * The JSON to use as the Resource-based Policy.
+   * The IAM policy document that grants access to the workspace.
+   *
+   * Every statement must include a principal. When the workspace uses a customer-managed KMS key,
+   * principals also need permission to use that key.
    */
-  readonly policyDocument: string;
+  readonly policyDocument: PolicyDocument;
 
   /**
-   * The workspace to attach the policy to.
+   * The workspace protected by the policy.
    */
-  readonly workspace: IWorkspace;
+  readonly workspace: IWorkspaceRef;
 }
 
-const IS_RESOURCE_POLICY = Symbol.for('@robhan-cdk-lib/aws_aps.ResourcePolicy');
-
+/**
+ * A resource-based policy attached to an Amazon Managed Service for Prometheus workspace.
+ */
 export class ResourcePolicy extends ResourcePolicyBase {
-  public static isResourcePolicy(x: any): x is ResourcePolicy {
-    return IS_RESOURCE_POLICY in x;
-  }
-
   /**
-   * Validates all resource policy properties.
-   *
-   * @param props - The resource policy properties to validate
-   * @returns An array of error messages if validation fails, or an empty array if valid
-   *
-   * This method aggregates validation results from all individual property validators.
-   * It throws an error if props is not an object.
+   * Reference an existing resource policy by the ARN of its workspace.
    */
-  private static validateProps(props: unknown): string[] {
-    const errors: string[] = [];
+  public static fromWorkspaceArn(scope: Construct, id: string, workspaceArn: string): IResourcePolicy {
+    class Import extends ResourcePolicyBase {
+      public readonly workspaceArn = workspaceArn;
 
-    if (!props || typeof props !== 'object') {
-      throw new Error('ResourcePolicy constructor properties must be an object');
+      public constructor() {
+        super(scope, id, { environmentFromArn: workspaceArn });
+      }
     }
-    const resourcePolicyProps = props as ResourcePolicyProps;
 
-    errors.push(...validateObjectAttributes({
-      inputObject: resourcePolicyProps,
-      mandatoryAttributes: ['policyDocument', 'workspace'],
-      optionalAttributes: [],
-    }));
-
-    return errors;
+    return new Import();
   }
 
   /**
-   * The JSON to use as the Resource-based Policy.
+   * The policy document rendered by this resource.
    */
-  readonly policyDocument: string;
+  public readonly policyDocument: PolicyDocument;
 
   /**
-   * The workspace to attach the policy to.
+   * The ARN of the workspace protected by the policy.
    */
-  readonly workspace: IWorkspace;
+  public readonly workspaceArn: string;
 
-  /**
-   * The underlying CloudFormation resource.
-   */
   private readonly resourcePolicy: CfnResourcePolicy;
 
-  constructor(scope: Construct, id: string, props: ResourcePolicyProps) {
+  public constructor(scope: Construct, id: string, props: ResourcePolicyProps) {
     super(scope, id);
 
-    Object.defineProperty(this, IS_RESOURCE_POLICY, { value: true });
-
-    const errors = ResourcePolicy.validateProps(props);
-
-    if (errors.length > 0) {
-      throw new Error(`Invalid props:\n${errors.join('\n')}`);
-    }
-
     this.policyDocument = props.policyDocument;
-    this.workspace = props.workspace;
+    this.workspaceArn = props.workspace.workspaceRef.workspaceArn;
+    this.node.addValidation({
+      validate: () => this.policyDocument.validateForResourcePolicy(),
+    });
 
-    let cfnResourcePolicyProps: CfnResourcePolicyProps = {
-      policyDocument: props.policyDocument,
-      workspaceArn: props.workspace.workspaceArn,
+    const cfnResourcePolicyProps: CfnResourcePolicyProps = {
+      policyDocument: this.stack.toJsonString(this.policyDocument),
+      workspaceArn: this.workspaceArn,
     };
 
     this.resourcePolicy = new CfnResourcePolicy(this, 'Resource', cfnResourcePolicyProps);

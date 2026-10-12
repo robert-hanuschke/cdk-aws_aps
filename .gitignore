@@ -51,4 +51,5 @@ junit.xml
 !/projenrc/tsconfig.json
 .jsii
 !/API.md
+.jsii.tabl.json
 !/.projenrc.ts

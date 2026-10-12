@@ -1,189 +1,173 @@
-import { IResource, Resource } from 'aws-cdk-lib';
-import { IWorkspace } from './workspace-base';
+import {
+  IResource,
+  Resource,
+  ResourceProps,
+  Token,
+} from 'aws-cdk-lib';
+import {
+  AnomalyDetectorReference,
+  CfnAnomalyDetector,
+  IAnomalyDetectorRef,
+} from 'aws-cdk-lib/aws-aps';
+import { Construct } from 'constructs';
 
 /**
- * Configuration for threshold settings that determine when values near expected values should be ignored during anomaly detection.
+ * Threshold settings for values close to the expected value.
  */
-export interface IgnoreNearExpected {
+export abstract class IgnoreNearExpected {
   /**
-   * The absolute amount by which values can differ from expected values before being considered anomalous.
+   * Ignore values within a non-negative absolute amount of the expected value.
    */
-  readonly amount?: number;
+  public static amount(amount: number): IgnoreNearExpected {
+    validateNonNegativeTolerance('amount', amount);
+    return new IgnoreNearExpectedAmount(amount);
+  }
 
   /**
-   * The ratio by which values can differ from expected values before being considered anomalous.
+   * Ignore values within a non-negative ratio of the expected value.
    */
-  readonly ratio?: number;
+  public static ratio(ratio: number): IgnoreNearExpected {
+    validateNonNegativeTolerance('ratio', ratio);
+    return new IgnoreNearExpectedRatio(ratio);
+  }
+
+  /** @internal */
+  public abstract _bind(): CfnAnomalyDetector.IgnoreNearExpectedProperty;
+}
+
+class IgnoreNearExpectedAmount extends IgnoreNearExpected {
+  public constructor(private readonly amountValue: number) {
+    super();
+  }
+
+  public _bind(): CfnAnomalyDetector.IgnoreNearExpectedProperty {
+    return { amount: this.amountValue };
+  }
+}
+
+class IgnoreNearExpectedRatio extends IgnoreNearExpected {
+  public constructor(private readonly ratioValue: number) {
+    super();
+  }
+
+  public _bind(): CfnAnomalyDetector.IgnoreNearExpectedProperty {
+    return { ratio: this.ratioValue };
+  }
 }
 
 /**
- * Configuration for the Random Cut Forest algorithm used for anomaly detection in time-series data.
+ * Random Cut Forest configuration for anomaly detection.
  */
 export interface RandomCutForestConfiguration {
   /**
-   * Configuration for ignoring values that are near expected values from above during anomaly detection.
+   * Values above the expected value that should not be treated as anomalies.
+   *
+   * @default - no upper tolerance
    */
   readonly ignoreNearExpectedFromAbove?: IgnoreNearExpected;
 
   /**
-   * Configuration for ignoring values that are near expected values from below during anomaly detection.
+   * Values below the expected value that should not be treated as anomalies.
+   *
+   * @default - no lower tolerance
    */
   readonly ignoreNearExpectedFromBelow?: IgnoreNearExpected;
 
   /**
-   * The Prometheus query used to retrieve the time-series data for anomaly detection. 1 to 8192 characters length.
+   * The PromQL query evaluated by the detector.
+   *
+   * The service requires the query to be wrapped by one of these aggregation operators: `avg`,
+   * `count`, `group`, `max`, `min`, `quantile`, `stddev`, `stdvar`, or `sum`. Query syntax and
+   * aggregation semantics are validated by Amazon Managed Service for Prometheus.
    */
   readonly query: string;
 
   /**
-   * The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
+   * The number of data points sampled by the algorithm.
    *
-   * Minimum: 256
-   * Maximum: 1024
+   * @default 256
    */
   readonly sampleSize?: number;
 
   /**
-   * The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
+   * The number of consecutive data points in each shingle.
    *
-   * Minimum: 2
-   * Maximum: 1024
+   * @default 8
    */
   readonly shingleSize?: number;
 }
 
 /**
- * The configuration for the anomaly detection algorithm.
+ * Algorithm configuration for an anomaly detector.
  */
 export interface AnomalyDetectorConfiguration {
   /**
-   * The Random Cut Forest algorithm configuration for anomaly detection.
+   * Random Cut Forest algorithm settings.
    */
   readonly randomCutForest: RandomCutForestConfiguration;
 }
 
 /**
- * The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
+ * A metric label associated with an anomaly detector.
  */
-export interface Label {
+export interface AnomalyDetectorLabel {
   /**
-   * The key of the label. 1 to 128 characters length.
+   * The label key.
    */
   readonly key: string;
 
   /**
-   * The value for this label. 0 to 256 characters length.
+   * The label value.
    */
   readonly value: string;
 }
 
 /**
- * Specifies the action to take when data is missing during anomaly detection evaluation.
+ * The action to take when evaluation data is missing.
  */
-export interface MissingDataAction {
+export enum MissingDataAction {
   /**
-   * Marks missing data points as anomalies.
+   * Treat the missing data point as anomalous.
    */
-  readonly markAsAnomaly?: boolean;
+  MARK_AS_ANOMALY = 'MARK_AS_ANOMALY',
 
   /**
-   * Skips evaluation when data is missing.
+   * Skip evaluation for the missing data point.
    */
-  readonly skip?: boolean;
+  SKIP = 'SKIP',
 }
 
-export interface IAnomalyDetector extends IResource {
+/**
+ * An Amazon Managed Service for Prometheus anomaly detector.
+ */
+export interface IAnomalyDetector extends IResource, IAnomalyDetectorRef {
   /**
-   * The user-friendly name of the anomaly detector. 1 to 128 characters length.
+   * The ARN of the anomaly detector.
    *
-   * Minimum length of 1. Maximum length of 64.
-   * Pattern: [0-9A-Za-z][-.0-9A-Z_a-z]*
-   */
-  readonly alias: string;
-
-  /**
-   * The algorithm configuration of the anomaly detector.
-   */
-  readonly configuration: AnomalyDetectorConfiguration;
-
-  /**
-   * The frequency, in seconds, at which the anomaly detector evaluates metrics.
-   *
-   * Minimum value of 30. Maximum value of 86400.
-   */
-  readonly evaluationIntervalInSeconds?: number;
-
-  /**
-   * The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
-   *
-   * Map Entries: Minimum number of 0 items. Maximum number of 140 items.
-   * Key Length Constraints: Minimum length of 1. Maximum length of 7168.
-   * Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
-   * Value Length Constraints: Minimum length of 1. Maximum length of 7168.
-   */
-  readonly labels?: Label[];
-
-  /**
-   * The action taken when data is missing during evaluation.
-   */
-  readonly missingDataAction?: MissingDataAction;
-
-  /**
-   * An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
-   */
-  readonly workspace: IWorkspace;
-
-  /**
-   * The Amazon Resource Name (ARN) of the anomaly detector.
    * @attribute
    */
   readonly anomalyDetectorArn: string;
 }
 
+/**
+ * Base implementation shared by owned and referenced anomaly detectors.
+ *
+ * @internal
+ */
 export abstract class AnomalyDetectorBase extends Resource implements IAnomalyDetector {
-  /**
-   * The user-friendly name of the anomaly detector. 1 to 64 characters length.
-   *
-   * Minimum length of 1. Maximum length of 64.
-   * Pattern: [0-9A-Za-z][-.0-9A-Z_a-z]*
-   */
-  public abstract readonly alias: string;
-
-  /**
-   * The algorithm configuration of the anomaly detector.
-   */
-  public abstract readonly configuration: AnomalyDetectorConfiguration;
-
-  /**
-   * The frequency, in seconds, at which the anomaly detector evaluates metrics.
-   *
-   * Minimum value of 30. Maximum value of 86400.
-   */
-  public abstract readonly evaluationIntervalInSeconds?: number;
-
-  /**
-   * The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.
-   *
-   * Map Entries: Minimum number of 0 items. Maximum number of 140 items.
-   * Key Length Constraints: Minimum length of 1. Maximum length of 7168.
-   * Key Pattern: (?!__)[a-zA-Z_][a-zA-Z0-9_]*
-   * Value Length Constraints: Minimum length of 1. Maximum length of 7168.
-   */
-  public abstract readonly labels?: Label[];
-
-  /**
-   * The action taken when data is missing during evaluation.
-   */
-  public abstract readonly missingDataAction?: MissingDataAction;
-
-  /**
-   * An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
-   */
-  public abstract readonly workspace: IWorkspace;
-
-  /**
-   * The Amazon Resource Name (ARN) of the anomaly detector.
-   * @attribute
-   */
   public abstract readonly anomalyDetectorArn: string;
+
+  public get anomalyDetectorRef(): AnomalyDetectorReference {
+    return { anomalyDetectorArn: this.anomalyDetectorArn };
+  }
+
+  protected constructor(scope: Construct, id: string, props: ResourceProps = {}) {
+    super(scope, id, props);
+  }
+}
+
+function validateNonNegativeTolerance(name: string, value: number): void {
+  if (!Token.isUnresolved(value) && (!Number.isFinite(value) || value < 0)) {
+    throw new Error(`${name} must be a non-negative finite number, got ${value}`);
+  }
 }

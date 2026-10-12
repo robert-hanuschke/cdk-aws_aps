@@ -1,237 +1,196 @@
-import { Stack } from 'aws-cdk-lib';
-import { Subnet, SecurityGroup, Vpc } from 'aws-cdk-lib/aws-ec2';
-import { Cluster, KubernetesVersion } from 'aws-cdk-lib/aws-eks';
-import { Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
-import { LayerVersion } from 'aws-cdk-lib/aws-lambda';
-import { AmpConfiguration, Destination, EksConfiguration, RoleConfiguration, Scraper, ScraperProps, Source, Workspace } from '../src';
+import { Stack, Token } from 'aws-cdk-lib';
+import { Match, Template } from 'aws-cdk-lib/assertions';
+import { SecurityGroup, Subnet, Vpc } from 'aws-cdk-lib/aws-ec2';
+import { Cluster } from 'aws-cdk-lib/aws-eks';
+import { Role } from 'aws-cdk-lib/aws-iam';
+import { LogGroup } from 'aws-cdk-lib/aws-logs';
+import {
+  ScrapeConfiguration,
+  Scraper,
+  ScraperComponentType,
+  ScraperDestination,
+  ScraperSource,
+  Workspace,
+} from '../src';
 
 let stack: Stack;
+const workspaceArn = 'arn:aws:aps:us-east-1:123456789012:workspace/ws-abc123';
 
 beforeEach(() => {
-  stack = new Stack(undefined, undefined, { env: { account: '123456789012', region: 'us-east-1' } });
+  stack = new Stack(undefined, undefined, {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
 });
 
-function getMinimalValidProps(testStack: Stack): ScraperProps {
-  const props: ScraperProps = {
-    destination: {
-      ampConfiguration: {
-        workspace: new Workspace(testStack, 'myWorkspace', {}),
-      },
-    },
-    scrapeConfiguration: {
-      configurationBlob: '',
-    },
-    source: {
-      eksConfiguration: {
-        cluster: Cluster.fromClusterAttributes(testStack, 'myCluster', {
-          clusterName: 'clusterName',
-        }),
-        subnets: [
-          Subnet.fromSubnetAttributes(testStack, 'mySubnet', {
-            subnetId: 'subnetId',
-          }),
-        ],
-        securityGroups: [
-          SecurityGroup.fromSecurityGroupId(testStack, 'mySecurityGroup', 'securityGroupId'),
-        ],
-      },
-    },
-  };
+function eksSource() {
+  const cluster = Cluster.fromClusterAttributes(stack, 'Cluster', {
+    clusterName: 'metrics-cluster',
+  });
+  const subnet = Subnet.fromSubnetId(stack, 'Subnet', 'subnet-0123456789abcdef0');
+  const securityGroup = SecurityGroup.fromSecurityGroupId(stack, 'SecurityGroup', 'sg-0123456789abcdef0');
 
-  return props;
+  return {
+    source: ScraperSource.eks({
+      cluster,
+      securityGroups: [securityGroup],
+      subnets: [subnet],
+    }),
+    cluster,
+  };
 }
 
-
 describe('Scraper', () => {
-  describe('constructor', () => {
-    test('should create a new scraper', () => {
-      const scraper = new Scraper(stack, 'myScraper', {
-        destination: {
-          ampConfiguration: {
-            workspace: new Workspace(stack, 'myWorkspace', {
-            }),
+  test('maps an AMP destination and EKS source', () => {
+    const workspace = Workspace.fromWorkspaceArn(stack, 'Workspace', workspaceArn);
+    const { source, cluster } = eksSource();
+    const sourceRole = Role.fromRoleArn(stack, 'SourceRole', 'arn:aws:iam::123456789012:role/source-role');
+    const targetRole = Role.fromRoleArn(stack, 'TargetRole', 'arn:aws:iam::123456789012:role/target-role');
+    const logGroup = LogGroup.fromLogGroupArn(
+      stack,
+      'LogGroup',
+      'arn:aws:logs:us-east-1:123456789012:log-group:/aws/aps/scraper:*',
+    );
+
+    const scraper = new Scraper(stack, 'Scraper', {
+      alias: 'cluster-metrics',
+      destination: ScraperDestination.amp(workspace),
+      roleConfiguration: { sourceRole, targetRole },
+      scrapeConfiguration: ScrapeConfiguration.fromString('scrape_configs: []'),
+      loggingConfiguration: {
+        logGroup,
+        components: [
+          { type: ScraperComponentType.SERVICE_DISCOVERY },
+          { type: ScraperComponentType.COLLECTOR, options: { level: 'debug' } },
+        ],
+      },
+      source,
+      tags: { environment: 'test' },
+    });
+
+    Template.fromStack(stack).hasResourceProperties('AWS::APS::Scraper', {
+      Alias: 'cluster-metrics',
+      Destination: {
+        AmpConfiguration: { WorkspaceArn: workspaceArn },
+        CloudWatchConfiguration: Match.absent(),
+      },
+      RoleConfiguration: {
+        SourceRoleArn: 'arn:aws:iam::123456789012:role/source-role',
+        TargetRoleArn: 'arn:aws:iam::123456789012:role/target-role',
+      },
+      ScrapeConfiguration: { ConfigurationBlob: 'scrape_configs: []' },
+      ScraperLoggingConfiguration: {
+        LoggingDestination: {
+          CloudWatchLogs: {
+            LogGroupArn: 'arn:aws:logs:us-east-1:123456789012:log-group:/aws/aps/scraper:*',
           },
         },
-        scrapeConfiguration: {
-          configurationBlob: '',
+        ScraperComponents: [
+          { Type: 'SERVICE_DISCOVERY' },
+          { Type: 'COLLECTOR', Config: { Options: { level: 'debug' } } },
+        ],
+      },
+      Source: {
+        EksConfiguration: {
+          ClusterArn: stack.resolve(cluster.clusterArn),
+          SecurityGroupIds: ['sg-0123456789abcdef0'],
+          SubnetIds: ['subnet-0123456789abcdef0'],
         },
-        source: {
-          eksConfiguration: {
-            cluster: new Cluster(stack, 'myCluster', {
-              vpc: new Vpc(stack, 'myVpc', {
-
-              }),
-              kubectlLayer: LayerVersion.fromLayerVersionArn(stack, 'myLayerVersionArn', 'layerVersionArn'),
-              version: KubernetesVersion.V1_32,
-            }),
-            subnets: [
-              Subnet.fromSubnetAttributes(stack, 'mySubnet', {
-                subnetId: 'subnetId',
-              }),
-            ],
-            securityGroups: [
-              SecurityGroup.fromSecurityGroupId(stack, 'mySecurityGroup', 'securityGroupId'),
-            ],
-          },
-        },
-        alias: 'r'.repeat(100),
-        roleConfiguration: {
-          sourceRole: new Role(stack, 'mySourceRole', {
-            assumedBy: new ServicePrincipal('aps.amazonaws.com'),
-          }),
-          targetRole: new Role(stack, 'myTargetRole', {
-            assumedBy: new ServicePrincipal('aps.amazonaws.com'),
-          }),
-        },
-      });
-      expect(scraper).toBeDefined();
+        VpcConfiguration: Match.absent(),
+      },
+      Tags: [{ Key: 'environment', Value: 'test' }],
     });
 
-    test('should fail if props is not an object', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', 'not an object' as unknown as ScraperProps);
-      }).toThrow('Scraper constructor properties must be an object');
+    expect(Token.isUnresolved(scraper.scraperArn)).toBe(true);
+    expect(Token.isUnresolved(scraper.scraperId)).toBe(true);
+    expect(Token.isUnresolved(scraper.scraperRoleArn)).toBe(true);
+    expect(scraper.scraperRef.scraperArn).toBe(scraper.scraperArn);
+  });
+
+  test('omits optional role, logging, and tag properties', () => {
+    const { source } = eksSource();
+
+    new Scraper(stack, 'Scraper', {
+      destination: ScraperDestination.amp(Workspace.fromWorkspaceArn(stack, 'Workspace', workspaceArn)),
+      scrapeConfiguration: ScrapeConfiguration.fromString('scrape_configs: []'),
+      source,
     });
 
-    test('should fail if ampConfiguration is not an object', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          destination: {
-            ampConfiguration: 'not an object' as unknown as AmpConfiguration,
-          },
-        });
-      }).toThrow('destination: ampConfiguration: must be an object');
-    });
-
-    test('should fail if destination is not an object', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          destination: 'not an object' as unknown as Destination,
-        });
-      }).toThrow('destination: must be an object');
-    });
-
-    test('should fail if roleConfiguration is not an object', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          roleConfiguration: 'not an object' as unknown as RoleConfiguration,
-        });
-      }).toThrow('roleConfiguration: must be an object');
-    });
-
-    test('should fail if scrapeConfiguration is not an object', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          scrapeConfiguration: 'not an object' as unknown as any,
-        });
-      }).toThrow('scrapeConfiguration: must be an object');
-    });
-
-    test('should fail if scrapeConfiguration.configurationBlob is not a string', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          scrapeConfiguration: {
-            configurationBlob: 1 as unknown as string,
-          },
-        });
-      }).toThrow('scrapeConfiguration: configurationBlob: must be a string');
-    });
-
-    test('should fail if eksConfiguration is not an object', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          source: {
-            eksConfiguration: 'not an object' as unknown as EksConfiguration,
-          },
-        });
-      }).toThrow('source: eksConfiguration: must be an object');
-    });
-
-    test('should fail if eksConfiguration.securityGroups is not an array', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          source: {
-            eksConfiguration: {
-              securityGroups: 'not an array' as unknown as SecurityGroup[],
-              subnets: [
-                Subnet.fromSubnetAttributes(stack, 'mySubnet1', {
-                  subnetId: 'subnetId',
-                }),
-              ],
-              cluster: Cluster.fromClusterAttributes(stack, 'myCluster1', {
-                clusterName: 'clusterName',
-              }),
-            },
-          },
-        });
-      }).toThrow('source: eksConfiguration: securityGroups: must be an array');
-    });
-
-    test('should fail if eksConfiguration.subnets is not an array', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          source: {
-            eksConfiguration: {
-              subnets: 'not an array' as unknown as Subnet[],
-              cluster: Cluster.fromClusterAttributes(stack, 'myCluster1', {
-                clusterName: 'clusterName',
-              }),
-            },
-          },
-        });
-      }).toThrow('source: eksConfiguration: subnets: must be an array');
-    });
-
-    test('should fail if source is not an object', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          source: 'not an object' as unknown as Source,
-        });
-      }).toThrow('source: must be an object');
-    });
-
-    test('should fail if alias is not a string', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          alias: 1 as unknown as string,
-        });
-      }).toThrow('alias: must be a string');
-    });
-
-    test('should fail if alias is an empty string', () => {
-      expect(() => {
-        new Scraper(stack, 'myScraper', {
-          ...getMinimalValidProps(stack),
-          alias: '',
-        });
-      }).toThrow('alias: must be at least 1 character long');
+    Template.fromStack(stack).hasResourceProperties('AWS::APS::Scraper', {
+      RoleConfiguration: Match.absent(),
+      ScraperLoggingConfiguration: Match.absent(),
+      Tags: Match.absent(),
     });
   });
 
-  describe('import from attributes', () => {
-    test('should import from attributes', () => {
-      const scraper = Scraper.fromScraperAttributes(stack, 'myScraper', {
-        ...getMinimalValidProps(stack),
-        scraperArn: 'scraperArn',
-      });
-      expect(scraper).toBeDefined;
+  test('maps a CloudWatch destination and VPC source', () => {
+    const vpc = new Vpc(stack, 'Vpc', { maxAzs: 2, natGateways: 0 });
+    const securityGroup = new SecurityGroup(stack, 'SecurityGroup', { vpc });
+
+    new Scraper(stack, 'Scraper', {
+      destination: ScraperDestination.cloudWatch(
+        'arn:aws:cloudwatch:us-east-1:123456789012:dataset/example',
+      ),
+      scrapeConfiguration: ScrapeConfiguration.fromString('scrape_configs: []'),
+      source: ScraperSource.vpc({
+        securityGroups: [securityGroup],
+        subnets: vpc.publicSubnets,
+      }),
+    });
+
+    Template.fromStack(stack).hasResourceProperties('AWS::APS::Scraper', {
+      Destination: {
+        AmpConfiguration: Match.absent(),
+        CloudWatchConfiguration: {
+          DatasetArn: 'arn:aws:cloudwatch:us-east-1:123456789012:dataset/example',
+        },
+      },
+      Source: {
+        EksConfiguration: Match.absent(),
+        VpcConfiguration: {
+          SecurityGroupIds: [stack.resolve(securityGroup.securityGroupId)],
+          SubnetIds: vpc.publicSubnets.map((subnet) => stack.resolve(subnet.subnetId)),
+        },
+      },
     });
   });
 
-  describe('isScraper', () => {
-    test('should return true for scraper', () => {
-      const scraper = new Scraper(stack, 'myScraper', getMinimalValidProps(stack));
-      expect(Scraper.isScraper(scraper)).toBe(true);
+  test('rejects an AMP destination for a VPC source', () => {
+    const vpc = new Vpc(stack, 'Vpc', { maxAzs: 2, natGateways: 0 });
+    const securityGroup = new SecurityGroup(stack, 'SecurityGroup', { vpc });
+
+    expect(() => new Scraper(stack, 'Scraper', {
+      destination: ScraperDestination.amp(Workspace.fromWorkspaceArn(stack, 'Workspace', workspaceArn)),
+      scrapeConfiguration: ScrapeConfiguration.fromString('scrape_configs: []'),
+      source: ScraperSource.vpc({
+        securityGroups: [securityGroup],
+        subnets: vpc.publicSubnets,
+      }),
+    })).toThrow('A VPC scraper source requires a CloudWatch dataset destination');
+  });
+
+  test('passes inline scrape configuration as raw YAML', () => {
+    const { source } = eksSource();
+
+    new Scraper(stack, 'Scraper', {
+      destination: ScraperDestination.amp(Workspace.fromWorkspaceArn(stack, 'Workspace', workspaceArn)),
+      scrapeConfiguration: ScrapeConfiguration.fromString('scrape_configs: []'),
+      source,
     });
+
+    Template.fromStack(stack).hasResourceProperties('AWS::APS::Scraper', {
+      ScrapeConfiguration: {
+        ConfigurationBlob: 'scrape_configs: []',
+      },
+    });
+  });
+
+  test('references an existing scraper by ARN', () => {
+    const scraperArn = 'arn:aws:aps:us-east-1:123456789012:scraper/s-abc123';
+
+    const scraper = Scraper.fromScraperArn(stack, 'Imported', scraperArn);
+
+    expect(scraper.scraperArn).toBe(scraperArn);
+    expect(scraper.scraperId).toBe('s-abc123');
+    expect(scraper.scraperRef.scraperArn).toBe(scraperArn);
   });
 });

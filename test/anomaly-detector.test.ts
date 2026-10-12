@@ -1,261 +1,126 @@
-import { Stack } from 'aws-cdk-lib';
-import { AnomalyDetector, AnomalyDetectorConfiguration, AnomalyDetectorLabel, AnomalyDetectorProps, IgnoreNearExpected, MissingDataAction, RandomCutForestConfiguration, Workspace } from '../src';
+import { Lazy, Stack, Token } from 'aws-cdk-lib';
+import { Match, Template } from 'aws-cdk-lib/assertions';
+import {
+  AnomalyDetector,
+  IgnoreNearExpected,
+  MissingDataAction,
+  Workspace,
+} from '../src';
 
 let stack: Stack;
+const workspaceArn = 'arn:aws:aps:us-east-1:123456789012:workspace/ws-abc123';
 
 beforeEach(() => {
-  stack = new Stack(undefined, undefined, { env: { account: '123456789012', region: 'us-east-1' } });
+  stack = new Stack(undefined, undefined, {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
 });
 
-describe('Anomaly Detector', () => {
-  describe('constructor', () => {
-    test('should create a new anomaly detector', () => {
-      new AnomalyDetector(stack, 'myAnomalyDetector', {
-        alias: 'myAnomalyDetector',
-        configuration: {
-          randomCutForest: {
-            query: 'query',
-            ignoreNearExpectedFromAbove: {
-              amount: 1,
-              ratio: 1,
-            },
-            ignoreNearExpectedFromBelow: {
-              amount: 1,
-              ratio: 1,
-            },
-            sampleSize: 256,
-            shingleSize: 2,
-          },
+describe('AnomalyDetector', () => {
+  test('maps a full detector configuration', () => {
+    const workspace = Workspace.fromWorkspaceArn(stack, 'Workspace', workspaceArn);
+
+    new AnomalyDetector(stack, 'Detector', {
+      alias: 'request-latency',
+      configuration: {
+        randomCutForest: {
+          query: 'histogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m]))',
+          ignoreNearExpectedFromAbove: IgnoreNearExpected.amount(2),
+          ignoreNearExpectedFromBelow: IgnoreNearExpected.ratio(0.05),
+          sampleSize: 512,
+          shingleSize: 16,
         },
-        missingDataAction: {
-          markAsAnomaly: true,
-          skip: true,
+      },
+      evaluationIntervalInSeconds: 120,
+      labels: [{ key: 'service', value: 'api' }],
+      missingDataAction: MissingDataAction.MARK_AS_ANOMALY,
+      workspace,
+      tags: { environment: 'test' },
+    });
+
+    Template.fromStack(stack).hasResourceProperties('AWS::APS::AnomalyDetector', {
+      Alias: 'request-latency',
+      Configuration: {
+        RandomCutForest: {
+          Query: 'histogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m]))',
+          IgnoreNearExpectedFromAbove: { Amount: 2 },
+          IgnoreNearExpectedFromBelow: { Ratio: 0.05 },
+          SampleSize: 512,
+          ShingleSize: 16,
         },
-        workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-          workspaceArn: 'workspaceArn',
-        }),
-      });
-      expect(stack).toBeDefined();
-    });
-    test('should fail of props are not an object', () => {
-      expect(() => {
-        new AnomalyDetector(stack, 'myAnomalyDetector', 'not an object' as unknown as AnomalyDetectorProps);
-      }).toThrow('AnomalyDetector constructor properties must be an object');
-    });
-    test('should fail of configuration is not an object', () => {
-      expect(() => {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: 'myAnomalyDetector',
-          configuration: 'not an object' as unknown as AnomalyDetectorConfiguration,
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-        });
-      }).toThrow('configuration: must be an object');
-    });
-    test('should fail of configuration.randomCutForest is not an object', () => {
-      expect(() => {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: 'myAnomalyDetector',
-          configuration: {
-            randomCutForest: 'not an object' as unknown as RandomCutForestConfiguration,
-          },
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-        });
-      }).toThrow('configuration: randomCutForest: must be an object');
-    });
-    test('IgnoreNearExpected values should be an object', () => {
-      try {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: 'myAnomalyDetector',
-          configuration: {
-            randomCutForest: {
-              query: 'query',
-              ignoreNearExpectedFromAbove: 'not an object' as unknown as IgnoreNearExpected,
-              ignoreNearExpectedFromBelow: 'not an object' as unknown as IgnoreNearExpected,
-            },
-          },
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-        });
-        fail('Expected constructor to throw');
-      } catch (err) {
-        expect(err).toBeInstanceOf(Error);
-        if (err instanceof Error) {
-          expect(err.message).toContain('configuration: randomCutForest: ignoreNearExpectedFromAbove: must be an object');
-          expect(err.message).toContain('configuration: randomCutForest: ignoreNearExpectedFromBelow: must be an object');
-        }
-      }
-    });
-    test('sampleSize and shingleSize below valid range should fail', () => {
-      try {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: 'myAnomalyDetector',
-          configuration: {
-            randomCutForest: {
-              query: 'query',
-              sampleSize: 255,
-              shingleSize: 1,
-            },
-          },
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-        });
-        fail('Expected constructor to throw');
-      } catch (err) {
-        expect(err).toBeInstanceOf(Error);
-        if (err instanceof Error) {
-          expect(err.message).toContain('configuration: randomCutForest: sampleSize: must be at least 256');
-          expect(err.message).toContain('configuration: randomCutForest: shingleSize: must be at least 2');
-        }
-      }
-    });
-    test('label not an object should fail', () => {
-      expect(() => {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: 'myAnomalyDetector',
-          configuration: {
-            randomCutForest: {
-              query: 'query',
-            },
-          },
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-          labels: ['not an object' as unknown as AnomalyDetectorLabel],
-        });
-      }).toThrow('labels[0]: must be an object');
-    });
-    test('label values above valid length should fail', () => {
-      try {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: 'myAnomalyDetector',
-          configuration: {
-            randomCutForest: {
-              query: 'query',
-            },
-          },
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-          labels: [{
-            key: 'k'.repeat(129),
-            value: 'v'.repeat(257),
-          }],
-        });
-        fail('Expected constructor to throw');
-      } catch (err) {
-        expect(err).toBeInstanceOf(Error);
-        if (err instanceof Error) {
-          expect(err.message).toContain('labels[0]: key: must be at most 128 characters');
-          expect(err.message).toContain('labels[0]: value: must be at most 256 characters');
-        }
-      }
-    });
-    test('missingDataAction not an object should fail', () => {
-      expect(() => {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: 'myAnomalyDetector',
-          configuration: {
-            randomCutForest: {
-              query: 'query',
-            },
-          },
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-          missingDataAction: 'not an object' as unknown as MissingDataAction,
-        });
-      }).toThrow('missingDataAction: must be an object');
-    });
-    test('alias not a string should fail', () => {
-      expect(() => {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: 1 as unknown as string,
-          configuration: {
-            randomCutForest: {
-              query: 'query',
-            },
-          },
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-        });
-      }).toThrow('alias: must be a string');
-    });
-    test('alias values above valid length or not matching regex should fail', () => {
-      try {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: '*'.repeat(65),
-          configuration: {
-            randomCutForest: {
-              query: 'query',
-            },
-          },
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-        });
-        fail('Expected constructor to throw');
-      } catch (err) {
-        expect(err).toBeInstanceOf(Error);
-        if (err instanceof Error) {
-          expect(err.message).toContain('alias: must be at most 64 characters long');
-          expect(err.message).toContain('alias: must match regExp');
-        }
-      }
-    });
-    test('evaluationIntervalInSeconds not a number should fail', () => {
-      expect(() => {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: 'myAnomalyDetector',
-          configuration: {
-            randomCutForest: {
-              query: 'query',
-            },
-          },
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-          evaluationIntervalInSeconds: 'not a number' as unknown as number,
-        });
-      }).toThrow('evaluationIntervalInSeconds: must be a number');
-    });
-    test('evaluationIntervalInSeconds above valid range should fail', () => {
-      expect(() => {
-        new AnomalyDetector(stack, 'myAnomalyDetector', {
-          alias: 'myAnomalyDetector',
-          configuration: {
-            randomCutForest: {
-              query: 'query',
-            },
-          },
-          workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-            workspaceArn: 'workspaceArn',
-          }),
-          evaluationIntervalInSeconds: 86401,
-        });
-      }).toThrow('evaluationIntervalInSeconds: must be at most 86400');
+      },
+      EvaluationIntervalInSeconds: 120,
+      Labels: [{ Key: 'service', Value: 'api' }],
+      MissingDataAction: { MarkAsAnomaly: true },
+      Workspace: workspaceArn,
+      Tags: [{ Key: 'environment', Value: 'test' }],
     });
   });
-  describe('isAnomalyDetector', () => {
-    test('should return true for anomaly detector', () => {
-      const anomalyDetector = new AnomalyDetector(stack, 'myAnomalyDetector', {
-        alias: 'myAnomalyDetector',
+
+  test('maps the skip missing-data action and omits optional properties', () => {
+    new AnomalyDetector(stack, 'Detector', {
+      alias: 'request-rate',
+      configuration: { randomCutForest: { query: 'sum(rate(requests_total[5m]))' } },
+      missingDataAction: MissingDataAction.SKIP,
+      workspace: Workspace.fromWorkspaceArn(stack, 'Workspace', workspaceArn),
+    });
+
+    Template.fromStack(stack).hasResourceProperties('AWS::APS::AnomalyDetector', {
+      MissingDataAction: { Skip: true },
+      EvaluationIntervalInSeconds: Match.absent(),
+      Labels: Match.absent(),
+      Tags: Match.absent(),
+    });
+  });
+
+  test('accepts unresolved numeric values', () => {
+    expect(() => {
+      new AnomalyDetector(stack, 'Detector', {
+        alias: Lazy.string({ produce: () => 'resolved-alias' }),
         configuration: {
           randomCutForest: {
-            query: 'query',
+            query: Lazy.string({ produce: () => 'up' }),
+            ignoreNearExpectedFromAbove: IgnoreNearExpected.amount(
+              Lazy.number({ produce: () => 1 }),
+            ),
+            sampleSize: Lazy.number({ produce: () => 512 }),
           },
         },
-        workspace: Workspace.fromWorkspaceAttributes(stack, 'myWorkspace', {
-          workspaceArn: 'workspaceArn',
-        }),
+        evaluationIntervalInSeconds: Lazy.number({ produce: () => 60 }),
+        workspace: Workspace.fromWorkspaceArn(stack, 'Workspace', workspaceArn),
       });
-      expect(AnomalyDetector.isAnomalyDetector(anomalyDetector)).toBe(true);
+      Template.fromStack(stack);
+    }).not.toThrow();
+  });
+
+  test('rejects service-invalid literal tolerances and evaluation intervals', () => {
+    expect(() => IgnoreNearExpected.amount(-1)).toThrow('amount must be a non-negative finite number');
+    expect(() => IgnoreNearExpected.ratio(Number.NaN)).toThrow('ratio must be a non-negative finite number');
+    expect(() => new AnomalyDetector(stack, 'Detector', {
+      alias: 'request-rate',
+      configuration: { randomCutForest: { query: 'up' } },
+      evaluationIntervalInSeconds: 29,
+      workspace: Workspace.fromWorkspaceArn(stack, 'Workspace', workspaceArn),
+    })).toThrow('evaluationIntervalInSeconds must be an integer from 30 through 86400');
+  });
+
+  test('exposes the detector ARN and reference', () => {
+    const detector = new AnomalyDetector(stack, 'Detector', {
+      alias: 'request-rate',
+      configuration: { randomCutForest: { query: 'up' } },
+      workspace: Workspace.fromWorkspaceArn(stack, 'Workspace', workspaceArn),
     });
+
+    expect(Token.isUnresolved(detector.anomalyDetectorArn)).toBe(true);
+    expect(detector.anomalyDetectorRef.anomalyDetectorArn).toBe(detector.anomalyDetectorArn);
+  });
+
+  test('references an existing detector by ARN', () => {
+    const arn = 'arn:aws:aps:us-east-1:123456789012:anomalydetector/ad-abc123';
+
+    const detector = AnomalyDetector.fromAnomalyDetectorArn(stack, 'Imported', arn);
+
+    expect(detector.anomalyDetectorArn).toBe(arn);
+    expect(detector.anomalyDetectorRef.anomalyDetectorArn).toBe(arn);
   });
 });
