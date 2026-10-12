@@ -194,7 +194,7 @@ Each resource with an ARN has a token-safe reference factory:
 
 ## Compatibility
 
-This core-aligned redesign intentionally breaks the earlier `0.0.x` prototype API. The exact reviewed breaks are enumerated in `.compatignore`; additional jsii incompatibilities still fail the compatibility gate.
+Version `0.1.0` introduces this core-aligned API and intentionally breaks the earlier `0.0.x` prototype API. The exact reviewed breaks are enumerated in `.compatignore`; additional jsii incompatibilities still fail the compatibility gate.
 
 ## Upstream status
 
