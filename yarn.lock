@@ -788,10 +788,10 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-10.0.0.tgz#f6b40472d96c210094a556ee5ccb8e77f1bd30af"
   integrity sha512-hAX0pT/73190NLqBPPWSdBVGtbY6VOhWYK3qqHqtXQ1gK7kS2yz4+ivsN07hpJ6I3aeMtKP6J6npsEKOAzuTLA==
 
-"@robhan-cdk-lib/utils@^0.0.345":
-  version "0.0.345"
-  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.345.tgz#de827273470d6d25b3a28fe6e7af943c8edaac42"
-  integrity sha512-295qPipFCoIekGslZTEX5FHsLteS21j94NxLaxdjZzmBPlhqcycNIRckk+rp24+xfr59r44bgVJpVbm/ISTdWg==
+"@robhan-cdk-lib/utils@^0.0.346":
+  version "0.0.346"
+  resolved "https://registry.yarnpkg.com/@robhan-cdk-lib/utils/-/utils-0.0.346.tgz#14eeb076771f246f52876edf04ac1cf45a00fe44"
+  integrity sha512-r0bkB+9dtURv1Hrffv9ZxlbFF0kvBYTsjlI3LQ4qNueh1UBTxD3r4NiUbt8/HgStNxG+l8JGrx+p7z6oa+ZYIg==
 
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
@@ -4118,10 +4118,10 @@ pretty-format@^29.0.0, pretty-format@^29.7.0:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
-projen@^0.104.3:
-  version "0.104.3"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.104.3.tgz#0ec275f2d3c4624c53ff7f91318f1832a394d760"
-  integrity sha512-eIrla55PZgFSeAY+zbzVhF1DJLsNOZ8nMsk4qyN0ptcGUfI9KIVwD3fLgSfzaVLFJ5o30HURr8pnFzavquScqg==
+projen@^0.104.4:
+  version "0.104.4"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.104.4.tgz#4611e5ee0453ced727fcdb193a560a533070f413"
+  integrity sha512-evNStk1B1aLSdOxEpJtCKP7JNg+KWfyExUleNUbXtq7FGaBabTpw7C2fifn/2nbXy1XvZEUX1rk5YrB4UfOCTA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
