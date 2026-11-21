@@ -4,7 +4,7 @@
 
 ### AnomalyDetector <a name="AnomalyDetector" id="@robhan-cdk-lib/aws_aps.AnomalyDetector"></a>
 
-- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector">IAnomalyDetector</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, aws-cdk-lib.interfaces.IEnvironmentAware, <a href="#@robhan-cdk-lib/aws_aps.IAnomalyDetector">IAnomalyDetector</a>, aws-cdk-lib.interfaces.aws_aps.IAnomalyDetectorRef
 
 An Amazon Managed Service for Prometheus anomaly detector.
 
@@ -310,7 +310,7 @@ A reference to a AnomalyDetector resource.
 
 ### ResourcePolicy <a name="ResourcePolicy" id="@robhan-cdk-lib/aws_aps.ResourcePolicy"></a>
 
-- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy">IResourcePolicy</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, aws-cdk-lib.interfaces.IEnvironmentAware, <a href="#@robhan-cdk-lib/aws_aps.IResourcePolicy">IResourcePolicy</a>, aws-cdk-lib.interfaces.aws_aps.IResourcePolicyRef
 
 A resource-based policy attached to an Amazon Managed Service for Prometheus workspace.
 
@@ -629,7 +629,7 @@ The ARN of the workspace protected by the policy.
 
 ### RuleGroupsNamespace <a name="RuleGroupsNamespace" id="@robhan-cdk-lib/aws_aps.RuleGroupsNamespace"></a>
 
-- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace">IRuleGroupsNamespace</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, aws-cdk-lib.interfaces.IEnvironmentAware, <a href="#@robhan-cdk-lib/aws_aps.IRuleGroupsNamespace">IRuleGroupsNamespace</a>, aws-cdk-lib.interfaces.aws_aps.IRuleGroupsNamespaceRef
 
 An Amazon Managed Service for Prometheus rule groups namespace.
 
@@ -935,7 +935,7 @@ A reference to a RuleGroupsNamespace resource.
 
 ### Scraper <a name="Scraper" id="@robhan-cdk-lib/aws_aps.Scraper"></a>
 
-- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IScraper">IScraper</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, aws-cdk-lib.interfaces.IEnvironmentAware, <a href="#@robhan-cdk-lib/aws_aps.IScraper">IScraper</a>, aws-cdk-lib.interfaces.aws_aps.IScraperRef
 
 An Amazon Managed Service for Prometheus scraper.
 
@@ -1270,7 +1270,7 @@ This attribute is available on scrapers created by this construct. It is intenti
 
 ### Workspace <a name="Workspace" id="@robhan-cdk-lib/aws_aps.Workspace"></a>
 
-- *Implements:* <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, aws-cdk-lib.interfaces.IEnvironmentAware, <a href="#@robhan-cdk-lib/aws_aps.IWorkspace">IWorkspace</a>, aws-cdk-lib.interfaces.aws_aps.IWorkspaceRef
 
 An Amazon Managed Service for Prometheus workspace.
 
